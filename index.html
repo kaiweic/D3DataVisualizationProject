@@ -46,6 +46,8 @@
 			max-width: 40rem;
 			margin: auto;
 			text-align: center;
+            line-height: 1.8em;
+            padding-bottom: 2rem;
 		}
 
 		.intro__overline {
@@ -53,7 +55,8 @@
 		}
 
 		.intro__hed {
-			font-size: 1.4rem;
+			font-size: 64px;
+            line-height: 1em;
 			margin: auto;
             padding-bottom: 5rem;
 			text-transform: uppercase;
@@ -65,6 +68,14 @@
 			font-size: 1.4rem;
 		}
 
+        #f_char {
+            float: left;
+            font-size: 350%;
+            font-weight: 600;
+            line-height: 60px;
+            padding-top: 4px;
+        }
+
         .word_cloud {
             display: inline-block;
         }
@@ -72,7 +83,6 @@
 		/* demo */
 
         .d_back_black {
-            padding-bottom: 320px;
             background-color: #30303d;
             color: #efefef;
             line-height: 1.7;
@@ -167,7 +177,15 @@
         <div class = "d_back_white">
             <section id = "intro">
                 <h1 class="intro__hed">Divided Congress And Coverage?</h1>
-                <p class="intro__dek"></p>
+                <p class="intro__dek">
+                    <span id = "f_char">T</span>oday, Americans are more ideologically divided than anytime in the past. As a result, the American consumers increasingly prefer media
+                    that confirms to their own political and social preferences, which inturn seeps bias into the content itself. It becomes a vicious feedback loop.                     
+                </p>
+                <br>
+                <p class="intro__dek">
+                    We decided to analyze the extent of this bias by examining the cable news chyrons for CNN and Fox News during their coverage of the midterm
+                    election of 2018.
+                </p>
             </section>
         </div>
 
