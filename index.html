@@ -58,7 +58,7 @@
 			font-size: 64px;
             line-height: 1em;
 			margin: auto;
-            padding-bottom: 5rem;
+            padding-bottom: 2.5rem;
 			text-transform: uppercase;
 			font-weight: 900;
 			letter-spacing: 0.05em;
@@ -190,12 +190,34 @@
             fill-opacity: 0.7;
             stroke-width: 1;
         }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            padding-bottom: 2.5rem;
+        }
+
+        .toolTip {
+            position: absolute;
+            display: none;
+            min-width: 80px;
+            height: auto;
+            background: none repeat scroll 0 0 #ffffff;
+            border: 1px solid black;
+            padding: 14px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
         </style>
     </head>
     <body>
         <div class = "d_back_white">
             <section id = "intro">
                 <h1 class="intro__hed">Divided Congress & Coverage?</h1>
+                <img src="intro_icon.png" width="200" height="350" class = "center">
                 <p class="intro__dek">
                     <span id = "f_char">T</span>oday, Americans are more ideologically divided than anytime in the past. As a result, the American consumers increasingly prefer media
                     that confirms to their own political and social preferences, which inturn seeps bias into the content itself. It becomes a vicious feedback loop.                     
@@ -393,6 +415,8 @@
                     })
                     .call(axis)
 
+                var tooltip = d3.select('body').append("div").attr("class", "toolTip");
+
                 axes.append('path')
                     .attr('class', 'arrow')
                     .attr('d', 'M0 0 L5 9 L2 9 L2 15 L-2 15 L-2 9 L-5 9 Z')
@@ -454,6 +478,16 @@
                         .transition()
                         .duration(1000)
                         .attr('r', function (d) { return r(d.total) * 2 });
+
+                    svg.selectAll('.point')
+                        .on("mousemove", function(d){
+                            tooltip
+                            .style("left", d3.event.pageX - 50 + "px")
+                            .style("top", d3.event.pageY - 70 + "px")
+                            .style("display", "inline-block")
+                            .html((d.topic));
+                        })
+    		        .on("mouseout", function(d){ tooltip.style("display", "none");});
                 })
             }
 
