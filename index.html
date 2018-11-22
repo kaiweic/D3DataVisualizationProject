@@ -120,7 +120,6 @@
 			-webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
-			background-color: #ddd;
 		}
 
 		.scroll__graphic.is-fixed {
@@ -149,7 +148,7 @@
 		.scroll__text {
 			position: relative;
 			padding: 0 1rem;
-			max-width: 30rem;
+			max-width: 60rem;
 			width: 33%;
 		}
 
@@ -171,6 +170,26 @@
 			padding: 1rem;
 			font-size: 1.5rem;
 		}
+
+        .axis .domain { display: none; }
+        .axis .tick {display: none;}
+
+        text.label {
+            text-transform: uppercase;
+            font-family: monospace;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 0.1;
+        }
+        path.arrow, text.label {
+            fill: #30303d;
+            cursor: pointer;
+        }
+        circle {
+            fill: #30303d;
+            fill-opacity: 0.7;
+            stroke-width: 1;
+        }
         </style>
     </head>
     <body>
@@ -183,7 +202,7 @@
                 </p>
                 <br>
                 <p class="intro__dek">
-                    We decided to analyze the extent of this bias by examining the cable news chyrons for CNN and Fox News during their coverage of the midterm
+                    We decided to analyze the extent of this bias by examining the cable news chyrons for CNN, Fox News and MSNBC during their coverage of the midterm
                     election of 2018.
                 </p>
             </section>
@@ -193,9 +212,7 @@
 
         <div class = "d_back_white">
             <section id = "scroll" class = "scroll_section">
-                <div class="scroll__graphic" style="width: 292px; height: 410px;">  <!-- This is where the visualization goes -->               
-                    <p>1</p>
-                </div>
+                <div class="scroll__graphic" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
                 <!-- This is where text goes, as we scroll -->
                <div class="scroll__text">
                     <div class="step is-active" data-step="1" data-scrollama-index="0" style="height: 615px;">
@@ -223,6 +240,9 @@
         <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
         <script>
             // using d3
+
+            /** ------------------------------------wordcloud animation-------------------------------- */
+
             function wordCloud(selector) {
 
                 var fill = d3.scaleOrdinal(d3.schemeCategory20);
@@ -290,14 +310,13 @@
                             .start();
                     }
                 }
-
             }
 
             var words = [
-                "Voters Women CNN Sessions Democrats States Crime Economy Evidence Races News Candidates Votes Georgia US Elections Power GOP Governor Voting Early President America Pelosi Polls Democratic Rallies Kemp Congress Nationwide Americans Abrams Campaign",
-                "Fox Obama Health Midterms Representative Message Missouri Trump Congressional Cruz Senator Ballot Racist House Sanctions Florida White-house Race Issues Win Former Immigration Political Texas Border Majority Stakes Republicans Country Iran Washington",
-                "Voters Women CNN Sessions Democrats States Crime Economy Evidence Races News Candidates Votes Georgia US Elections Power GOP Governor Voting Early President America Pelosi Polls Democratic Rallies Kemp Congress Nationwide Americans Abrams Campaign",
-                "Fox Obama Health Midterms Representative Message Missouri Trump Congressional Cruz Senator Ballot Racist House Sanctions Florida White-house Race Issues Win Former Immigration Political Texas Border Majority Stakes Republicans Country Iran Washington"
+                "Voters Women CNN Sessions Fox Democrats States Crime Economy Evidence Races News Candidates Votes Georgia US Elections Power GOP Governor Voting Early President America Pelosi Polls Democratic Rallies Kemp Congress Nationwide Americans Abrams Campaign",
+                "Fox Obama Health Midterms Representative Message Missouri CNN Trump Congressional Cruz Senator Ballot Racist House Sanctions Florida White-house Race Issues Win Former Immigration Political Texas Border Majority Stakes Republicans Country Iran Washington",
+                "Voters Women CNN Sessions Fox Democrats States Crime Economy Evidence Races News Candidates Votes Georgia US Elections Power GOP Governor Voting Early President America Pelosi Polls Democratic Rallies Kemp Congress Nationwide Americans Abrams Campaign",
+                "Fox Obama Health Midterms Representative Message Missouri CNN Trump Congressional Cruz Senator Ballot Racist House Sanctions Florida White-house Race Issues Win Former Immigration Political Texas Border Majority Stakes Republicans Country Iran Washington"
             ]
 
             //Prepare one of the sample sentences by removing punctuation,
@@ -326,6 +345,123 @@
 
             //Start cycling through the demo data
             showNewWords(myWordCloud);
+
+            /** --------------------------wordcloud animation ends------------------------------- */
+
+
+                // Hope you're doing well so far!
+
+
+            /** --------------------------frequency scatter plot------------------------------- */
+
+            function scatter_plot(selector) {
+                var margin = { top: 50, bottom: 260 }
+                var width = 960
+                var height = 600 - margin.top - margin.bottom
+                var side = height * 2 / Math.sqrt(3)
+
+                var svg = d3.select(selector)
+                    .append('svg')
+                    .attr('width', width)
+                    .attr('height', height + margin.top + margin.bottom)
+                    .attr('class', 'scroll__graphic')
+                    .append('g')
+                    .attr('transform', 'translate(' + ((width - side) / 2) + ',' + (margin.top + 0.5) + ')')
+                    .append('g')
+
+                var sideScale = d3.scaleLinear()
+                    .domain([0, 1])
+                    .range([0, side])
+
+                var perpScale = d3.scaleLinear()
+                    .domain([0, 1])
+                    .range([height, 0])
+
+                var r = d3.scaleSqrt().range([0, 10])
+
+                var axis = d3.axisLeft()
+                    .scale(perpScale)
+                    .tickFormat(function (n) { return (n * 100).toFixed(0) });
+
+                var axes = svg.selectAll('.axis')
+                    .data(['Fox', 'CNN', 'MSNBC'])
+                    .enter().append('g')
+                    .attr('class', function (d) { return 'axis ' + d })
+                    .attr('transform', function (d) {
+                        return d === 'MSNBC' ? ''
+                            : 'rotate(' + (d === 'Fox' ? 240 : 120) + ',' + (side * 0.5) + ',' + (height / 3 * 2) + ')'
+                    })
+                    .call(axis)
+
+                axes.append('path')
+                    .attr('class', 'arrow')
+                    .attr('d', 'M0 0 L5 9 L2 9 L2 15 L-2 15 L-2 9 L-5 9 Z')
+                    .attr('transform', 'translate(' + (side * 0.5) + ',10)')
+                    .on('click', rotate)
+
+                axes.append('text')
+                    .attr('class', 'label')
+                    .attr('x', side * 0.5)
+                    .attr('y', -6)
+                    .attr('text-anchor', 'middle')
+                    .attr('letter-spacing', '-8px')
+                    .text(function (d) { return d })
+                    .on('click', rotate)
+
+                function rotate(d) {
+                    var angle = d === 'fox' ? 120 : d === 'cnn' ? 240 : 0
+                    svg.transition().duration(600)
+                        .attr('transform', 'rotate(' + angle + ',' + (side / 2) + ',' + (height / 3 * 2) + ')')
+                }
+
+                d3.csv('t_freq.csv', function (d) {
+                    var fox = +d.fox
+                    var cnn = +d.cnn
+                    var msnbc = +d.msnbc
+                    var total = fox + cnn + msnbc
+                    var fShare = fox / total
+                    var cShare = cnn / total
+                    var mShare = msnbc / total
+
+                    return {
+                        topic: d.topic,
+                        total: total,
+                        fox: fox,
+                        cnn: cnn,
+                        msnbc: msnbc,
+                        fShare: fShare,
+                        cShare: cShare,
+                        mShare: mShare,
+                        x: cShare + (mShare * 0.5)
+                    }
+                }, function (error, data) {
+                    if (error) { throw error }
+
+                    r.domain([0, d3.max(data, function (d) { return d.total })])
+
+                    svg.selectAll('.point')
+                        .data(data)
+                        .enter().append('circle')
+                        .attr('class', 'point')
+                        .attr('r', 5)
+                        .attr('cx', width / 10 )
+                        .attr('cy', height / 2 )
+                        .transition()
+                        .duration(1000)
+                        .delay(function (d) { return r(d.total) })
+                        .attr('cx', function (d) { return sideScale(d.x) })
+                        .attr('cy', function (d) { return perpScale(d.mShare) })
+                        .transition()
+                        .duration(1000)
+                        .attr('r', function (d) { return r(d.total) * 2 });
+                })
+            }
+
+            /** --------------------------frequency scatter plot ends------------------------------- */
+
+                // This was hard, okay. 
+
+            /** --------------------------scrollama implementation------------------------------- */
 
             var container = d3.select('#scroll');
             var graphic = container.select('.scroll__graphic');
@@ -358,9 +494,12 @@
                 // 3. tell scrollama to update new element dimensions
                 scroller.resize();
             }
+
+            step_count = 0;
     
             // scrollama event handlers
             function handleStepEnter(response) {
+                step_count++;
                 // response = { element, direction, index }
     
                 // add color to current step only
@@ -369,7 +508,9 @@
                 })
     
                 // update graphic based on step
-                graphic.select('p').text(response.index + 1);
+                // graphic.select('p').text(response.index + 1);
+                if (response.index == 0 && step_count == 1)
+                    scatter_plot(".scroll__graphic");
             }
     
             function handleContainerEnter(response) {
@@ -415,6 +556,8 @@
     
             // kick things off
             init();
+
+            /** --------------------------scrollama implementation ends------------------------------- */
         </script>
     </body>
 </html>
