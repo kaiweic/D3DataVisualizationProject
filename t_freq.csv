@@ -33,7 +33,6 @@ democrats,360,120,130
 desantis,23,5,23
 donnely,15,0,0
 economy,49,100,47
-election,190,350,420
 facebook,2,32,0
 female,9,9,7
 florida,65,80,132
@@ -71,14 +70,13 @@ mccaskill,40,12,22
 marijuana,1,11,18
 maryland,0,8,6
 massachusetts,0,0,12
-maxine waters,0,0,24
+maxine-waters,0,0,24
 mcsally,5,2,14
 sinema,4,1,20
 medicaid,0,4,16
 mcconnell,17,0,0
 mexico,9,1,6
 michigan,2,15,11
-midterms,400,600,500
 migrants,15,25,19
 military,4,12,7
 minnesota,0,0,33
@@ -91,11 +89,9 @@ nelson,12,5,7
 nixon,0,2,6
 obama,35,105,57
 ohio,10,14,26
-o'rourke,37,54,40
+orourke,37,54,40
 pelosi,33,11,2
 pennsylvania,3,4,14
-polls,240,320,270
-president,100,70,30
 probe,5,54,31
 rallies,65,60,50
 redistricting,0,0,9
@@ -110,3 +106,5 @@ virginia,0,17,38
 whitaker,17,9,10
 voters,130,320,800
 women,15,55,45
+house,270,300,250
+snl,40,20,4

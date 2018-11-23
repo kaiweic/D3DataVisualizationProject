@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <style>
-		* {
+		*{
 			box-sizing: border-box;
 		}
 
@@ -89,6 +89,7 @@
             font-size: 15px;
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
+            padding-top: 3rem;
         }
 
         .d_back_white {
@@ -108,7 +109,7 @@
 		}
 
         .scroll__section {
-            padding: 20px 0;
+            padding: 20px 20px;
             position: relative;
         }
 
@@ -153,7 +154,7 @@
 		}
 
 		.step {
-			margin: 0 auto 2rem auto;
+			margin: 0 auto 0 auto;
 			/* border-bottom: none; */
 		}
 
@@ -185,7 +186,8 @@
             fill: #30303d;
             cursor: pointer;
         }
-        circle {
+
+        .point {
             fill: #30303d;
             fill-opacity: 0.7;
             stroke-width: 1;
@@ -209,6 +211,110 @@
             padding: 14px;
             text-align: center;
             text-transform: uppercase;
+        }
+
+        .graphic__hed{
+            text-align:center;
+            color:#333;
+        }
+        
+        .chart{
+            max-width:40rem;
+            margin:0 auto;
+            text-align:center;
+        }
+        
+        .slider{
+            max-width:20rem;
+            margin:1rem auto;
+            position:relative;
+            padding-top:16.5px;
+        }
+        
+        .slider input{
+            display:block;
+            width:100%;
+        }
+        
+        .slider:before{
+            content:'Duration';
+            text-transform:uppercase;
+            font-size:11px;
+            letter-spacing:.05em;
+            color:#888;
+            display:inline-block;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        
+        .slider:after{
+            content:'Frequency';
+            text-transform:uppercase;
+            font-size:11px;
+            letter-spacing:.05em;
+            color:#888;
+            display:inline-block;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        
+        .g-axis line,.g-axis path{
+            stroke:#ccc;
+        }
+        
+        .g-axis text{
+            fill:#888;
+        }
+        
+        .g-axis .axis__label{
+            text-transform:uppercase;
+            font-size:11px;
+            letter-spacing:.05em;
+            fill:#888;
+        }
+        
+        .item{
+            fill-opacity:.75;
+        }
+
+        .pivot_label {
+            text-align: center;
+            font-weight:  900;
+            font-size: 150%;
+            color: #888;
+        }
+
+        #pivot_scatter {
+            margin-top: 50px;
+            align-content: center;
+            text-align: center;
+        }
+
+        .graphic--1, .graphic--2, .graphic--3 {
+            float: left;
+        }
+
+        #pivot_intro {
+            font-size: 32px;
+            line-height: 1em;
+			margin: auto;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+			text-transform: uppercase;
+			font-weight: 700;
+            color:#888;
+        }
+
+        #pivot_info {
+            padding-bottom: 6rem;
+            font-size: 1.4rem;
+            color:#888;
+        }
+
+        #pivot_container {
+            padding-left: 8%;
         }
 
         </style>
@@ -252,8 +358,31 @@
                 </div>
             </section>
         </div>
+        
+        <div id = "pivot_scatter">
+            <h2 id = 'pivot_intro'>Frequency vs. Duration</h2>
+            <p class="intro__dek" id = 'pivot_info'>[Uses dummy data for now]</p>
+            <div id = 'pivot_container'>
+                <div class='graphic graphic--3' style = "width: 30%">
+                    <p class = 'pivot_label'>FOX</p>
+                    <div class='chart'></div>
+                    <div class='slider'><input type='range' min='0' max='100' value='50'></div>
+                </div>
+                    
+                <div class='graphic graphic--2' style = "width: 30%">
+                    <p class = 'pivot_label'>CNN</p>
+                    <div class='chart'></div>
+                    <div class='slider'><input type='range' min='0' max='100' value='50'></div>
+                </div>
+            
+                <div class='graphic graphic--1' style = "width: 30%">
+                    <p class = 'pivot_label'>MSNBC</p>
+                    <div class='chart'></div>
+                    <div class='slider'><input type='range' min='0' max='100' value='50'></div>
+                </div>
+            </div>
+        </div>
         <section id="outro"></section>
-        <div class="debug"></div>
 
         <script src="https://d3js.org/d3.v4.min.js"></script> <!-- Note that we're using Scrollama with D3 -->
         <script src="https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js"></script>
@@ -261,6 +390,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
         <script>
+            $(document).ready(function(){
+                $(this).scrollTop(0);
+            });
+
             // using d3
 
             /** ------------------------------------wordcloud animation-------------------------------- */
@@ -387,6 +520,7 @@
                     .attr('width', width)
                     .attr('height', height + margin.top + margin.bottom)
                     .attr('class', 'scroll__graphic')
+                    .attr('id', 'scatter_plot')
                     .append('g')
                     .attr('transform', 'translate(' + ((width - side) / 2) + ',' + (margin.top + 0.5) + ')')
                     .append('g')
@@ -467,16 +601,17 @@
                         .data(data)
                         .enter().append('circle')
                         .attr('class', 'point')
+                        .attr('id', function(d) {return d.topic})
                         .attr('r', 5)
                         .attr('cx', width / 10 )
                         .attr('cy', height / 2 )
                         .transition()
-                        .duration(1000)
+                        .duration(300)
                         .delay(function (d) { return r(d.total) })
                         .attr('cx', function (d) { return sideScale(d.x) })
                         .attr('cy', function (d) { return perpScale(d.mShare) })
                         .transition()
-                        .duration(1000)
+                        .duration(100)
                         .attr('r', function (d) { return r(d.total) * 2 });
 
                     svg.selectAll('.point')
@@ -487,15 +622,297 @@
                             .style("display", "inline-block")
                             .html((d.topic));
                         })
-    		        .on("mouseout", function(d){ tooltip.style("display", "none");});
+    		        .on("mouseout", function(d){ 
+                            tooltip.style("display", "none");
+                        });
                 })
+            }
+
+            function scatter_plot_update(index) {
+                if (index == 0) {
+                    d3.select("#scatter_plot").remove();
+                    scatter_plot('.scroll__graphic');
+                }
+                else if (index == 1) {
+                    var plot = d3.select('#scatter_plot');
+
+                    plot.selectAll('.point')
+                        .transition()
+                        .style('opacity', 0.05);
+
+                    var selection = plot.selectAll('#women, #african-american, #black-voters, #hispanic, #voters, #female');
+                        
+                    selection.transition()
+                        .style('opacity', 1)
+                        .style('fill', 'black');
+                }
+                else if (index == 2) {
+                    var plot = d3.select('#scatter_plot');
+                    plot.selectAll('.point')
+                        .transition()
+                        .style('opacity', 0.1);
+
+                    var selection = plot.selectAll('#gillum, #abrams, #blackburn, #crenshaw, #desantis, #donnely, #feinstein, #hemingway, #jones, #kemp, #mccaskill, #mcsally, #sinema, #nelson, #orourke');
+                    selection.transition()
+                        .style('opacity', 1)
+                        .style('fill', 'black');
+                }
+                else {
+                    var plot = d3.select('#scatter_plot');
+                    plot.selectAll('.point')
+                        .transition()
+                        .style('opacity', 0.1);
+
+                    var selection = plot.selectAll('#abortion, #approval-rating, #media-bias, #border, #caravan, #facebook, #fear, #healthcare, #ice, #immigration, #marijuana, #impeachment, #obama, #probe, #snl, #kavanaugh');
+                    selection.transition()
+                        .style('opacity', 1)
+                        .style('fill', 'black');
+                }
             }
 
             /** --------------------------frequency scatter plot ends------------------------------- */
 
                 // This was hard, okay. 
 
-            /** --------------------------scrollama implementation------------------------------- */
+            /** --------------------------duration + frequency scatter plot------------------------------- */
+
+            function pivot_scatter(selector) {
+                const graphic = d3.select(selector)
+
+                const COLORS = ['#ff3814', '#fe5c34', '#fc764f', '#f88d69', '#f2a385', '#e8b8a0', '#dbcdbd']
+                const FONT_SIZE = 11
+                const MAX_VAL = 10
+                const dummyData = d3.range(0, 100).map(d => ({
+                    index: d,
+                    x: 0.5 + Math.random() * (MAX_VAL - 1),
+                    y: 0.5 + Math.random() * (MAX_VAL - 1),
+                }))
+
+                const chart = scatterplot()
+                const el = graphic.select('.chart')
+
+                function weightData({ x, y }) {
+                    return dummyData.map(d => ({
+                        ...d,
+                        score: d.x * x + d.y * y,
+                    }))
+                    .sort((a, b) => d3.descending(a.score, b.score))
+                    .map((d, i) => ({
+                        ...d,
+                        rank: i,
+                    }))
+                    .reverse()
+                }
+
+                function getHypotenuse({ x, y }) {
+                    const x2 = x * x
+                    const y2 = y * y
+                    return Math.sqrt(x2 + y2)
+                }
+
+                function resize() {
+                    const sz = Math.min(el.node().offsetWidth, window.innerHeight) * 0.8
+                    chart.width(sz).height(sz)
+                    el.call(chart)
+                }
+
+                function scatterplot() {
+                    const margin = FONT_SIZE * 3
+                    const scaleX = d3.scaleLinear()
+                    const scaleY = d3.scaleLinear()
+                    const scaleR = d3.scaleSqrt()
+                    const scaleC = d3.scaleQuantile()
+
+                    let width = 0
+                    let height = 0
+                    let chartWidth = 0
+                    let chartHeight = 0
+                    let weightX = 50
+                    let weightY = 50
+                    let hypotenuse = 0
+
+                    function translate(x, y) {
+                        return `translate(${x}, ${y})`
+                    }
+
+                    function enter({ container, data }) {
+                        const svg = container.selectAll('svg').data([data])
+                        const svgEnter = svg.enter().append('svg')
+                        const gEnter = svgEnter.append('g')
+                        
+                        gEnter.append('g').attr('class', 'g-plot')
+
+                        const axis = gEnter.append('g').attr('class', 'g-axis')
+
+                        const x = axis.append('g').attr('class', 'axis axis--x')
+
+                        const y = axis.append('g').attr('class', 'axis axis--y')
+
+                        x.append('text').attr('class', 'axis__label')
+                            .attr('text-anchor', 'start')
+                            .text('Frequency')
+
+                        y.append('text').attr('class', 'axis__label')
+                            .attr('text-anchor', 'end')
+                            .text('Duration')	
+                    }
+
+                    function exit({ container, data }) {
+                    }
+
+                    function updateScales({ data }) {
+                        hypotenuse = getHypotenuse({ x: weightX, y: weightY })
+                        const rangeX = weightX / hypotenuse * chartWidth
+                        const rangeY = weightY / hypotenuse * chartHeight
+                        const maxR = Math.floor(FONT_SIZE * 1.5)
+
+                        scaleX
+                            .domain([0, MAX_VAL])
+                            .range([0, rangeX])
+
+                        scaleY
+                            .domain([0, MAX_VAL])
+                            .range([rangeY, 0])
+
+                        scaleR
+                            .domain([0, data.length])
+                            .range([maxR, 2])
+
+                        scaleC
+                            .domain(data.map(d => d.rank))
+                            .range(COLORS)
+                    }
+
+                    function updateDom({ container, data }) {
+                        const svg = container.select('svg')
+                        
+                        svg
+                            .attr('width', width)
+                            .attr('height', height)
+
+                        const g = svg.select('g')
+                        
+                        const maxY = scaleY.range()[0]
+                        const offsetX = chartWidth / 2
+                        const offsetY = chartHeight - maxY
+                        const rad = Math.acos(weightX / hypotenuse)
+                        const angle = 90 - (rad * 180 / Math.PI)
+                        const rotation = `rotate(${-angle} 0 ${scaleY.range()[0]})`
+                        const translation = translate(margin * 1.5 + offsetX, margin + offsetY)
+                        const transform = `${translation} ${rotation}`
+                        g.attr('transform', transform)
+
+                        const plot = g.select('.g-plot')
+
+                        const item = plot.selectAll('.item').data(d => d, d => d.index)
+                        
+                        item.enter().append('circle')
+                            .attr('class', 'item')
+                        .merge(item)
+                            .attr('x', 0)
+                            .attr('y', 0)
+                            .attr('r', d => scaleR(d.rank))
+                            .style('fill', d => scaleC(d.rank))
+                            .style('stroke', d => d3.color(scaleC(d.rank)).darker(0.7))
+                            .style('opacity', 0.7)
+                            .attr('transform',  d => translate(scaleX(d.x), scaleY(d.y)))
+                    }
+
+                    function updateAxis({ container, data }) {
+                        const axis = container.select('.g-axis')
+
+                        const axisLeft = d3.axisLeft(scaleY)
+                        const axisBottom = d3.axisBottom(scaleX)
+
+                        axisLeft.ticks(Math.max(0, Math.floor(weightY / 10)))
+                        axisBottom.ticks(Math.max(0, Math.floor(weightX / 10)))
+                        const x = axis.select('.axis--x')
+                        
+                        const maxY = scaleY.range()[0]
+                        const offset = maxY
+
+                        const buffer = Math.ceil(margin / 2)
+                        x.attr('transform', translate(0, buffer + offset))
+                            .call(axisBottom)
+
+                        const y = axis.select('.axis--y')
+
+                        y.attr('transform', translate(-buffer, 0))
+                            .call(axisLeft)
+
+                        x.select('.axis__label')
+                            .attr('y', margin - 1)
+
+                        y.select('.axis__label')
+                            .attr('x', offset)
+                            .attr('y', margin - 1)
+                            .attr('transform', `rotate(90)`)
+                    }
+
+                    function chart(container) {
+                        const data = container.datum()
+                        
+                        enter({ container, data })
+                        exit({ container, data })
+                        updateScales({ container, data })
+                        updateDom({ container, data })
+                        updateAxis({ container, data })
+                    }
+
+                    chart.width = function(...args) {
+                        if (!args.length) return width
+                        width = args[0]
+                        chartWidth = width - margin * 2.5
+                        return chart
+                    }
+
+                    chart.height = function(...args) {
+                        if (!args.length) return height
+                        height = args[0]
+                        chartHeight = height - margin * 2.5
+                        return chart
+                    }
+
+                    chart.weight = function({ x, y }) {
+                        weightX = x
+                        weightY = y
+                        return chart
+                    }
+
+                    return chart
+                }
+
+                function handleInput() {
+                    const val = +this.value
+                    const x = val
+                    const y = 100 - val
+                    const weighted = weightData({ x, y })
+
+                    chart.weight({ x, y })
+                    el.datum(weighted)
+                    el.call(chart)
+                }
+
+                function init() {
+                    el.datum(weightData({ x: 50, y: 50 }))
+                    el.call(chart)
+                    resize()
+                    window.addEventListener('resize', resize)
+                    graphic.select('.slider input').on('input', handleInput)
+                }
+
+                init()
+            }
+
+            pivot_scatter('.graphic--3');
+            pivot_scatter('.graphic--2');
+            pivot_scatter('.graphic--1');
+
+            /** --------------------------duration + frequency scatter plot ends--------------------------- */
+
+                // We're almost there
+
+            /** --------------------------scrollama implementation---------------------------------------- */
 
             var container = d3.select('#scroll');
             var graphic = container.select('.scroll__graphic');
@@ -528,12 +945,9 @@
                 // 3. tell scrollama to update new element dimensions
                 scroller.resize();
             }
-
-            step_count = 0;
     
             // scrollama event handlers
             function handleStepEnter(response) {
-                step_count++;
                 // response = { element, direction, index }
     
                 // add color to current step only
@@ -542,9 +956,7 @@
                 })
     
                 // update graphic based on step
-                // graphic.select('p').text(response.index + 1);
-                if (response.index == 0 && step_count == 1)
-                    scatter_plot(".scroll__graphic");
+                scatter_plot_update(response.index);
             }
     
             function handleContainerEnter(response) {
