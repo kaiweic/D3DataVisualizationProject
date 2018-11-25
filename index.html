@@ -104,7 +104,7 @@
 
 		/* scrollama */
 
-		#scroll {
+		#scroll, #scroll_1 {
 			position: relative;
 		}
 
@@ -340,6 +340,15 @@
             text-align: center;
         }
 
+        #circle circle {
+            fill: none;
+            pointer-events: all;
+        }
+
+        #circle:hover path.fade {
+            display: none;
+        }
+
         </style>
     </head>
     <body>
@@ -408,10 +417,10 @@
 
         <!-- @Kevin: This is the HTML section for your visualization [Also has associated CSS contentx] -->
         <div class = "d_back_white" id = 'assoc'>
-            <h2 id = 'assoc_intro'>[Add title]</h2>
-            <p class="intro__dek" id = 'assoc_info'>[Add details]</p>
+            <h2 id = 'assoc_intro'>Word to Word Mapping</h2>
+            <p class="intro__dek" id = 'assoc_info'>[example data for now]</p>
             <section id = "scroll_1" class = "scroll_section">
-                <div class="scroll__graphic" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
+                <div id="noun_to_noun" class="scroll__graphic" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
                 <!-- This is where text goes, as we scroll -->
                 <div class="scroll__text">
                     <div class="step is-active" style="height: 615px;">
@@ -958,198 +967,323 @@
 
             /** --------------------------duration + frequency scatter plot ends--------------------------- */
 
+                // Kevin's turn now
+
+            /** --------------------------noun to noun plot----------------------------------------------- */
+
+            function word_to_word(selector) {
+
+                // temporary data for experiment
+                data = [
+                  [1, 2, 3, 4],
+                  [5, 6, 7, 8],
+                  [9, 10, 11, 12],
+                  [13, 14, 15, 16]
+                ];
+
+                var height = 700;//$(document).height() * 0.8;
+                var width = 960;//$(document).width() * 0.8;
+
+                var outerRadius = Math.min(width, height) * 0.41;
+                var innerRadius = outerRadius * 0.95;
+                // var outmostRadius = outerRadius * 1.1;
+
+                // set up the arc between label and outer path boundary
+                var arc = d3.arc()
+                            .innerRadius(innerRadius)
+                            .outerRadius(outerRadius);
+
+                // var outmostArc = d3.arc()
+                //                    .innerRadius(innerRadius)
+                //                    .outerRadius(outmostRadius);
+
+                // function for passing in data
+                var chord = d3.chord()
+                              .padAngle(0.05)
+                              .sortSubgroups(d3.descending);
+
+                // the path main svg element
+                var svg = d3.select(selector)
+                            .append("svg")
+                            .attr("id", "n_to_n")
+                            .attr("width", width)
+                            .attr("height", height)
+
+                            .append("g")
+                            .attr("id", "circle")
+                            .attr("width", width)
+                            .attr("height", height)
+                            .attr("transform", "translate(" + width / 2 + "," + (outerRadius + 90) + ")");
+
+                svg.append("circle").attr("r", outerRadius);
+
+                // the paths
+                var ribbon = d3.ribbon()
+                               .radius(innerRadius);
+
+                // color elements
+                var color = d3.scaleOrdinal()
+                              .domain(d3.range(data.length))
+                              .range(["#BBBBBB", "#BBBBBB", "#BBBBBB", "#BBBBBB"]);
+
+                // pass the matrix in for processing
+                var chords = chord(data);
+
+                // seperates each group for its own "g" element (for mouseover)
+                var group = svg.selectAll("g")
+                               .data(chords.groups)
+                               .enter().append("g")            
+                               //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")")
+                               .on("mouseover", chordMouseOver);
+
+                // creates the marks 
+                var groupTick = group.selectAll("g")
+                                     .data(d => calculateMiddle(d))
+                                     .enter().append("g")
+                                     .attr("transform", d => `rotate(${d.angle * 180 / Math.PI - 90}) translate(${outerRadius},0)`);
+
+                // creates a white outer arc
+                // group.append("path")
+                //      .attr("d", outmostArc)
+                //      .attr("fill", "#FFFFFF")
+                //      ;
+
+                // creates the labels
+                groupTick.append("text")
+                         .attr("x", 8) 
+                         .attr("dy", ".35em")
+                         .attr("transform", d => d.angle > Math.PI ? "rotate(180) translate(-16)" : null)
+                         .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
+                         .text("text");
+
+                // creates the paths
+                var edges = svg.append("g")
+                               .attr("fill-opacity", 0.67)
+                               .selectAll("path")
+                               .data(chords)
+                               .enter().append("path")
+                               .attr("d", ribbon)
+                               .attr("fill", d => color(d.target.index))
+                               .attr("stroke", d => d3.rgb(color(d.target.index)).darker())
+                               //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")");
+
+                // creates the arc on the edge besides the text
+                var groupChord = group.append("path")
+                                      .attr("d", arc)
+                                      .attr("fill", "#888888");
+                                      //.on("mouseover", chordMouseOver);
+
+                function calculateMiddle(d) {
+                  const k = (d.endAngle + d.startAngle) / 2;
+                  return d3.range(0, d.value).map(value => {
+                    return {value: value, angle: k};
+                  });
+                }
+
+                function chordMouseOver(d, i) {
+                    edges.classed("fade", function(p) {
+                        return p.source.index != i && p.target.index != i;
+                    })
+                }
+
+            }
+
+            /** --------------------------noun to noun plot ends------------------------------------------- */
+
                 // We're almost there
 
             /** --------------------------scrollama implementation---------------------------------------- */
 
-                function scrolly() {
-                    var container = d3.select('#scroll');
-                    var graphic = container.select('.scroll__graphic');
-                    var text = container.select('.scroll__text');
-                    var step = text.selectAll('.step');
-            
-                    // initialize the scrollama
-                    var scroller = scrollama();
-            
-                    // generic window resize listener event
-                    function handleResize() {
-                        // 1. update height of step elements
-                        var stepHeight = Math.floor(window.innerHeight * 0.75);
-                        step.style('height', stepHeight + 'px');
-            
-                        // 2. update width/height of graphic element
-                        var bodyWidth = d3.select('body').node().offsetWidth;
-            
-                        var graphicMargin = 16 * 4;
-                        var textWidth = text.node().offsetWidth;
-                        var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
-                        var graphicHeight = Math.floor(window.innerHeight / 2)
-                        var graphicMarginTop = Math.floor(graphicHeight / 2)
-            
-                        graphic
-                            .style('width', graphicWidth + 'px')
-                            .style('height', graphicHeight + 'px')
-            
-            
-                        // 3. tell scrollama to update new element dimensions
-                        scroller.resize();
-                    }
-            
-                    // scrollama event handlers
-                    function handleStepEnter(response) {
-                        // response = { element, direction, index }
-            
-                        // add color to current step only
-                        step.classed('is-active', function (d, i) {
-                            return i === response.index;
-                        })
-
-                        // update graphic based on step
-                        scatter_plot_update(response.index);
-                    }
-            
-                    function handleContainerEnter(response) {
-                        // response = { direction }
-            
-                        // old school
-                        // sticky the graphic
-                        graphic.classed('is-fixed', true);
-                        graphic.classed('is-bottom', false);
-                    }
-            
-                    function handleContainerExit(response) {
-                        // response = { direction }
-            
-                        // old school
-                        // un-sticky the graphic, and pin to top/bottom of container
-                        graphic.classed('is-fixed', false);
-                        graphic.classed('is-bottom', response.direction === 'down');
-                    }
-            
-                    function init() {
-                        // 1. force a resize on load to ensure proper dimensions are sent to scrollama
-                        handleResize();
-            
-                        // 2. setup the scroller passing options
-                        // this will also initialize trigger observations
-                        // 3. bind scrollama event handlers (this can be chained like below)
-                        scroller.setup({
-                            container: '#scroll',
-                            graphic: '.scroll__graphic',
-                            text: '.scroll__text',
-                            step: '.scroll__text .step',
-                            debug: false,  // if you turn this on, then you'll be able to visualize the step triggers (Try it!)
-                            offset: 0.5,
-                        })
-                            .onStepEnter(handleStepEnter)
-                            .onContainerEnter(handleContainerEnter)
-                            .onContainerExit(handleContainerExit);
-            
-                        // setup resize event
-                        window.addEventListener('resize', handleResize);
-                    }
-            
-                    // kick things off
-                    init();
+            function scrolly() {
+                var container = d3.select('#scroll');
+                var graphic = container.select('.scroll__graphic');
+                var text = container.select('.scroll__text');
+                var step = text.selectAll('.step');
+        
+                // initialize the scrollama
+                var scroller = scrollama();
+        
+                // generic window resize listener event
+                function handleResize() {
+                    // 1. update height of step elements
+                    var stepHeight = Math.floor(window.innerHeight * 0.75);
+                    step.style('height', stepHeight + 'px');
+        
+                    // 2. update width/height of graphic element
+                    var bodyWidth = d3.select('body').node().offsetWidth;
+        
+                    var graphicMargin = 16 * 4;
+                    var textWidth = text.node().offsetWidth;
+                    var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
+                    var graphicHeight = Math.floor(window.innerHeight / 2)
+                    var graphicMarginTop = Math.floor(graphicHeight / 2)
+        
+                    graphic
+                        .style('width', graphicWidth + 'px')
+                        .style('height', graphicHeight + 'px')
+        
+        
+                    // 3. tell scrollama to update new element dimensions
+                    scroller.resize();
                 }
+        
+                // scrollama event handlers
+                function handleStepEnter(response) {
+                    // response = { element, direction, index }
+        
+                    // add color to current step only
+                    step.classed('is-active', function (d, i) {
+                        return i === response.index;
+                    })
 
-                scrolly();
-
-                // @Kevin: Your second scrolly section
-                function scrolly_1() {
-                    var container = d3.select('#scroll_1');
-                    var graphic = container.select('.scroll__graphic');
-                    var text = container.select('.scroll__text');
-                    var step = text.selectAll('.step');
-
-                    // initialize the scrollama
-                    var scroller_1 = scrollama();
-            
-                    // generic window resize listener event
-                    function handleResize() {
-                        // 1. update height of step elements
-                        var stepHeight = Math.floor(window.innerHeight * 0.75);
-                        step.style('height', stepHeight + 'px');
-            
-                        // 2. update width/height of graphic element
-                        var bodyWidth = d3.select('body').node().offsetWidth;
-            
-                        var graphicMargin = 16 * 4;
-                        var textWidth = text.node().offsetWidth;
-                        var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
-                        var graphicHeight = Math.floor(window.innerHeight / 2)
-                        var graphicMarginTop = Math.floor(graphicHeight / 2)
-            
-                        graphic
-                            .style('width', graphicWidth + 'px')
-                            .style('height', graphicHeight + 'px')
-            
-            
-                        // 3. tell scrollama to update new element dimensions
-                        scroller_1.resize();
-                    }
-            
-                    // scrollama event handlers
-                    function handleStepEnter(response) {
-                        // response = { element, direction, index }
-            
-                        // add color to current step only
-                        step.classed('is-active', function (d, i) {
-                            return (i + 4) === response.index;
-                        })
-
-                        // update graphic based on step
-                    }
-            
-                    function handleContainerEnter(response) {
-                        // response = { direction }
-            
-                        // old school
-                        // sticky the graphic
-                        graphic.classed('is-fixed', true);
-                        graphic.classed('is-bottom', false);
-
-                        // @Kevin: Here's where your update function should go
-                    }
-            
-                    function handleContainerExit(response) {
-                        // response = { direction }
-            
-                        // old school
-                        // un-sticky the graphic, and pin to top/bottom of container
-                        graphic.classed('is-fixed', false);
-                        graphic.classed('is-bottom', response.direction === 'down');
-                    }
-            
-                    function init() {
-                        // 1. force a resize on load to ensure proper dimensions are sent to scrollama
-                        handleResize();
-            
-                        // 2. setup the scroller passing options
-                        // this will also initialize trigger observations
-                        // 3. bind scrollama event handlers (this can be chained like below)
-                        scroller_1.setup({
-                            container: '#scrolly_1',
-                            graphic: '.scroll__graphic',
-                            text: '.scroll__text',
-                            step: '.scroll__text .step',
-                            debug: false,  // if you turn this on, then you'll be able to visualize the step triggers (Try it!)
-                            offset: 0.5,
-                        })
-                            .onStepEnter(handleStepEnter)
-                            .onContainerEnter(handleContainerEnter)
-                            .onContainerExit(handleContainerExit);
-            
-                        // setup resize event
-                        window.addEventListener('resize', handleResize);
-                    }
-            
-                    // kick things off
-                    init();
+                    // update graphic based on step
+                    scatter_plot_update(response.index);
                 }
+        
+                function handleContainerEnter(response) {
+                    // response = { direction }
+        
+                    // old school
+                    // sticky the graphic
+                    graphic.classed('is-fixed', true);
+                    graphic.classed('is-bottom', false);
+                }
+        
+                function handleContainerExit(response) {
+                    // response = { direction }
+        
+                    // old school
+                    // un-sticky the graphic, and pin to top/bottom of container
+                    graphic.classed('is-fixed', false);
+                    graphic.classed('is-bottom', response.direction === 'down');
+                }
+        
+                function init() {
+                    // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+                    handleResize();
+        
+                    // 2. setup the scroller passing options
+                    // this will also initialize trigger observations
+                    // 3. bind scrollama event handlers (this can be chained like below)
+                    scroller.setup({
+                        container: '#scroll',
+                        graphic: '.scroll__graphic',
+                        text: '.scroll__text',
+                        step: '.scroll__text .step',
+                        debug: false,  // if you turn this on, then you'll be able to visualize the step triggers (Try it!)
+                        offset: 0.5,
+                    })
+                        .onStepEnter(handleStepEnter)
+                        .onContainerEnter(handleContainerEnter)
+                        .onContainerExit(handleContainerExit);
+        
+                    // setup resize event
+                    window.addEventListener('resize', handleResize);
+                }
+        
+                // kick things off
+                init();
+            }
 
-                // @Kevin: kicking off your scrolly
-                scrolly_1();
+            scrolly();
+
+            // @Kevin: Your second scrolly section
+            function scrolly_1() {
+                var container = d3.select('#scroll_1');
+                var graphic = container.select('.scroll__graphic');
+                var text = container.select('.scroll__text');
+                var step = text.selectAll('.step');
+
+                // initialize the scrollama
+                var scroller_1 = scrollama();
+        
+                // generic window resize listener event
+                function handleResize() {
+                    // 1. update height of step elements
+                    var stepHeight = Math.floor(window.innerHeight * 0.75);
+                    step.style('height', stepHeight + 'px');
+        
+                    // 2. update width/height of graphic element
+                    var bodyWidth = d3.select('body').node().offsetWidth;
+        
+                    var graphicMargin = 16 * 4;
+                    var textWidth = text.node().offsetWidth;
+                    var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
+                    var graphicHeight = Math.floor(window.innerHeight / 2)
+                    var graphicMarginTop = Math.floor(graphicHeight / 2)
+        
+                    graphic
+                        .style('width', graphicWidth + 'px')
+                        .style('height', graphicHeight + 'px')
+        
+        
+                    // 3. tell scrollama to update new element dimensions
+                    scroller_1.resize();
+                }
+        
+                // scrollama event handlers
+                function handleStepEnter(response) {
+                    // response = { element, direction, index }
+        
+                    // add color to current step only
+                    step.classed('is-active', function (d, i) {
+                        return (i + 4) === response.index;
+                    })
+
+                    // @Kevin: Here's where your update function should go
+                    // update graphic based on step
+                    //if (response.index == 0 && step_count == 1)
+                    d3.selectAll("#n_to_n").remove();
+                    word_to_word("#noun_to_noun");
+                }
+        
+                function handleContainerEnter(response) {
+                    // response = { direction }
+        
+                    // old school
+                    // sticky the graphic
+                    graphic.classed('is-fixed', true);
+                    graphic.classed('is-bottom', false);
+                }
+        
+                function handleContainerExit(response) {
+                    // response = { direction }
+        
+                    // old school
+                    // un-sticky the graphic, and pin to top/bottom of container
+                    graphic.classed('is-fixed', false);
+                    graphic.classed('is-bottom', response.direction === 'down');
+                }
+        
+                function init() {
+                    // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+                    handleResize();
+        
+                    // 2. setup the scroller passing options
+                    // this will also initialize trigger observations
+                    // 3. bind scrollama event handlers (this can be chained like below)
+                    scroller_1.setup({
+                        container: '#scroll_1',
+                        graphic: '.scroll__graphic',
+                        text: '.scroll__text',
+                        step: '.scroll__text .step',
+                        debug: false,  // if you turn this on, then you'll be able to visualize the step triggers (Try it!)
+                        offset: 0.5,
+                    })
+                        .onStepEnter(handleStepEnter)
+                        .onContainerEnter(handleContainerEnter)
+                        .onContainerExit(handleContainerExit);
+        
+                    // setup resize event
+                    window.addEventListener('resize', handleResize);
+                }
+        
+                // kick things off
+                init();
+            }
+
+            // @Kevin: kicking off your scrolly
+            scrolly_1();
 
             /** --------------------------scrollama implementation ends------------------------------- */
         </script>
