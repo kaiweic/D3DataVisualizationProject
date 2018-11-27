@@ -486,16 +486,13 @@
                 <!-- This is where text goes, as we scroll -->
                 <div class="scroll__text">
                     <div class="step is-active" style="height: 615px;">
-                        <p>[Add scroll text here]</p>
+                        <p>CNN</p>
                     </div>
                     <div class="step" style="height: 615px;">
-                        <p>[Add scroll text here]</p>
+                        <p>FOX</p>
                     </div>
                     <div class="step" style="height: 615px;">
-                        <p>[Add scroll text here]</p>
-                    </div>
-                    <div class="step" style="height: 615px;">
-                        <p>[Add scroll text here]</p>
+                        <p>MSNBC</p>
                     </div>
                 </div>
             </section>
@@ -1087,20 +1084,22 @@
 
             /** --------------------------noun to noun plot----------------------------------------------- */
 
-            function noun_to_noun(selector) {
+            var cnnNn2dArr, allCnnNnWords, foxNn2dArr, allFoxNnWords, msnbcNn2dArr, allMsnbcNnWords;
 
-                // temporary data for experiment
-                data = [
-                  [1, 2, 3, 4],
-                  [5, 6, 7, 8],
-                  [9, 10, 11, 12],
-                  [13, 14, 15, 16]
-                ];
+            function noun_to_noun(selector, data, allWords) {
+
+                // // temporary data for experiment
+                // data = [
+                //   [1, 2, 3, 4],
+                //   [5, 6, 7, 8],
+                //   [9, 10, 11, 12],
+                //   [13, 14, 15, 16]
+                // ];
 
                 var height = 700;//$(document).height() * 0.8;
                 var width = 960;//$(document).width() * 0.8;
 
-                var outerRadius = Math.min(width, height) * 0.41;
+                var outerRadius = Math.min(width, height) * 0.35;
                 var innerRadius = outerRadius * 0.95;
                 // var outmostRadius = outerRadius * 1.1;
 
@@ -1124,12 +1123,13 @@
                             .attr("id", "n_to_n")
                             .attr("width", width)
                             .attr("height", height)
+                            .attr("transform", "translate(0, 15)")
 
                             .append("g")
                             .attr("id", "circle")
                             .attr("width", width)
                             .attr("height", height)
-                            .attr("transform", "translate(" + width / 2 + "," + (outerRadius + 90) + ")");
+                            .attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100) + ")");
 
                 svg.append("circle").attr("r", outerRadius);
 
@@ -1181,7 +1181,7 @@
                      .attr("transform", function(d,i) { 
                          var c = arc.centroid(d);
                          return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
-                         + "translate(" + (outerRadius + 15) + ")"
+                         + "translate(" + (outerRadius + 9) + ")"
                          + (d.angle > Math.PI ? "rotate(180)" : "")
                      })
 
@@ -1189,7 +1189,7 @@
                      //     var angle = d.angle * 180 / Math.PI - 90;
                      //     return `rotate(${angle > Math.PI? angle + 180 : angle}) translate(${outerRadius},0)`
                      // })
-                     .text(function(d,i) { return "temp text"/*return Names[i];*/ });
+                     .text(function(d,i) { return allWords[i]; });
 
                 // creates the paths
                 var edges = svg.append("g")
@@ -1221,6 +1221,144 @@
                     })
                 }
 
+            }
+
+            function noun_to_noun_init(index) {
+                d3.selectAll("#n_to_n").remove();
+
+                if (index == 4) {
+                    fileName = "/WordToWordDataProcessing/n_to_n(clean)/cnn_nn(clean).txt";
+                    noun_to_noun("#noun_to_noun", cnnNn2dArr, allCnnNnWords);
+                } else if (index == 5) {
+                    fileName = "/WordToWordDataProcessing/n_to_n(clean)/fox_nn(clean).txt";
+                    noun_to_noun("#noun_to_noun", foxNn2dArr, allFoxNnWords);
+                } else if (index == 6) {
+                    fileName = "/WordToWordDataProcessing/n_to_n(clean)/msbnc_nn(clean).txt";
+                    noun_to_noun("#noun_to_noun", msnbcNn2dArr, allMsnbcNnWords);
+                }              
+            }
+
+            // loads all the noun to noun data to variables
+            function loadNnData() {
+                d3.text("/WordToWordDataProcessing/n_to_n(clean)/cnn_nn(clean).txt", function(text) {
+
+                    // original file, each arr element being a single line
+                    var cnnNnArr = text.split("\n");
+
+                    // remove the empty lines at the end
+                    removeEmptyLines(cnnNnArr);
+
+
+                    // the list contains all the words
+                    allCnnNnWords = getListOfAllWords(cnnNnArr);
+
+                    // the 2d array (empty right now)
+                    cnnNn2dArr = generateEmpry2dArray(allCnnNnWords);
+
+                    // add in the data to the 2d array
+                    fillIn2dArray(cnnNn2dArr, allCnnNnWords, cnnNnArr);
+
+                });
+
+                d3.text("/WordToWordDataProcessing/n_to_n(clean)/fox_nn(clean).txt", function(text) {
+
+                    // original file, each arr element being a single line
+                    var foxNnArr = text.split("\n");
+
+                    // remove the empty lines at the end
+                    removeEmptyLines(foxNnArr);
+
+
+                    // the list contains all the words
+                    allFoxNnWords = getListOfAllWords(foxNnArr);
+
+                    // the 2d array (empty right now)
+                    foxNn2dArr = generateEmpry2dArray(allFoxNnWords);
+
+                    // add in the data to the 2d array
+                    fillIn2dArray(foxNn2dArr, allFoxNnWords, foxNnArr);
+                    
+                });
+
+                d3.text("/WordToWordDataProcessing/n_to_n(clean)/msbnc_nn(clean).txt", function(text) {
+
+                    // original file, each arr element being a single line
+                    var msnbcNnArr = text.split("\n");
+
+                    // remove the empty lines at the end
+                    removeEmptyLines(msnbcNnArr);
+
+
+                    // the list contains all the words
+                    allMsnbcNnWords = getListOfAllWords(msnbcNnArr);
+
+                    // the 2d array (empty right now)
+                    msnbcNn2dArr = generateEmpry2dArray(allMsnbcNnWords);
+
+                    // add in the data to the 2d array
+                    fillIn2dArray(msnbcNn2dArr, allMsnbcNnWords, msnbcNnArr);
+                    
+                });
+            }
+
+            // removes the empty lines at the end of the file
+            function removeEmptyLines(arr) {
+                for (var i = arr.length - 1; i >= 0; i--) {
+                    if (arr[i].trim() == "") {
+                        arr.pop();
+                    }
+                }
+            }
+
+            // returns a list that contains all the unique words in the file with alphabetical order
+            function getListOfAllWords(arr) {
+                var listOfAllWords = [];
+                for (var i = 0; i < arr.length; i++) {
+                    var lineArr = arr[i].split(",");
+                    for (var j = 0; j < lineArr.length; j++) {
+                        lineArr[j] = lineArr[j].trim();
+                        if (lineArr[j].length == 0) {
+                            break;
+                        }
+                        var wordArr = lineArr[j].split(":");
+                        if (listOfAllWords.indexOf(wordArr[0]) == -1) {
+                            listOfAllWords.push(wordArr[0]);
+                        }
+                    }
+                }
+                return listOfAllWords.sort();
+            }
+
+            // generates an empty 2d array with all 0's based on the length of allWords
+            function generateEmpry2dArray(allWords) {
+                var empty2dArr = [];
+                for (var i = 0; i < allWords.length; i++) {
+                    var tempArr = [];
+                    for (var j = 0; j < allWords.length; j++) {
+                        tempArr.push(0);
+                    }
+                    empty2dArr.push(tempArr);
+                }
+                return empty2dArr;
+            }
+
+            // fills in the 2d Array
+            // @param arr the 2d array
+            // @param allWords the array with all the unique words
+            // @param rawDataArr the raw data array, with each array element being the string of each entire line
+            function fillIn2dArray(arr, allWords, rawDataArr) {
+                for (var i = 0; i < rawDataArr.length; i++) {
+                    var singleLineRawDataArr = rawDataArr[i].split(",");
+                    for (var j = 1; j < singleLineRawDataArr.length; j++) {
+                        singleLineRawDataArr[j] = singleLineRawDataArr[j].trim();
+                        if (singleLineRawDataArr[j].length == 0) {
+                            break;
+                        }
+                        var singleWordArr = singleLineRawDataArr[j].split(":");
+                        arr[allWords.indexOf(singleLineRawDataArr[0])][allWords.indexOf(singleWordArr[0])] = parseInt(singleWordArr[1]);
+                        arr[allWords.indexOf(singleWordArr[0])][allWords.indexOf(singleLineRawDataArr[0])] = parseInt(singleWordArr[1]);
+                    }
+                }
             }
 
             /** --------------------------noun to noun plot ends------------------------------------------- */
@@ -1542,9 +1680,8 @@
 
                     // @Kevin: Here's where your update function should go
                     // update graphic based on step
-                    //if (response.index == 0 && step_count == 1)
-                    d3.selectAll("#n_to_n").remove();
-                    noun_to_noun("#noun_to_noun");
+                    
+                    noun_to_noun_init(response.index);
                 }
         
                 function handleContainerEnter(response) {
@@ -1566,6 +1703,9 @@
                 }
         
                 function init() {
+
+                    loadNnData();
+
                     // 1. force a resize on load to ensure proper dimensions are sent to scrollama
                     handleResize();
         
