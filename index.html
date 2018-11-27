@@ -34,10 +34,10 @@
 			font-weight: 300;
 		}
 
-		a,
-		a:visited,
-		a:hover {
-			color: #f30;
+		a
+		{
+            color: black;
+            font-style: italic;
 			text-decoration: none;
 			border-bottom: 1px solid currentColor;
 		}
@@ -58,7 +58,6 @@
 			font-size: 64px;
             line-height: 1em;
 			margin: auto;
-            padding-bottom: 2.5rem;
 			text-transform: uppercase;
 			font-weight: 900;
 			letter-spacing: 0.05em;
@@ -67,6 +66,12 @@
 		.intro__dek {
 			font-size: 1.4rem;
 		}
+
+        #c_smart {
+            font-size: 10px;
+            font-style: italic;
+            padding-bottom: 2.5rem;
+        }
 
         #f_char {
             float: left;
@@ -374,6 +379,7 @@
         <div class = "d_back_white">
             <section id = "intro">
                 <h1 class="intro__hed">Divided Congress & Coverage?</h1>
+                <p class = "intro_dek" id = "c_smart">Inspired by Charlie Smart's <a href = "https://pudding.cool/2018/01/chyrons/" target = "_blank">visualization</a> on The Pudding</p>
                 <img src="intro_icon.png" width="200" height="350" class = "center">
                 <p class="intro__dek">
                     <span id = "f_char">T</span>oday, Americans are more ideologically divided than anytime in the past. As a result, the American consumers increasingly prefer media
@@ -381,8 +387,14 @@
                 </p>
                 <br>
                 <p class="intro__dek">
-                    We decided to analyze the extent of this bias by examining the cable news chyrons for CNN, Fox News and MSNBC during their coverage of the midterm
-                    election of 2018.
+                    Research shows that this bias in content operates via two mechanisms: <span style = "font-weight: bold">ISSUE <span style = "color: brown">FILTERING</span></span>
+                    and <span style = "font-weight: bold">ISSUE <span style = "color: brown">FRAMING</span></span>.
+                    <a href = "https://www8.gsb.columbia.edu/media/sites/media/files/JustinRaoMediaBias.pdf" target = "_blank">(Source)</a>
+                </p>
+                <br>
+                <p class="intro__dek">
+                    We decided to visualize the extent of this bias by examining the cable news headlines for CNN, Fox News and MSNBC during their coverage of the midterm
+                    elections of 2018.
                 </p>
             </section>
         </div>
