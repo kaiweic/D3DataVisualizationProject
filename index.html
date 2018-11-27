@@ -1227,20 +1227,20 @@
                 d3.selectAll("#n_to_n").remove();
 
                 if (index == 4) {
-                    fileName = "/WordToWordDataProcessing/n_to_n(clean)/cnn_nn(clean).txt";
+                    fileName = "cnn_nn(clean).txt";
                     noun_to_noun("#noun_to_noun", cnnNn2dArr, allCnnNnWords);
                 } else if (index == 5) {
-                    fileName = "/WordToWordDataProcessing/n_to_n(clean)/fox_nn(clean).txt";
+                    fileName = "fox_nn(clean).txt";
                     noun_to_noun("#noun_to_noun", foxNn2dArr, allFoxNnWords);
                 } else if (index == 6) {
-                    fileName = "/WordToWordDataProcessing/n_to_n(clean)/msbnc_nn(clean).txt";
+                    fileName = "msbnc_nn(clean).txt";
                     noun_to_noun("#noun_to_noun", msnbcNn2dArr, allMsnbcNnWords);
                 }              
             }
 
             // loads all the noun to noun data to variables
             function loadNnData() {
-                d3.text("/WordToWordDataProcessing/n_to_n(clean)/cnn_nn(clean).txt", function(text) {
+                d3.text("cnn_nn(clean).txt", function(text) {
 
                     // original file, each arr element being a single line
                     var cnnNnArr = text.split("\n");
@@ -1260,7 +1260,7 @@
 
                 });
 
-                d3.text("/WordToWordDataProcessing/n_to_n(clean)/fox_nn(clean).txt", function(text) {
+                d3.text("fox_nn(clean).txt", function(text) {
 
                     // original file, each arr element being a single line
                     var foxNnArr = text.split("\n");
@@ -1280,7 +1280,7 @@
                     
                 });
 
-                d3.text("/WordToWordDataProcessing/n_to_n(clean)/msbnc_nn(clean).txt", function(text) {
+                d3.text("msbnc_nn(clean).txt", function(text) {
 
                     // original file, each arr element being a single line
                     var msnbcNnArr = text.split("\n");
