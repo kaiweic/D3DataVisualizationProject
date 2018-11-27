@@ -317,7 +317,7 @@
             padding-left: 8%;
         }
 
-        #assoc_intro {
+        #nn_title, #nv_title {
             font-size: 32px;
             line-height: 1em;
 			margin: auto;
@@ -327,7 +327,7 @@
 			font-weight: 700;
         }
 
-        #assoc_info {
+        #nn_info, #nv_info {
             padding-bottom: 6rem;
             font-size: 1.4rem;
         }
@@ -479,8 +479,8 @@
 
         <!-- @Kevin: This is the HTML section for your visualization [Also has associated CSS contentx] -->
         <div class = "d_back_white" id = 'assoc'>
-            <h2 id = 'assoc_intro'>Noun to Noun Mapping</h2>
-            <p class="intro__dek" id = 'assoc_info'>[example data for now]</p>
+            <h2 id = 'nn_title'>Noun to Noun Mapping</h2>
+            <p class="intro__dek" id = 'nn_info'>[example data for now]</p>
             <section id = "scroll_1" class = "scroll_section">
                 <div id="noun_to_noun" class="scroll__graphic" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
                 <!-- This is where text goes, as we scroll -->
@@ -502,8 +502,8 @@
         <svg height="300px"></svg>
 
         <div id = "noun_to_verb_div">
-            <h2>Noun to Verb Mapping</h2>
-            <p class="intro__dek">[Uses dummy data for now]</p>
+            <h2 id = 'nv_title'>Noun to Verb Mapping</h2>
+            <p class="intro__dek" id = 'nv_info'>[Uses dummy data for now]</p>
         </div>
 
         <section id="outro"></section>
@@ -1096,7 +1096,7 @@
                 //   [13, 14, 15, 16]
                 // ];
 
-                var height = $(document).height() * 0.5 / 6.5;
+                var height = $(document).height() * 0.079;
                 var width = $(document).width() * 0.5;
 
                 var outerRadius = width * 0.3; //Math.min(width, height) * 0.3;
@@ -1223,7 +1223,8 @@
 
             }
 
-            function noun_to_noun_init(index) {
+            // the initial function that loads all the data from files and stores them in cache
+            function noun_to_noun_step(index) {
                 d3.selectAll("#n_to_n").remove();
 
                 if (index == 4) {
@@ -1238,7 +1239,7 @@
                 }              
             }
 
-            // loads all the noun to noun data to variables
+            // the initial function that loads all the data from files and stores them in cache
             function loadNnData() {
                 d3.text("/WordToWordDataProcessing/n_to_n(clean)/cnn_nn(clean).txt", function(text) {
 
@@ -1399,7 +1400,7 @@
                 data[data.length / 2 - 1][data.length - 1] = emptyWidth;
                 data[data.length - 1][data.length / 2 - 1] = emptyWidth;
 
-                var height = 900;//$(document).height() * 0.8;
+                var height = $(document).height() * 0.1;
                 var width = $(document).width() * 0.8;
 
                 var outerRadius = Math.min(width, height) * 0.48;
@@ -1433,7 +1434,7 @@
                             .attr("id", "circle")
                             .attr("width", width)
                             .attr("height", height)
-                            .attr("transform", "translate(" + width / 2 + "," + (outerRadius * 0.75) + ")");
+                            .attr("transform", "translate(" + width / 2 + "," + (outerRadius * 0.7) + ")");
 
                 svg.append("circle").attr("r", outerRadius);
 
@@ -1682,7 +1683,7 @@
                     // @Kevin: Here's where your update function should go
                     // update graphic based on step
                     
-                    noun_to_noun_init(response.index);
+                    noun_to_noun_step(response.index);
                 }
         
                 function handleContainerEnter(response) {
