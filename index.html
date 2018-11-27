@@ -333,8 +333,6 @@
         }
 
         #assoc {
-            margin-top: 50px;
-            margin-bottom: 50px;
             align-content: center;
             text-align: center;
         }
@@ -402,51 +400,51 @@
                     <div class="step" style="height: 615px; position: relative;">
                         <p>[Add scroll text here]</p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "voters">VOTERS</button>
-                            <button id = "women">WOMEN</button>
-                            <button id = "hispanic">HISPANIC</button>
-                            <button id = "female">FEMALE</button>
-                            <button id = "black">BLACK</button>
-                            <button id = "african-american">AFRICAN-AMERICAN</button>
+                            <button id = "voters" class = "a">VOTERS</button>
+                            <button id = "women" class = "a">WOMEN</button>
+                            <button id = "hispanic" class = "a">HISPANIC</button>
+                            <button id = "female" class = "a">FEMALE</button>
+                            <button id = "black" class = "a">BLACK</button>
+                            <button id = "african-american" class = "a">AFRICAN-AMERICAN</button>
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
                         <p>[Add scroll text here]</p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "sinema">SINEMA</button>
-                            <button id = "orourke">O'ROURKE</button>
-                            <button id = "nelson">NELSON</button>
-                            <button id = "mcsally">MCSALLY</button>
-                            <button id = "mccaskill">MCCASKILL</button>
-                            <button id = "kemp">KEMP</button>
-                            <button id = "jones">JONES</button>
-                            <button id = "hemingway">HEMINGWAY</button>
-                            <button id = "gillum">GILLUM</button>
-                            <button id = "feinstein">FEINSTEIN</button>
-                            <button id = "donnelly">DONNELLY</button>
-                            <button id = "desantis">DESANTIS</button>
-                            <button id = "crenshaw">CRENSHAW</button>
-                            <button id = "blackburn">BLACKBURN</button>
-                            <button id = "abrams">ABRAMS</button>
+                            <button id = "sinema" class = "b">SINEMA</button>
+                            <button id = "orourke" class = "b">O'ROURKE</button>
+                            <button id = "nelson" class = "b">NELSON</button>
+                            <button id = "mcsally" class = "b">MCSALLY</button>
+                            <button id = "mccaskill" class = "b">MCCASKILL</button>
+                            <button id = "kemp" class = "b">KEMP</button>
+                            <button id = "jones" class = "b">JONES</button>
+                            <button id = "hemingway" class = "b">HEMINGWAY</button>
+                            <button id = "gillum" class = "b">GILLUM</button>
+                            <button id = "feinstein" class = "b">FEINSTEIN</button>
+                            <button id = "donnelly" class = "b">DONNELLY</button>
+                            <button id = "desantis" class = "b">DESANTIS</button>
+                            <button id = "crenshaw" class = "b">CRENSHAW</button>
+                            <button id = "blackburn" class = "b">BLACKBURN</button>
+                            <button id = "abrams" class = "b">ABRAMS</button>
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
                         <p>[Add scroll text here]</p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "snl">SNL</button>
-                            <button id = "probe">PROBE</button>
-                            <button id = "media-bias">MEDIA-BIAS</button>
-                            <button id = "marijuana">MARIJUANA</button>
-                            <button id = "impeachment">IMPEACHMENT</button>
-                            <button id = "immigration">IMMIGRATION</button>
-                            <button id = "ice">ICE</button>
-                            <button id = "healthcare">HEALTHCARE</button>
-                            <button id = "fear">FEAR</button>
-                            <button id = "facebook">FACEBOOK</button>
-                            <button id = "caravan">CARAVAN</button>
-                            <button id = "border">BORDER</button>
-                            <button id = "approval-rating">APPROVAL-RATING</button>
-                            <button id = "abortion">ABORTION</button>
+                            <button id = "snl" class = "c">SNL</button>
+                            <button id = "probe" class = "c">PROBE</button>
+                            <button id = "media-bias" class = "c">MEDIA-BIAS</button>
+                            <button id = "marijuana" class = "c">MARIJUANA</button>
+                            <button id = "impeachment" class = "c">IMPEACHMENT</button>
+                            <button id = "immigration" class = "c">IMMIGRATION</button>
+                            <button id = "ice" class = "c">ICE</button>
+                            <button id = "healthcare" class = "c">HEALTHCARE</button>
+                            <button id = "fear" class = "c">FEAR</button>
+                            <button id = "facebook" class = "c">FACEBOOK</button>
+                            <button id = "caravan" class = "c">CARAVAN</button>
+                            <button id = "border" class = "c">BORDER</button>
+                            <button id = "approval-rating" class = "c">APPROVAL-RATING</button>
+                            <button id = "abortion" class = "c">ABORTION</button>
                         </div>
                     </div>
                 </div>
@@ -636,7 +634,7 @@
             function scatter_plot(selector) {
                 var margin = { top: 50, bottom: 160 }
                 var width = 960
-                var height = 500 - margin.top - margin.bottom
+                var height = 700 - margin.top - margin.bottom
                 var side = height * 2 / Math.sqrt(3)
 
                 var svg = d3.select(selector)
@@ -740,7 +738,6 @@
 
                     svg.selectAll('.point')
                         .on("mousemove", function(d){
-                            console.log(d3.event.pageY);
                             tooltip
                             .style("left", d3.event.pageX - 50 + "px")
                             .style("top", d3.event.pageY - 70 + "px")
@@ -765,11 +762,21 @@
                         .transition()
                         .style('opacity', 0.05);
 
-                    var selection = plot.selectAll('#women_point, #african-american_point, #black-voters_point, #hispanic_point, #voters_point, #female_point');
+                    var selection = plot.selectAll('#women_point, #african-american_point, #black_point, #hispanic_point, #voters_point, #female_point');
                         
                     selection.transition()
                         .style('opacity', 1)
                         .style('fill', 'black');
+
+                    d3.selectAll(".a")
+                        .on("mousemove", function() {
+                            var point = d3.select("#" + this.id + "_point");
+                            selection.style('opacity', 0.05);
+                            point.style('opacity', 1).style('fill', 'black');
+                        })
+                        .on("mouseout", function(d){ 
+                            selection.style('opacity', 1).style('fill', 'black');
+                        });
                 }
                 else if (index == 2) {
                     var plot = d3.select('#scatter_plot');
@@ -781,6 +788,16 @@
                     selection.transition()
                         .style('opacity', 1)
                         .style('fill', 'black');
+
+                    d3.selectAll(".b")
+                        .on("mousemove", function() {
+                            var point = d3.select("#" + this.id + "_point");
+                            selection.style('opacity', 0.05);
+                            point.style('opacity', 1).style('fill', 'black');
+                        })
+                        .on("mouseout", function(d){ 
+                            selection.style('opacity', 1).style('fill', 'black');
+                        });
                 }
                 else {
                     var plot = d3.select('#scatter_plot');
@@ -792,6 +809,16 @@
                     selection.transition()
                         .style('opacity', 1)
                         .style('fill', 'black');
+
+                    d3.selectAll(".c")
+                        .on("mousemove", function() {
+                            var point = d3.select("#" + this.id + "_point");
+                            selection.style('opacity', 0.05);
+                            point.style('opacity', 1).style('fill', 'black');
+                        })
+                        .on("mouseout", function(d){ 
+                            selection.style('opacity', 1).style('fill', 'black');
+                        });
                 }
             }
 
