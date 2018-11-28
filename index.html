@@ -1209,7 +1209,7 @@
                 //          .attr("dy", ".35em")
                 //          .attr("transform", d => d.angle > Math.PI ? "rotate(180) translate(-16)" : null)
                 //          .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
-                //          .text(function(d,i) { console.log(i); return Names[i]; });
+                //          .text(function(d,i) { console.log(i); return allWords[i]; });
 
                 // creates the labels
                 group.append("text")
@@ -1262,7 +1262,7 @@
 
             }
 
-            // the initial function that loads all the data from files and stores them in cache
+            // the function renders the graph based on the current step
             function noun_to_noun_step(index) {
                 d3.selectAll("#n_to_n").remove();
 
@@ -1285,7 +1285,6 @@
                     // remove the empty lines at the end
                     removeEmptyLines(cnnNnArr);
 
-
                     // the list contains all the words
                     allCnnNnWords = getListOfAllWords(cnnNnArr);
 
@@ -1305,7 +1304,6 @@
                     // remove the empty lines at the end
                     removeEmptyLines(foxNnArr);
 
-
                     // the list contains all the words
                     allFoxNnWords = getListOfAllWords(foxNnArr);
 
@@ -1324,7 +1322,6 @@
 
                     // remove the empty lines at the end
                     removeEmptyLines(msnbcNnArr);
-
 
                     // the list contains all the words
                     allMsnbcNnWords = getListOfAllWords(msnbcNnArr);
@@ -1404,21 +1401,27 @@
 
             /** --------------------------noun to verb plot----------------------------------------------- */
 
+            var nv2dArr, allNvWords, allCnnNvWords, allFoxNvWords, allMsnbcNvWords;
+
             function noun_to_verb(selector) {
 
-                var Names = ["ONE", "TWO", "", "THREE", "FOUR", ""];
+                // var allWords = ["ONE", "TWO", "", "THREE", "FOUR", "FIVE", ""];
+                
+                // // temporary data for experiment
+                // var data = [
+                //   [0, 0, 0, 5, 10, 0, 0],
+                //   [0, 0, 0, 3, 16, 20, 0],
+                //   [0, 0, 0, 0, 0, 0, 0], 
+                //   [5, 3, 0, 0, 0, 0, 0],
+                //   [10, 16, 0, 0, 0, 0, 0],
+                //   [0, 20, 0, 0, 0, 0, 0], 
+                //   [0, 0, 0, 0, 0, 0, 0]
+                // ];
+
+                var allWords = allNvWords;
+                var data = nv2dArr;
 
                 var emptyPercent = 0.6;
-
-                // temporary data for experiment
-                var data = [
-                  [0, 0, 0, 5, 10, 0],
-                  [0, 0, 0, 3, 16, 0],
-                  [0, 0, 0, 0, 0, 0], 
-                  [5, 3, 0, 0, 0, 0],
-                  [10, 16, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0]
-                ];
 
                 var total = 0;
                 for (var i = 0; i < data.length; i++) {
@@ -1433,11 +1436,11 @@
                 var offset = Math.PI * (emptyWidth * 2 / (total + emptyWidth * 2)) / 2;
 
                 // fills in the empty width for the data matrix
-                data[data.length / 2 - 1][data.length - 1] = emptyWidth;
-                data[data.length - 1][data.length / 2 - 1] = emptyWidth;
+                data[allWords.indexOf("")][allWords.lastIndexOf("")] = emptyWidth;
+                data[allWords.lastIndexOf("")][allWords.indexOf("")] = emptyWidth;
 
                 var height = $(document).height() * 0.1;
-                var width = $(document).width() * 0.8;
+                var width = $(document).width() * 0.9;
 
                 var outerRadius = Math.min(width, height) * 0.48;
                 var innerRadius = outerRadius * 0.95;
@@ -1495,6 +1498,8 @@
                                //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")")
                                .on("mouseover", chordMouseOver);
 
+                               console.log(chords.groups);
+
                 // // creates the marks 
                 // var groupTick = group.selectAll("g")
                 //                      .data(d => calculateMiddle(d))
@@ -1514,7 +1519,7 @@
                 //          .attr("dy", ".35em")
                 //          .attr("transform", d => d.angle > Math.PI ? "rotate(180) translate(-16)" : null)
                 //          .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
-                //          .text(function(d,i) { console.log(i); return Names[i]; });
+                //          .text(function(d,i) { console.log(i); return allWords[i]; });
 
                 // creates the labels
                 group.append("text")
@@ -1533,7 +1538,8 @@
                      //     var angle = (d.angle + offset) * 180 / Math.PI - 90;
                      //     return `rotate(${angle > Math.PI? angle + 180 : angle}) translate(${outerRadius},0)`
                      // })
-                     .text(function(d,i) { return Names[i]; });
+                     .text(function(d,i) { return allWords[i]; });
+                console.log("here");
 
                 // creates the paths
                 var edges = svg.append("g")
@@ -1544,13 +1550,13 @@
                                .attr("d", ribbon)
                                .attr("fill", d => color(d.target.index))
                                .attr("stroke", d => d3.rgb(color(d.target.index)).darker())
-                               .attr("opacity", d => Names[d.source.index] === "" ? 0 : 0.67);
+                               .attr("opacity", d => allWords[d.source.index] === "" ? 0 : 0.67);
                                //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")");
 
                 // creates the arc on the edge besides the text
                 var groupChord = group.append("path")
                                       .attr("d", arc)
-                                      .attr("fill", function(d,i) { return (Names[i] === "" ? "#FFFFFF" : "#888888"); });
+                                      .attr("fill", function(d,i) { return (allWords[i] === "" ? "#FFFFFF" : "#888888"); });
                                       //.on("mouseover", chordMouseOver);
 
                 function calculateMiddle(d) {
@@ -1561,7 +1567,7 @@
                 }
 
                 function chordMouseOver(d, i) {
-                    console.log(i);
+                    console.log("arc index: " + i);
                     edges.classed("fade", function(p) {
                         return i != data.length - 1 && i != data.length / 2 - 1 && p.source.index != i && p.target.index != i;
                     })
@@ -1572,7 +1578,109 @@
                 function endAngle(d) { return d.endAngle + offset; }
             }
 
-            noun_to_verb("#noun_to_verb_div");
+            // var nv2dArr, allNvWords, allCnnNvWords, allFoxNvWords, allMsnbcNvWords;
+
+            // the initial function that loads all the data from files and stores them in cache
+            function noun_to_verb_init() {
+
+                d3.text("cnn_nv(clean).txt", function(text) {
+
+                    var allRawData = [];
+
+                    // original file, each arr element being a single line
+                    var cnnNvArr = text.split("\n");
+
+                    // remove the empty lines at the end
+                    removeEmptyLines(cnnNvArr);
+                    appendArray(allRawData, cnnNvArr);
+
+
+                    // the list contains all the words
+                    allCnnNvWords = getListOfAllWords(cnnNvArr);
+
+                    d3.text("fox_nv(clean).txt", function(text) {
+
+                        // original file, each arr element being a single line
+                        var foxNvArr = text.split("\n");
+
+                        // remove the empty lines at the end
+                        removeEmptyLines(foxNvArr);
+                        appendArray(allRawData, foxNvArr);
+
+                        // the list contains all the words
+                        allFoxNvWords = getListOfAllWords(foxNvArr);
+
+                        d3.text("msnbc_nv(clean).txt", function(text) {
+
+                            // original file, each arr element being a single line
+                            var msnbcNvArr = text.split("\n");
+
+                            // remove the empty lines at the end
+                            removeEmptyLines(msnbcNvArr);
+                            appendArray(allRawData, msnbcNvArr);
+
+                            // the list contains all the words
+                            allMsnbcNvWords = getListOfAllWords(msnbcNvArr);
+
+                            // first get all the nouns, then get all the verbs, then put them in the correct order
+                            var allNouns = [];
+                            var allVerbs = [];
+
+                            for (var i = 0; i < allRawData.length; i++) {
+                                var lineArr = allRawData[i].split(",");
+                                lineArr[0] = lineArr[0].trim();
+                                if (lineArr[0].length != 0) {
+                                    allNouns.push(lineArr[0]);
+                                } else {
+                                    break;
+                                }
+
+                                for (var j = 1; j < lineArr.length; j++) {
+                                    lineArr[j] = lineArr[j].trim();
+                                    if (lineArr[j].length == 0) {
+                                        break;
+                                    }
+                                    var wordArr = lineArr[j].split(":");
+                                    if (allVerbs.indexOf(wordArr[0]) == -1) {
+                                        allVerbs.push(wordArr[0]);
+                                    }
+                                }
+                            }
+
+                            // put together the words in the correct order
+                            allNvWords = [];
+                            allNouns.sort().reverse();
+                            allVerbs.sort();
+                            appendArray(allNvWords, allVerbs);
+                            allNvWords.push("");
+                            appendArray(allNvWords, allNouns);
+                            allNvWords.push("");
+
+                            nv2dArr = generateEmpry2dArray(allNvWords);
+
+                            // fills in the data
+                            fillIn2dArray(nv2dArr, allNvWords, allRawData);
+
+                            noun_to_verb("#noun_to_verb_div");
+                            
+                        });
+                        
+                    });
+
+                });
+
+
+                
+            }
+
+            // appends all elements of arr2 to the end of arr1
+            function appendArray(arr1, arr2) {
+                for (var i = 0; i < arr2.length; i++) {
+                    arr1.push(arr2[i]);
+                }
+            }
+
+            noun_to_verb_init();
 
             /** --------------------------noun to verb plot ends------------------------------------------- */
 
