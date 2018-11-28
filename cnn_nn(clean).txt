@@ -15,8 +15,8 @@ economy,ad:29,antiimmigration:10,gop:9,fox:9,message:11,trump:53,immigration:12,
 migrants,trump:5,troops:8,border:7,migrants:9
 border,trump:10,troops:7,caravan:8,migrants:7
 trump,rally:19,ad:57,economy:53,democrats:28,invasion:26,falsehoods:7,antiimmigration:15,gop:31,abrams:12,sanctions:6,oprah:6,fox:30,hannity:5,citizenship:9,message:52,voters:40,congress:12,women:13,tone:21,obama:52,immigration:49,campaign:67,rallies:32,house:85,facebook:19
-republicans,trump:17,women:5,immigration:5,democrats:7,arguments:6
-georgia,trump:7,voters:32,elections:5,robocall:18,gop:18,governor:75,abrams:39,oprah:18,democratss:28,database:21
+republicans,trump:17,women:5,immigration:5,democrats:35,arguments:6
+georgia,trump:7,voters:32,elections:5,robocall:18,gop:18,governor:75,abrams:39,oprah:18,database:21
 congress,trump:12,voters:11,america:12,democrats:10,house:16
 immigration,trump:60,voters:21,issues:15,economy:12,democrats:9,health:15,invasion:18,gop:10,fears:23,citizenship:9
 

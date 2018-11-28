@@ -1,5 +1,5 @@
 americans,trump:3,socialism:5,democrats:5,bandwagon:5
-gop,senate:6,trump:25,voters:12,republicans:7,americas:9,majority:20,democratss:25
+gop,senate:6,trump:25,voters:12,republicans:7,americas:9,majority:20,democrats:25
 voters,economy:22,texas:7,gop:12,trump:13,issues:10
 probe,russia:3,whitaker:3,attorney-general:3
 house,democrats:129,gop:42,majority:22,pelosi:8,senate:9,trump:31,republicans:98
