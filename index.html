@@ -193,7 +193,7 @@
 
         .point {
             fill: #30303d;
-            fill-opacity: 0.7;
+            fill-opacity: 0.8;
             stroke-width: 1;
         }
 
@@ -409,12 +409,12 @@
                     <div class="step is-active" style="height: 615px; position: relative;">
                         <p>[Add scroll text here]</p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "voters" class = "d">HELLO</button>
-                            <button id = "women" class = "d">HELLO</button>
-                            <button id = "hispanic" class = "d">HELLO</button>
-                            <button id = "female" class = "d">HELLO</button>
-                            <button id = "black" class = "d">HELLO</button>
-                            <button id = "african-american" class = "d">HELLO</button>
+                            <button id = "trump" class = "d">TRUMP</button>
+                            <button id = "senate" class = "d">SENATE</button>
+                            <button id = "migrants" class = "d">MIGRANTS</button>
+                            <button id = "gop" class = "d">GOP</button>
+                            <button id = "house" class = "d">HOUSE</button>
+                            <button id = "florida" class = "d">FLORIDA</button>
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
@@ -774,6 +774,19 @@
                 if (index == 0) {
                     d3.select("#scatter_plot").remove();
                     scatter_plot('#f_scatter');
+
+                    var plot = d3.select('#scatter_plot');
+
+                    d3.selectAll(".d")
+                        .on("mousemove", function() {
+                            var point = d3.select("#" + this.id + "_point");
+                            plot.selectAll('.point')
+                                .style('opacity', 0.05);
+                            point.style('opacity', 1).style('fill', 'black');
+                        })
+                        .on("mouseout", function(d){ 
+                            plot.selectAll('.point').style('opacity', 1).style('fill', '#30303d');
+                        });
                 }
                 else if (index == 1) {
                     var plot = d3.select('#scatter_plot');
