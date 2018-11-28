@@ -1,6 +1,1944 @@
-<!DOCTYPE HTML>
-<html xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="refresh" content="0; URL='../index.html'" />
-</head>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Divided Congress And Coverage?</title>
+        <meta name="description" content="442 Final Project">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+		*{
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Droid Serif', serif;
+		}
+
+		body {
+			min-height: 1280px;
+			font-weight: 300;
+			color: #2a2a2a;
+		}
+
+		p,
+		h1,
+		h2,
+		h3,
+		h4,
+		a {
+			margin: 0;
+			font-weight: 300;
+		}
+
+		a
+		{
+            color: black;
+            font-style: italic;
+			text-decoration: none;
+			border-bottom: 1px solid currentColor;
+		}
+
+		#intro {
+			max-width: 40rem;
+			margin: auto;
+			text-align: center;
+            line-height: 1.8em;
+            padding-bottom: 2rem;
+		}
+
+		.intro__overline {
+			font-size: 1.4rem;
+		}
+
+		.intro__hed {
+			font-size: 64px;
+            line-height: 1em;
+			margin: auto;
+			text-transform: uppercase;
+			font-weight: 900;
+			letter-spacing: 0.05em;
+		}
+
+		.intro__dek {
+			font-size: 1.4rem;
+		}
+
+        #c_smart {
+            font-size: 12px;
+            font-style: italic;
+            padding-bottom: 2.5rem;
+        }
+
+        #f_char {
+            float: left;
+            font-size: 350%;
+            font-weight: 600;
+            line-height: 60px;
+            padding-top: 4px;
+        }
+
+        .word_cloud {
+            display: inline-block;
+        }
+
+		/* demo */
+
+        .d_back_black {
+            background-color: #30303d;
+            color: #efefef;
+            line-height: 1.7;
+            font-size: 15px;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            padding-top: 3rem;
+        }
+
+        .d_back_white {
+            padding-top: 3rem;
+            background-color: #fafafa;
+            color: #181619;
+        }
+
+		#outro {
+			height: 640px;
+		}
+
+		/* scrollama */
+
+		#scroll, #scroll_1 {
+			position: relative;
+		}
+
+        .scroll__section {
+            padding: 20px 20px;
+            position: relative;
+        }
+
+		.scroll__graphic {
+			position: absolute;
+			top: 0;
+			right: 2rem;
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		}
+
+		.scroll__graphic.is-fixed {
+			position: fixed;
+		}
+
+		.scroll__graphic.is-bottom {
+			bottom: 0;
+			top: auto;
+		}
+
+		.scroll__graphic p {
+			text-align: center;
+			padding: 1rem;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-moz-transform: translate(-50%, -50%);
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			font-size: 8rem;
+			font-weight: 900;
+			color: #666;
+		}
+
+		.scroll__text {
+			position: relative;
+			padding: 0 1rem;
+			max-width: 60rem;
+            width: 33%;
+        }
+        
+        .channel {
+            font-weight: bold;
+        }
+
+		.step {
+			margin: 0 auto 0 auto;
+			/* border-bottom: none; */
+		}
+
+		.step:last-child {
+			border-bottom: 1px solid #333;
+		}
+
+		.step.is-active {
+			background-color: #ddd;
+		}
+
+		.step p {
+			text-align: center;
+			padding: 1rem;
+            font-size: 1.4rem;
+            line-height: 1.3em;
+        }
+        
+        .topic {
+            font-weight: bold;
+        }
+
+        .axis .domain { display: none; }
+        .scroll__graphic .axis .tick {display: none;}
+
+        text.label {
+            text-transform: uppercase;
+            font-family: monospace;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 0.1;
+        }
+        path.arrow, text.label {
+            fill: #30303d;
+            cursor: pointer;
+        }
+
+        .point {
+            fill: #30303d;
+            fill-opacity: 0.8;
+            stroke-width: 1;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            padding-bottom: 2.5rem;
+        }
+
+        .toolTip {
+            position: absolute;
+            display: none;
+            min-width: 80px;
+            height: auto;
+            background: none repeat scroll 0 0 #ffffff;
+            border: 1px solid black;
+            padding: 14px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .graphic__hed{
+            text-align:center;
+            color:#333;
+        }
+        
+        .chart{
+            max-width:40rem;
+            margin:0 auto;
+            text-align:center;
+        }
+        
+        .slider{
+            max-width:20rem;
+            margin:1rem auto;
+            position:relative;
+            padding-top:16.5px;
+        }
+        
+        .slider input{
+            display:block;
+            width:100%;
+        }
+        
+        .slider:before{
+            content:'Duration';
+            text-transform:uppercase;
+            font-size:11px;
+            letter-spacing:.05em;
+            color:#888;
+            display:inline-block;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        
+        .slider:after{
+            content:'Frequency';
+            text-transform:uppercase;
+            font-size:11px;
+            letter-spacing:.05em;
+            color:#888;
+            display:inline-block;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        
+        .g-axis line,.g-axis path{
+            stroke:#ccc;
+        }
+        
+        .g-axis text{
+            fill:#888;
+        }
+        
+        .g-axis .axis__label{
+            text-transform:uppercase;
+            font-size:11px;
+            letter-spacing:.05em;
+            fill:#888;
+        }
+        
+        .item{
+            fill-opacity:.75;
+        }
+
+        .pivot_label {
+            text-align: center;
+            font-weight:  900;
+            font-size: 150%;
+            color: #888;
+        }
+
+        #pivot_scatter, #noun_to_verb_div {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            align-content: center;
+            text-align: center;
+        }
+
+        .graphic--1, .graphic--2, .graphic--3 {
+            float: left;
+        }
+
+        #pivot_intro {
+            font-size: 32px;
+            line-height: 1em;
+			margin: auto;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+			text-transform: uppercase;
+			font-weight: 700;
+            color:#888;
+        }
+
+        #pivot_info {
+            padding-bottom: 6rem;
+            font-size: 1.4rem;
+            color:#888;
+        }
+
+        #pivot_container {
+            padding-left: 8%;
+        }
+
+        #nn_title, #nv_title {
+            font-size: 32px;
+            line-height: 1em;
+			margin: auto;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+			text-transform: uppercase;
+			font-weight: 700;
+        }
+
+        #nn_info, #nv_info {
+            padding-bottom: 6rem;
+            font-size: 1.4rem;
+        }
+
+        #assoc {
+            align-content: center;
+            text-align: center;
+        }
+
+        #circle circle {
+            fill: none;
+            pointer-events: all;
+        }
+
+        #circle:hover path.fade {
+            display: none;
+        }
+
+        button {
+            background-color: #555555;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 2px 1px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #fafafa;
+            color: #555555;
+        }
+
+        .btns {
+            margin-left: 5px;
+            margin-bottom: 10px;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class = "d_back_white">
+            <section id = "intro">
+                <h1 class="intro__hed">Divided Congress & Coverage?</h1>
+                <p class = "intro_dek" id = "c_smart">Inspired by Charlie Smart's <a href = "https://pudding.cool/2018/01/chyrons/" target = "_blank">visualization</a> on The Pudding</p>
+                <img src="intro_icon.png" width="200" height="350" class = "center">
+                <p class="intro__dek">
+                    <span id = "f_char">T</span>oday, Americans are more ideologically divided than anytime in the past. As a result, the American consumers increasingly prefer media
+                    that confirms to their own political and social preferences, which inturn seeps bias into the content itself. It becomes a vicious feedback loop.                     
+                </p>
+                <br>
+                <p class="intro__dek">
+                    Research shows that this bias in content operates via two mechanisms: <span style = "font-weight: bold">ISSUE <span style = "color: brown">FILTERING</span></span>
+                    and <span style = "font-weight: bold">ISSUE <span style = "color: brown">FRAMING</span></span>.
+                    <a href = "https://www8.gsb.columbia.edu/media/sites/media/files/JustinRaoMediaBias.pdf" target = "_blank">(Source)</a>
+                </p>
+                <br>
+                <p class="intro__dek">
+                    We decided to visualize the extent of this bias by examining the cable news headlines for CNN, Fox News and MSNBC during their coverage of the midterm
+                    elections of 2018.
+                </p>
+            </section>
+        </div>
+
+        <div id = "word_cloud" class = d_back_white></div>
+
+        <div class = "d_back_white">
+            <section id = "scroll" class = "scroll_section">
+                <div class="scroll__graphic" id = "f_scatter" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
+                <!-- This is where text goes, as we scroll -->
+               <div class="scroll__text">
+                    <div class="step is-active" style="height: 615px; position: relative;">
+                        <p>We decided to map out some of the most frequently talked about topics by 
+                            <span class = "channel">CNN</span>, <span class = "channel">FOX NEWS</span> 
+                            and <span class = "channel">MSNBC</span> during their midterm elections coverage. 
+                        </p>
+                        <br>
+                        <p>
+                            Some of the most frequently talked about topics included President <span class = "topic">Trump</span> and
+                            his <span class = "topic">rallies</span>, <span class = "topic">migrants</span>, the <span class = "topic">house</span> and the <span class = "topic">senate</span>,
+                            with the state of <span class = "topic">Florida</span> and the Democratic candidates Beto <span class = "topic">O'Rourke</span> and
+                            Andrew <span class = "topic">Gillum</span> getting the most proportional coverage.
+                         </p>
+                        <br>
+                        <p style = "text-decoration: underline; font-size: 18px;">Hover over the topics below to see where they lie in the visualization.</p>
+                        <div class = "btns" style="position: absolute; bottom: 0px;">
+                            <button id = "trump" class = "d">TRUMP</button>
+                            <button id = "senate" class = "d">SENATE</button>
+                            <button id = "rallies" class = "d">RALLIES</button>
+                            <button id = "orourke" class = "d">O'ROURKE</button>
+                            <button id = "migrants" class = "d">MIGRANTS</button>
+                            <button id = "gop" class = "d">GOP</button>
+                            <button id = "gillum" class = "d">GILLUM</button>
+                            <button id = "house" class = "d">HOUSE</button>
+                            <button id = "florida" class = "d">FLORIDA</button>
+                        </div>
+                    </div>
+                    <div class="step" style="height: 615px; position: relative;">
+                        <p>Next, we decided to look at the <span style = "font-weight: bold; text-decoration: underline;">inclusivity</span> 
+                            of the language used by the three news channels by looking at the number of mentions of underpresented and minority groups
+                        </p>
+                        <br>
+                        <p>
+                            Overall, <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> frequently mentioned
+                            <span class = "topic">women</span>, <span class = "topic">black</span> voters, <span class = "topic">african-american</span> voters, <span class = "topic">hispanics</span>
+                            and <span class = "topic">gender</span> (gap and/or bias) with little to no mention of many of these topics by <span class = "channel">FOX NEWS</span>.
+                        </p>
+                        <div class = "btns" style="position: absolute; bottom: 0px;">
+                            <button id = "voters" class = "a">VOTERS</button>
+                            <button id = "women" class = "a">WOMEN</button>
+                            <button id = "hispanic" class = "a">HISPANIC</button>
+                            <button id = "gender" class = "a">GENDER</button>
+                            <button id = "female" class = "a">FEMALE</button>
+                            <button id = "black" class = "a">BLACK</button>
+                            <button id = "african-american" class = "a">AFRICAN-AMERICAN</button>
+                        </div>
+                    </div>
+                    <div class="step" style="height: 615px; position: relative;">
+                        <p>[Add scroll text here]</p>
+                        <div class = "btns" style="position: absolute; bottom: 0px;">
+                            <button id = "sinema" class = "b">SINEMA</button>
+                            <button id = "orourke" class = "b">O'ROURKE</button>
+                            <button id = "nelson" class = "b">NELSON</button>
+                            <button id = "mcsally" class = "b">MCSALLY</button>
+                            <button id = "mccaskill" class = "b">MCCASKILL</button>
+                            <button id = "kemp" class = "b">KEMP</button>
+                            <button id = "jones" class = "b">JONES</button>
+                            <button id = "hemingway" class = "b">HEMINGWAY</button>
+                            <button id = "gillum" class = "b">GILLUM</button>
+                            <button id = "feinstein" class = "b">FEINSTEIN</button>
+                            <button id = "donnelly" class = "b">DONNELLY</button>
+                            <button id = "desantis" class = "b">DESANTIS</button>
+                            <button id = "crenshaw" class = "b">CRENSHAW</button>
+                            <button id = "blackburn" class = "b">BLACKBURN</button>
+                            <button id = "abrams" class = "b">ABRAMS</button>
+                        </div>
+                    </div>
+                    <div class="step" style="height: 615px; position: relative;">
+                        <p>[Add scroll text here]</p>
+                        <div class = "btns" style="position: absolute; bottom: 0px;">
+                            <button id = "snl" class = "c">SNL</button>
+                            <button id = "probe" class = "c">PROBE</button>
+                            <button id = "media-bias" class = "c">MEDIA-BIAS</button>
+                            <button id = "marijuana" class = "c">MARIJUANA</button>
+                            <button id = "impeachment" class = "c">IMPEACHMENT</button>
+                            <button id = "immigration" class = "c">IMMIGRATION</button>
+                            <button id = "ice" class = "c">ICE</button>
+                            <button id = "healthcare" class = "c">HEALTHCARE</button>
+                            <button id = "fear" class = "c">FEAR</button>
+                            <button id = "facebook" class = "c">FACEBOOK</button>
+                            <button id = "caravan" class = "c">CARAVAN</button>
+                            <button id = "border" class = "c">BORDER</button>
+                            <button id = "approval-rating" class = "c">APPROVAL-RATING</button>
+                            <button id = "abortion" class = "c">ABORTION</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- dummy, seperation for the large graph above -->
+        <svg height="200px"></svg>
+        
+        <div id = "pivot_scatter">
+            <h2 id = 'pivot_intro'>Frequency vs. Duration</h2>
+            <p class="intro__dek" id = 'pivot_info'>[Uses dummy data for now]</p>
+            <div id = 'pivot_container' style = "height: 420px">
+                <div class='graphic graphic--3' style = "width: 30%">
+                    <p class = 'pivot_label'>FOX</p>
+                    <div class='chart'></div>
+                    <div class='slider'><input type='range' min='0' max='100' value='50'></div>
+                </div>
+                    
+                <div class='graphic graphic--2' style = "width: 30%">
+                    <p class = 'pivot_label'>CNN</p>
+                    <div class='chart'></div>
+                    <div class='slider'><input type='range' min='0' max='100' value='50'></div>
+                </div>
+            
+                <div class='graphic graphic--1' style = "width: 30%">
+                    <p class = 'pivot_label'>MSNBC</p>
+                    <div class='chart'></div>
+                    <div class='slider'><input type='range' min='0' max='100' value='50'></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- @Kevin: This is the HTML section for your visualization [Also has associated CSS contentx] -->
+        <div class = "d_back_white" id = 'assoc'>
+            <h2 id = 'nn_title'>Noun to Noun Mapping</h2>
+            <p class="intro__dek" id = 'nn_info'>[example data for now]</p>
+            <section id = "scroll_1" class = "scroll_section">
+                <div id="noun_to_noun" class="scroll__graphic" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
+                <!-- This is where text goes, as we scroll -->
+                <div class="scroll__text">
+                    <div class="step is-active" style="height: 615px;">
+                        <p>CNN</p>
+                    </div>
+                    <div class="step" style="height: 615px;">
+                        <p>FOX</p>
+                    </div>
+                    <div class="step" style="height: 615px;">
+                        <p>MSNBC</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- dummy, seperation for the large graph above -->
+        <svg height="300px"></svg>
+
+        <div id = "noun_to_verb_div">
+            <h2 id = 'nv_title'>Noun to Verb Mapping</h2>
+            <p class="intro__dek" id = 'nv_info'>[Uses dummy data for now]</p>
+        </div>
+
+        <section id="outro"></section>
+
+        <script src="https://d3js.org/d3.v4.min.js"></script> <!-- Note that we're using Scrollama with D3 -->
+        <script src="https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js"></script>
+        <script src="https://unpkg.com/scrollama"></script>  <!-- We're using Scrollama to get the scrolling functionality -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(this).scrollTop(0);
+            });
+
+            // using d3
+
+            /** ------------------------------------wordcloud animation-------------------------------- */
+
+            function wordCloud(selector) {
+
+                var fill = d3.scaleOrdinal(d3.schemeCategory20);
+
+                var width = $(document).width();
+                var height = 500;
+
+                //Construct the word cloud's SVG element
+                var svg = d3.select(selector).append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .append("g")
+                    .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+
+
+                //Draw the word cloud
+                function draw(words) {
+                    var cloud = svg.selectAll("g text")
+                                    .data(words, function(d) { return d.text; })
+
+                    //Entering words
+                    cloud.enter()
+                        .append("text")
+                        .style("font-family", "Impact")
+                        .attr("text-anchor", "middle")
+                        .attr('font-size', 1)
+                        .text(function(d) { return d.text; });
+
+                    //Entering and existing words
+                    cloud
+                        .transition()
+                            .duration(600)
+                            .style("font-size", function(d) { return d.size + "px"; })
+                            .attr("transform", function(d) {
+                                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                            })
+                            .style("fill-opacity", 1);
+
+                    //Exiting words
+                    cloud.exit()
+                        .transition()
+                            .duration(200)
+                            .style('fill-opacity', 1e-6)
+                            .attr('font-size', 1)
+                            .remove();
+                }
+
+
+                //Use the module pattern to encapsulate the visualisation code. We'll
+                // expose only the parts that need to be public.
+                return {
+
+                    //Recompute the word cloud for a new set of words. This method will
+                    // asycnhronously call draw when the layout has been computed.
+                    //The outside world will need to call this function, so make it part
+                    // of the wordCloud return value.
+                    update: function(words) {
+                        d3.layout.cloud().size([width, height])
+                            .words(words)
+                            .padding(5)
+                            .rotate(function() { return ~~(Math.random() * 2) * 90; })
+                            .font("Impact")
+                            .fontSize(function(d) { return d.size; })
+                            .on("end", draw)
+                            .start();
+                    }
+                }
+            }
+
+            var words = [
+                "Voters Women CNN Sessions Fox Democrats States Crime Economy Evidence Races News Candidates Votes Georgia US Elections Power GOP Governor Voting Early President America Pelosi Polls Democratic Rallies Kemp Congress Nationwide Americans Abrams Campaign",
+                "Fox Obama Health Midterms Representative Message Missouri CNN Trump Congressional Cruz Senator Ballot Racist House Sanctions Florida White-house Race Issues Win Former Immigration Political Texas Border Majority Stakes Republicans Country Iran Washington",
+                "Voters Women CNN Sessions Fox Democrats States Crime Economy Evidence Races News Candidates Votes Georgia US Elections Power GOP Governor Voting Early President America Pelosi Polls Democratic Rallies Kemp Congress Nationwide Americans Abrams Campaign",
+                "Fox Obama Health Midterms Representative Message Missouri CNN Trump Congressional Cruz Senator Ballot Racist House Sanctions Florida White-house Race Issues Win Former Immigration Political Texas Border Majority Stakes Republicans Country Iran Washington"
+            ]
+
+            //Prepare one of the sample sentences by removing punctuation,
+            // creating an array of words and computing a random size attribute.
+            function getWords(i) {
+                return words[i]
+                        .replace(/[!\.,:;\?]/g, '')
+                        .split(' ')
+                        .map(function(d) {
+                            return {text: d, size: 10 + Math.random() * 60};
+                        })
+            }
+
+            //This method tells the word cloud to redraw with a new set of words.
+            //In reality the new words would probably come from a server request,
+            // user input or some other source.
+            function showNewWords(vis, i) {
+                i = i || 0;
+
+                vis.update(getWords(i ++ % words.length))
+                setTimeout(function() { showNewWords(vis, i + 1)}, 2000)
+            }
+
+            //Create a new instance of the word cloud visualisation.
+            var myWordCloud = wordCloud('#word_cloud');
+
+            //Start cycling through the demo data
+            showNewWords(myWordCloud);
+
+            /** --------------------------wordcloud animation ends------------------------------- */
+
+
+                // Hope you're doing well so far!
+
+
+            /** --------------------------frequency scatter plot------------------------------- */
+
+            function scatter_plot(selector) {
+                var margin = { top: 50, bottom: 160 }
+                var width = 960
+                var height = 700 - margin.top - margin.bottom
+                var side = height * 2 / Math.sqrt(3)
+
+                var svg = d3.select(selector)
+                    .append('svg')
+                    .attr('width', width)
+                    .attr('height', height + margin.top + margin.bottom)
+                    .attr('class', 'scroll__graphic')
+                    .attr('id', 'scatter_plot')
+                    .append('g')
+                    .attr('transform', 'translate(' + ((width - side) / 2) + ',' + (margin.top + 0.5) + ')')
+                    .append('g')
+
+                var sideScale = d3.scaleLinear()
+                    .domain([0, 1])
+                    .range([0, side])
+
+                var perpScale = d3.scaleLinear()
+                    .domain([0, 1])
+                    .range([height, 0])
+
+                var r = d3.scaleSqrt().range([0, 10])
+
+                var axis = d3.axisLeft()
+                    .scale(perpScale)
+                    .tickFormat(function (n) { return (n * 100).toFixed(0) });
+
+                var axes = svg.selectAll('.axis')
+                    .data(['Fox', 'CNN', 'MSNBC'])
+                    .enter().append('g')
+                    .attr('class', function (d) { return 'axis ' + d })
+                    .attr('transform', function (d) {
+                        return d === 'MSNBC' ? ''
+                            : 'rotate(' + (d === 'Fox' ? 240 : 120) + ',' + (side * 0.5) + ',' + (height / 3 * 2) + ')'
+                    })
+                    .call(axis)
+
+                var tooltip = d3.select('body').append("div").attr("class", "toolTip");
+
+                axes.append('path')
+                    .attr('class', 'arrow')
+                    .attr('d', 'M0 0 L5 9 L2 9 L2 15 L-2 15 L-2 9 L-5 9 Z')
+                    .attr('transform', 'translate(' + (side * 0.5) + ',10)')
+                    .on('click', rotate)
+
+                axes.append('text')
+                    .attr('class', 'label')
+                    .attr('x', side * 0.5)
+                    .attr('y', -6)
+                    .attr('text-anchor', 'middle')
+                    .attr('letter-spacing', '-8px')
+                    .text(function (d) { return d })
+                    .on('click', rotate)
+
+                function rotate(d) {
+                    var angle = d === 'fox' ? 120 : d === 'cnn' ? 240 : 0
+                    svg.transition().duration(600)
+                        .attr('transform', 'rotate(' + angle + ',' + (side / 2) + ',' + (height / 3 * 2) + ')')
+                }
+
+                d3.csv('t_freq.csv', function (d) {
+                    var fox = +d.fox
+                    var cnn = +d.cnn
+                    var msnbc = +d.msnbc
+                    var total = fox + cnn + msnbc
+                    var fShare = fox / total
+                    var cShare = cnn / total
+                    var mShare = msnbc / total
+
+                    return {
+                        topic: d.topic,
+                        total: total,
+                        fox: fox,
+                        cnn: cnn,
+                        msnbc: msnbc,
+                        fShare: fShare,
+                        cShare: cShare,
+                        mShare: mShare,
+                        x: cShare + (mShare * 0.5)
+                    }
+                }, function (error, data) {
+                    if (error) { throw error }
+
+                    r.domain([0, d3.max(data, function (d) { return d.total })])
+
+                    svg.selectAll('.point')
+                        .data(data)
+                        .enter().append('circle')
+                        .attr('class', 'point')
+                        .attr('id', function(d) {return (d.topic + "_point")})
+                        .attr('r', 5)
+                        .attr('cx', width / 10 )
+                        .attr('cy', height / 2 )
+                        .transition()
+                        .duration(300)
+                        .delay(function (d) { return r(d.total) })
+                        .attr('cx', function (d) { return sideScale(d.x) })
+                        .attr('cy', function (d) { return perpScale(d.mShare) })
+                        .transition()
+                        .duration(100)
+                        .attr('r', function (d) { return r(d.total) * 4 });
+
+                    svg.selectAll('.point')
+                        .on("mousemove", function(d){
+                            tooltip
+                            .style("left", d3.event.pageX - 50 + "px")
+                            .style("top", d3.event.pageY - 70 + "px")
+                            .style("display", "inline-block")
+                            .html((d.topic));
+                        })
+    		        .on("mouseout", function(d){ 
+                            tooltip.style("display", "none");
+                        });
+                })
+            }
+
+            function scatter_plot_update(index) {
+                if (index == 0) {
+                    d3.select("#scatter_plot").remove();
+                    scatter_plot('#f_scatter');
+
+                    var plot = d3.select('#scatter_plot');
+
+                    d3.selectAll(".d")
+                        .on("mousemove", function() {
+                            var point = d3.select("#" + this.id + "_point");
+                            plot.selectAll('.point')
+                                .style('opacity', 0.05);
+                            point.style('opacity', 1).style('fill', 'black');
+                        })
+                        .on("mouseout", function(d){ 
+                            plot.selectAll('.point').style('opacity', 1).style('fill', '#30303d');
+                        });
+                }
+                else if (index == 1) {
+                    var plot = d3.select('#scatter_plot');
+
+                    plot.selectAll('.point')
+                        .transition()
+                        .style('opacity', 0.05);
+
+                    var selection = plot.selectAll('#women_point, #african-american_point, #black_point, #hispanic_point, #voters_point, #female_point,#gender_point');
+                        
+                    selection.transition()
+                        .style('opacity', 1)
+                        .style('fill', 'black');
+
+                    d3.selectAll(".a")
+                        .on("mousemove", function() {
+                            var point = d3.select("#" + this.id + "_point");
+                            selection.style('opacity', 0.05);
+                            point.style('opacity', 1).style('fill', 'black');
+                        })
+                        .on("mouseout", function(d){ 
+                            selection.style('opacity', 1).style('fill', 'black');
+                        });
+                }
+                else if (index == 2) {
+                    var plot = d3.select('#scatter_plot');
+                    plot.selectAll('.point')
+                        .transition()
+                        .style('opacity', 0.1);
+
+                    var selection = plot.selectAll('#gillum_point, #abrams_point, #blackburn_point, #crenshaw_point, #desantis_point, #donnelly_point, #feinstein_point, #hemingway_point, #jones_point, #kemp_point, #mccaskill_point, #mcsally_point, #sinema_point, #nelson_point, #orourke_point');
+                    selection.transition()
+                        .style('opacity', 1)
+                        .style('fill', 'black');
+
+                    d3.selectAll(".b")
+                        .on("mousemove", function() {
+                            var point = d3.select("#" + this.id + "_point");
+                            selection.style('opacity', 0.05);
+                            point.style('opacity', 1).style('fill', 'black');
+                        })
+                        .on("mouseout", function(d){ 
+                            selection.style('opacity', 1).style('fill', 'black');
+                        });
+                }
+                else {
+                    var plot = d3.select('#scatter_plot');
+                    plot.selectAll('.point')
+                        .transition()
+                        .style('opacity', 0.1);
+
+                    var selection = plot.selectAll('#abortion_point, #approval-rating_point, #media-bias_point, #border_point, #caravan_point, #facebook_point, #fear_point, #healthcare_point, #ice_point, #immigration_point, #marijuana_point, #impeachment_point, #probe_point, #snl_point, #kavanaugh_point #economy_point');
+                    selection.transition()
+                        .style('opacity', 1)
+                        .style('fill', 'black');
+
+                    d3.selectAll(".c")
+                        .on("mousemove", function() {
+                            var point = d3.select("#" + this.id + "_point");
+                            selection.style('opacity', 0.05);
+                            point.style('opacity', 1).style('fill', 'black');
+                        })
+                        .on("mouseout", function(d){ 
+                            selection.style('opacity', 1).style('fill', 'black');
+                        });
+                }
+            }
+
+            /** --------------------------frequency scatter plot ends------------------------------- */
+
+                // This was hard, okay. 
+
+            /** --------------------------duration + frequency scatter plot------------------------------- */
+
+            function pivot_scatter(selector, dummyData) {
+                const graphic = d3.select(selector)
+
+                const COLORS = ['#ff3814', '#fe5c34', '#fc764f', '#f88d69', '#f2a385', '#e8b8a0', '#dbcdbd']
+                const FONT_SIZE = 11
+                const MAX_VAL = 10
+
+                const chart = scatterplot();
+                const el = graphic.select('.chart');
+
+                function weightData({ x, y }) {
+                    return dummyData.map(d => ({
+                        ...d,
+                        score: d.x * x + d.y * y,
+                    }))
+                    .sort((a, b) => d3.descending(a.score, b.score))
+                    .map((d, i) => ({
+                        ...d,
+                        rank: i,
+                    }))
+                    .reverse()
+                }
+
+                function getHypotenuse({ x, y }) {
+                    const x2 = x * x
+                    const y2 = y * y
+                    return Math.sqrt(x2 + y2)
+                }
+
+                function resize() {
+                    const sz = Math.min(el.node().offsetWidth, window.innerHeight) * 0.8
+                    chart.width(sz).height(sz)
+                    el.call(chart)
+                }
+
+                function scatterplot() {
+                    const margin = FONT_SIZE * 3
+                    const scaleX = d3.scaleLinear()
+                    const scaleY = d3.scaleLinear()
+                    const scaleR = d3.scaleSqrt()
+                    const scaleC = d3.scaleQuantile()
+
+                    let width = 0
+                    let height = 0
+                    let chartWidth = 0
+                    let chartHeight = 0
+                    let weightX = 50
+                    let weightY = 50
+                    let hypotenuse = 0
+
+                    function translate(x, y) {
+                        return `translate(${x}, ${y})`
+                    }
+
+                    function enter({ container, data }) {
+                        const svg = container.selectAll('svg').data([data])
+                        const svgEnter = svg.enter().append('svg')
+                        const gEnter = svgEnter.append('g')
+                        
+                        gEnter.append('g').attr('class', 'g-plot')
+
+                        const axis = gEnter.append('g').attr('class', 'g-axis')
+
+                        const x = axis.append('g').attr('class', 'axis axis--x')
+
+                        const y = axis.append('g').attr('class', 'axis axis--y')
+
+                        x.append('text').attr('class', 'axis__label')
+                            .attr('text-anchor', 'start')
+                            .text('Frequency')
+
+                        y.append('text').attr('class', 'axis__label')
+                            .attr('text-anchor', 'end')
+                            .text('Duration')	
+                    }
+
+                    function exit({ container, data }) {
+                    }
+
+                    function updateScales({ data }) {
+                        hypotenuse = getHypotenuse({ x: weightX, y: weightY })
+                        const rangeX = weightX / hypotenuse * chartWidth
+                        const rangeY = weightY / hypotenuse * chartHeight
+                        const maxR = Math.floor(FONT_SIZE * 1.5)
+
+                        scaleX
+                            .domain([0, MAX_VAL])
+                            .range([0, rangeX])
+
+                        scaleY
+                            .domain([0, MAX_VAL])
+                            .range([rangeY, 0])
+
+                        scaleR
+                            .domain([0, data.length])
+                            .range([maxR, 2])
+
+                        scaleC
+                            .domain(data.map(d => d.rank))
+                            .range(COLORS)
+                    }
+
+                    function updateDom({ container, data }) {
+                        const svg = container.select('svg')
+                        
+                        svg
+                            .attr('width', width)
+                            .attr('height', height)
+
+                        const g = svg.select('g')
+                        
+                        const maxY = scaleY.range()[0]
+                        const offsetX = chartWidth / 2
+                        const offsetY = chartHeight - maxY
+                        const rad = Math.acos(weightX / hypotenuse)
+                        const angle = 90 - (rad * 180 / Math.PI)
+                        const rotation = `rotate(${-angle} 0 ${scaleY.range()[0]})`
+                        const translation = translate(margin * 1.5 + offsetX, margin + offsetY)
+                        const transform = `${translation} ${rotation}`
+                        g.attr('transform', transform)
+
+                        const plot = g.select('.g-plot')
+
+                        const item = plot.selectAll('.item').data(d => d, d => d.index)
+                        
+                        item.enter().append('circle')
+                            .attr('class', 'item')
+                        .merge(item)
+                            .attr('x', 0)
+                            .attr('y', 0)
+                            .attr('r', d => scaleR(d.rank))
+                            .style('fill', d => scaleC(d.rank))
+                            .style('stroke', d => d3.color(scaleC(d.rank)).darker(0.7))
+                            .style('opacity', 0.7)
+                            .attr('transform',  d => translate(scaleX(d.x), scaleY(d.y)))
+
+                        var tooltip = d3.select('body').append("div").attr("class", "toolTip");
+
+                        plot.selectAll('.item')
+                            .on("mousemove", function(d){
+                                tooltip
+                                .style("left", d3.event.pageX - 50 + "px")
+                                .style("top", d3.event.pageY - 70 + "px")
+                                .style("display", "inline-block")
+                                .html((d.topic));
+                            })
+                            .on("mouseout", function(d){ 
+                                tooltip.style("display", "none");
+                            });
+                    }
+
+                    function updateAxis({ container, data }) {
+                        const axis = container.select('.g-axis')
+
+                        const axisLeft = d3.axisLeft(scaleY)
+                        const axisBottom = d3.axisBottom(scaleX)
+
+                        axisLeft.ticks(Math.max(0, Math.floor(weightY / 10)))
+                        axisBottom.ticks(Math.max(0, Math.floor(weightX / 10)))
+                        const x = axis.select('.axis--x')
+                        
+                        const maxY = scaleY.range()[0]
+                        const offset = maxY
+
+                        const buffer = Math.ceil(margin / 2)
+                        x.attr('transform', translate(0, buffer + offset))
+                            .call(axisBottom)
+
+                        const y = axis.select('.axis--y')
+
+                        y.attr('transform', translate(-buffer, 0))
+                            .call(axisLeft)
+
+                        x.select('.axis__label')
+                            .attr('y', margin - 1)
+
+                        y.select('.axis__label')
+                            .attr('x', offset)
+                            .attr('y', margin - 1)
+                            .attr('transform', `rotate(90)`)
+                    }
+
+                    function chart(container) {
+                        const data = container.datum()
+                        
+                        enter({ container, data })
+                        exit({ container, data })
+                        updateScales({ container, data })
+                        updateDom({ container, data })
+                        updateAxis({ container, data })
+                    }
+
+                    chart.width = function(...args) {
+                        if (!args.length) return width
+                        width = args[0]
+                        chartWidth = width - margin * 2.5
+                        return chart
+                    }
+
+                    chart.height = function(...args) {
+                        if (!args.length) return height
+                        height = args[0]
+                        chartHeight = height - margin * 2.5
+                        return chart
+                    }
+
+                    chart.weight = function({ x, y }) {
+                        weightX = x
+                        weightY = y
+                        return chart
+                    }
+
+                    return chart
+                }
+
+                function handleInput() {
+                    const val = +this.value
+                    const x = val
+                    const y = 100 - val
+                    const weighted = weightData({ x, y })
+
+                    chart.weight({ x, y })
+                    el.datum(weighted)
+                    el.call(chart)
+                }
+
+                function init() {
+                    el.datum(weightData({ x: 50, y: 50 }))
+                    el.call(chart)
+                    resize()
+                    window.addEventListener('resize', resize)
+                    graphic.select('.slider input').on('input', handleInput)
+                }
+
+                init()
+            }
+
+            var data_fox;
+            var data_cnn;
+            var data_msnbc;
+
+            d3.csv('td_fox.csv', function(data) {
+                data_fox = data.map(function(d) {
+                    return {
+                        topic: d.topic,
+                        x: (d.duration * 10) / 1118,
+                        y: (d.frequency * 10) / 65,
+                        index: d.index
+                    }
+                })
+                pivot_scatter(".graphic--3", data_fox);
+            })
+
+            d3.csv('td_cnn.csv', function(data) {
+                data_cnn = data.map(function(d) {
+                    return {
+                        topic: d.topic,
+                        x: (d.duration * 10) / 4268,
+                        y: (d.frequency * 10) / 156,
+                        index: d.index
+                    }
+                })
+                pivot_scatter(".graphic--2", data_cnn);
+            })
+
+            d3.csv('td_msnbc.csv', function(data) {
+                data_msnbc = data.map(function(d) {
+                    return {
+                        topic: d.topic,
+                        x: (d.duration * 10) / 3403,
+                        y: (d.frequency * 10) / 230,
+                        index: d.index
+                    }
+                })
+                pivot_scatter(".graphic--1", data_msnbc);
+            })
+
+            /** --------------------------duration + frequency scatter plot ends--------------------------- */
+
+                // Kevin's turn now
+
+            /** --------------------------noun to noun plot----------------------------------------------- */
+
+            var cnnNn2dArr, allCnnNnWords, foxNn2dArr, allFoxNnWords, msnbcNn2dArr, allMsnbcNnWords;
+
+            function noun_to_noun(selector, data, allWords) {
+
+                // // temporary data for experiment
+                // data = [
+                //   [1, 2, 3, 4],
+                //   [5, 6, 7, 8],
+                //   [9, 10, 11, 12],
+                //   [13, 14, 15, 16]
+                // ];
+
+                var height = $(document).height() * 0.079;
+                var width = $(document).width() * 0.5;
+
+                var outerRadius = width * 0.3; //Math.min(width, height) * 0.3;
+                var innerRadius = outerRadius * 0.95;
+                // var outmostRadius = outerRadius * 1.1;
+
+                // set up the arc between label and outer path boundary
+                var arc = d3.arc()
+                            .innerRadius(innerRadius)
+                            .outerRadius(outerRadius);
+
+                // var outmostArc = d3.arc()
+                //                    .innerRadius(innerRadius)
+                //                    .outerRadius(outmostRadius);
+
+                // function for passing in data
+                var chord = d3.chord()
+                              .padAngle(0.05)
+                              .sortSubgroups(d3.descending);
+
+                // the path main svg element
+                var svg = d3.select(selector)
+                            .append("svg")
+                            .attr("id", "n_to_n")
+                            .attr("width", width)
+                            .attr("height", height)
+                            .attr("transform", "translate(0, 15)")
+
+                            .append("g")
+                            .attr("id", "circle")
+                            .attr("width", width)
+                            .attr("height", height)
+                            .attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100) + ")");
+
+                svg.append("circle").attr("r", outerRadius);
+
+                // the paths
+                var ribbon = d3.ribbon()
+                               .radius(innerRadius);
+
+                // color elements
+                var color = d3.scaleOrdinal()
+                              .domain(d3.range(data.length))
+                              .range(["#BBBBBB", "#BBBBBB", "#BBBBBB", "#BBBBBB"]);
+
+                // pass the matrix in for processing
+                var chords = chord(data);
+
+                // seperates each group for its own "g" element (for mouseover)
+                var group = svg.selectAll("g")
+                               .data(chords.groups)
+                               .enter().append("g")
+                               .on("mouseover", chordMouseOver);
+
+                // // creates the marks 
+                // var groupTick = group.selectAll("g")
+                //                      .data(d => calculateMiddle(d))
+                //                      .enter().append("g")
+                //                      .attr("transform", d => `rotate(${d.angle * 180 / Math.PI - 90}) translate(${outerRadius},0)`);
+
+                // // creates a white outer arc
+                // group.append("path")
+                //      .attr("d", outmostArc)
+                //      .attr("fill", "#FFFFFF")
+                //      ;
+
+                // // creates the labels
+                // groupTick.filter(d => d.value === 0)
+                //          .append("text")
+                //          .attr("x", 8) 
+                //          .attr("dy", ".35em")
+                //          .attr("transform", d => d.angle > Math.PI ? "rotate(180) translate(-16)" : null)
+                //          .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
+                //          .text(function(d,i) { console.log(i); return allWords[i]; });
+
+                // creates the labels
+                group.append("text")
+                     .each(function(d) { d.angle = ((d.startAngle + d.endAngle) / 2);})
+                     .attr("dy", ".35em")
+                     .attr("class", "titles")
+                     .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+                     .attr("transform", function(d,i) { 
+                         var c = arc.centroid(d);
+                         return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+                         + "translate(" + (outerRadius + 9) + ")"
+                         + (d.angle > Math.PI ? "rotate(180)" : "")
+                     })
+
+                     // .attr("transform", d => {
+                     //     var angle = d.angle * 180 / Math.PI - 90;
+                     //     return `rotate(${angle > Math.PI? angle + 180 : angle}) translate(${outerRadius},0)`
+                     // })
+                     .text(function(d,i) { return allWords[i]; });
+
+                // creates the paths
+                var edges = svg.append("g")
+                               .attr("fill-opacity", 0.67)
+                               .selectAll("path")
+                               .data(chords)
+                               .enter().append("path")
+                               .attr("d", ribbon)
+                               .attr("fill", d => color(d.target.index))
+                               .attr("stroke", d => d3.rgb(color(d.target.index)).darker())
+                               //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")");
+
+                // creates the arc on the edge besides the text
+                var groupChord = group.append("path")
+                                      .attr("d", arc)
+                                      .attr("fill", "#888888");
+                                      //.on("mouseover", chordMouseOver);
+
+                function calculateMiddle(d) {
+                  const k = (d.endAngle + d.startAngle) / 2;
+                  return d3.range(0, d.value).map(value => {
+                    return {value: value, angle: k};
+                  });
+                }
+
+                function chordMouseOver(d, i) {
+                    edges.classed("fade", function(p) {
+                        return p.source.index != i && p.target.index != i;
+                    })
+                }
+
+            }
+
+            // the function renders the graph based on the current step
+            function noun_to_noun_step(index) {
+                d3.selectAll("#n_to_n").remove();
+
+                if (index == 4) {
+                    noun_to_noun("#noun_to_noun", cnnNn2dArr, allCnnNnWords);
+                } else if (index == 5) {
+                    noun_to_noun("#noun_to_noun", foxNn2dArr, allFoxNnWords);
+                } else if (index == 6) {
+                    noun_to_noun("#noun_to_noun", msnbcNn2dArr, allMsnbcNnWords);
+                }              
+            }
+
+            // the initial function that loads all the data from files and stores them in cache
+            function loadNnData() {
+                d3.text("cnn_nn(clean).txt", function(text) {
+
+                    // original file, each arr element being a single line
+                    var cnnNnArr = text.split("\n");
+
+                    // remove the empty lines at the end
+                    removeEmptyLines(cnnNnArr);
+
+                    // the list contains all the words
+                    allCnnNnWords = getListOfAllWords(cnnNnArr);
+
+                    // the 2d array (empty right now)
+                    cnnNn2dArr = generateEmpry2dArray(allCnnNnWords);
+
+                    // add in the data to the 2d array
+                    fillIn2dArray(cnnNn2dArr, allCnnNnWords, cnnNnArr);
+
+                });
+
+                d3.text("fox_nn(clean).txt", function(text) {
+
+                    // original file, each arr element being a single line
+                    var foxNnArr = text.split("\n");
+
+                    // remove the empty lines at the end
+                    removeEmptyLines(foxNnArr);
+
+                    // the list contains all the words
+                    allFoxNnWords = getListOfAllWords(foxNnArr);
+
+                    // the 2d array (empty right now)
+                    foxNn2dArr = generateEmpry2dArray(allFoxNnWords);
+
+                    // add in the data to the 2d array
+                    fillIn2dArray(foxNn2dArr, allFoxNnWords, foxNnArr);
+                    
+                });
+
+                d3.text("msbnc_nn(clean).txt", function(text) {
+
+                    // original file, each arr element being a single line
+                    var msnbcNnArr = text.split("\n");
+
+                    // remove the empty lines at the end
+                    removeEmptyLines(msnbcNnArr);
+
+                    // the list contains all the words
+                    allMsnbcNnWords = getListOfAllWords(msnbcNnArr);
+
+                    // the 2d array (empty right now)
+                    msnbcNn2dArr = generateEmpry2dArray(allMsnbcNnWords);
+
+                    // add in the data to the 2d array
+                    fillIn2dArray(msnbcNn2dArr, allMsnbcNnWords, msnbcNnArr);
+                    
+                });
+            }
+
+            // removes the empty lines at the end of the file
+            function removeEmptyLines(arr) {
+                for (var i = arr.length - 1; i >= 0; i--) {
+                    if (arr[i].trim() == "") {
+                        arr.pop();
+                    }
+                }
+            }
+
+            // returns a list that contains all the unique words in the file with alphabetical order
+            function getListOfAllWords(arr) {
+                var listOfAllWords = [];
+                for (var i = 0; i < arr.length; i++) {
+                    var lineArr = arr[i].split(",");
+                    for (var j = 0; j < lineArr.length; j++) {
+                        lineArr[j] = lineArr[j].trim();
+                        if (lineArr[j].length == 0) {
+                            break;
+                        }
+                        var wordArr = lineArr[j].split(":");
+                        if (listOfAllWords.indexOf(wordArr[0]) == -1) {
+                            listOfAllWords.push(wordArr[0]);
+                        }
+                    }
+                }
+                return listOfAllWords.sort();
+            }
+
+            // generates an empty 2d array with all 0's based on the length of allWords
+            function generateEmpry2dArray(allWords) {
+                var empty2dArr = [];
+                for (var i = 0; i < allWords.length; i++) {
+                    var tempArr = [];
+                    for (var j = 0; j < allWords.length; j++) {
+                        tempArr.push(0);
+                    }
+                    empty2dArr.push(tempArr);
+                }
+                return empty2dArr;
+            }
+
+            // fills in the 2d Array
+            // @param arr the 2d array
+            // @param allWords the array with all the unique words
+            // @param rawDataArr the raw data array, with each array element being the string of each entire line
+            function fillIn2dArray(arr, allWords, rawDataArr) {
+                for (var i = 0; i < rawDataArr.length; i++) {
+                    var singleLineRawDataArr = rawDataArr[i].split(",");
+                    for (var j = 1; j < singleLineRawDataArr.length; j++) {
+                        singleLineRawDataArr[j] = singleLineRawDataArr[j].trim();
+                        if (singleLineRawDataArr[j].length == 0) {
+                            break;
+                        }
+                        var singleWordArr = singleLineRawDataArr[j].split(":");
+                        arr[allWords.indexOf(singleLineRawDataArr[0])][allWords.indexOf(singleWordArr[0])] = parseInt(singleWordArr[1]);
+                        arr[allWords.indexOf(singleWordArr[0])][allWords.indexOf(singleLineRawDataArr[0])] = parseInt(singleWordArr[1]);
+                    }
+                }
+            }
+
+            /** --------------------------noun to noun plot ends------------------------------------------- */
+
+                // More graphs!
+
+            /** --------------------------noun to verb plot----------------------------------------------- */
+
+            var nv2dArr, allNvWords, allCnnNvWords, allFoxNvWords, allMsnbcNvWords;
+
+            function noun_to_verb(selector) {
+
+                // var allWords = ["ONE", "TWO", "", "THREE", "FOUR", "FIVE", ""];
+                
+                // // temporary data for experiment
+                // var data = [
+                //   [0, 0, 0, 5, 10, 0, 0],
+                //   [0, 0, 0, 3, 16, 20, 0],
+                //   [0, 0, 0, 0, 0, 0, 0], 
+                //   [5, 3, 0, 0, 0, 0, 0],
+                //   [10, 16, 0, 0, 0, 0, 0],
+                //   [0, 20, 0, 0, 0, 0, 0], 
+                //   [0, 0, 0, 0, 0, 0, 0]
+                // ];
+
+                var allWords = allNvWords;
+                var data = nv2dArr;
+
+                var emptyPercent = 0.01;
+
+                var total = 0;
+                for (var i = 0; i < data.length; i++) {
+                    for (j = 0; j < data[i].length; j++) {
+                        total += data[i][j];
+                    }
+                }
+
+                // the width of the middle empty section
+                var emptyWidth = Math.round(total * emptyPercent);
+                // the offset that the graph must rotate clockwise in order to be symmertical
+                var offset = Math.PI * (emptyWidth * 2 / (total + emptyWidth * 2)) / 2;
+
+                // fills in the empty width for the data matrix
+                data[allWords.indexOf("")][allWords.lastIndexOf("")] = emptyWidth;
+                data[allWords.lastIndexOf("")][allWords.indexOf("")] = emptyWidth;
+
+                var height = $(document).height() * 0.1;
+                var width = $(document).width() * 0.9;
+
+                var outerRadius = Math.min(width, height) * 0.48;
+                var innerRadius = outerRadius * 0.95;
+                // var outmostRadius = outerRadius * 1.1;
+
+                // set up the arc between label and outer path boundary
+                var arc = d3.arc()
+                            .innerRadius(innerRadius)
+                            .outerRadius(outerRadius)
+                            .startAngle(startAngle)
+                            .endAngle(endAngle);
+
+                // var outmostArc = d3.arc()
+                //                    .innerRadius(innerRadius)
+                //                    .outerRadius(outmostRadius);
+
+                // function for passing in data
+                var chord = d3.chord()
+                              .padAngle(0.05)
+                              .sortSubgroups(d3.descending);
+
+                // the path main svg element
+                var svg = d3.select(selector)
+                            .append("svg")
+                            .attr("id", "n_to_v")
+                            .attr("width", width)
+                            .attr("height", height)
+
+                            .append("g")
+                            .attr("id", "circle")
+                            .attr("width", width)
+                            .attr("height", height)
+                            .attr("transform", "translate(" + width / 2 + "," + (outerRadius * 0.7) + ")");
+
+                svg.append("circle").attr("r", outerRadius);
+
+                // the paths
+                var ribbon = d3.ribbon()
+                               .radius(innerRadius)
+                               .startAngle(startAngle)
+                               .endAngle(endAngle);
+
+                // color elements
+                var color = d3.scaleOrdinal()
+                              .domain(d3.range(data.length))
+                              .range(["#BBBBBB", "#BBBBBB", "#E0E0E0", "#BBBBBB", "#BBBBBB", "#E0E0E0"]);
+
+                // pass the matrix in for processing
+                var chords = chord(data);
+
+                // seperates each group for its own "g" element (for mouseover)
+                var group = svg.selectAll("g")
+                               .data(chords.groups)
+                               .enter().append("g")            
+                               //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")")
+                               .on("mouseover", chordMouseOver);
+
+                               console.log(chords.groups);
+
+                // // creates the marks 
+                // var groupTick = group.selectAll("g")
+                //                      .data(d => calculateMiddle(d))
+                //                      .enter().append("g")
+                //                      .attr("transform", d => `rotate(${(d.angle + offset) * 180 / Math.PI - 90}) translate(${outerRadius},0)`);
+
+                // // creates a white outer arc
+                // group.append("path")
+                //      .attr("d", outmostArc)
+                //      .attr("fill", "#FFFFFF")
+                //      ;
+
+                // // creates the labels
+                // groupTick.filter(d => d.value === 0)
+                //          .append("text")
+                //          .attr("x", 8) 
+                //          .attr("dy", ".35em")
+                //          .attr("transform", d => d.angle > Math.PI ? "rotate(180) translate(-16)" : null)
+                //          .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
+                //          .text(function(d,i) { console.log(i); return allWords[i]; });
+
+                // creates the labels
+                group.append("text")
+                     .each(function(d) { d.angle = ((d.startAngle + d.endAngle) / 2);})
+                     .attr("dy", ".35em")
+                     .attr("class", "titles")
+                     .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+                     .attr("transform", function(d,i) { 
+                         var c = arc.centroid(d);
+                         return "rotate(" + ((d.angle + offset) * 180 / Math.PI - 90) + ")"
+                         + "translate(" + (outerRadius + 15) + ")"
+                         + (d.angle > Math.PI ? "rotate(180)" : "")
+                     })
+
+                     // .attr("transform", d => {
+                     //     var angle = (d.angle + offset) * 180 / Math.PI - 90;
+                     //     return `rotate(${angle > Math.PI? angle + 180 : angle}) translate(${outerRadius},0)`
+                     // })
+                     .text(function(d,i) { return allWords[i]; });
+                console.log("here");
+
+                // creates the paths
+                var edges = svg.append("g")
+                               .attr("fill-opacity", 0.67)
+                               .selectAll("path")
+                               .data(chords)
+                               .enter().append("path")
+                               .attr("d", ribbon)
+                               .attr("fill", d => color(d.target.index))
+                               .attr("stroke", d => d3.rgb(color(d.target.index)).darker())
+                               .attr("opacity", d => allWords[d.source.index] === "" ? 0 : 0.67);
+                               //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")");
+
+                // creates the arc on the edge besides the text
+                var groupChord = group.append("path")
+                                      .attr("d", arc)
+                                      .attr("fill", function(d,i) { return (allWords[i] === "" ? "#FFFFFF" : "#888888"); });
+                                      //.on("mouseover", chordMouseOver);
+
+                function calculateMiddle(d) {
+                  const k = (d.endAngle + d.startAngle) / 2;
+                  return d3.range(0, d.value).map(value => {
+                    return {value: value, angle: k};
+                  });
+                }
+
+                function chordMouseOver(d, i) {
+                    console.log("arc index: " + i);
+                    edges.classed("fade", function(p) {
+                        return i != data.length - 1 && i != data.length / 2 - 1 && p.source.index != i && p.target.index != i;
+                    })
+                }
+
+                // Calculates the start angle by considering the empty section
+                function startAngle(d) { return d.startAngle + offset; }
+                function endAngle(d) { return d.endAngle + offset; }
+            }
+
+            // var nv2dArr, allNvWords, allCnnNvWords, allFoxNvWords, allMsnbcNvWords;
+
+            // the initial function that loads all the data from files and stores them in cache
+            function noun_to_verb_init() {
+
+                d3.text("cnn_nv(clean).txt", function(text) {
+
+                    var allRawData = [];
+
+                    // original file, each arr element being a single line
+                    var cnnNvArr = text.split("\n");
+
+                    // remove the empty lines at the end
+                    removeEmptyLines(cnnNvArr);
+                    appendArray(allRawData, cnnNvArr);
+
+
+                    // the list contains all the words
+                    allCnnNvWords = getListOfAllWords(cnnNvArr);
+
+                    d3.text("fox_nv(clean).txt", function(text) {
+
+                        // original file, each arr element being a single line
+                        var foxNvArr = text.split("\n");
+
+                        // remove the empty lines at the end
+                        removeEmptyLines(foxNvArr);
+                        appendArray(allRawData, foxNvArr);
+
+                        // the list contains all the words
+                        allFoxNvWords = getListOfAllWords(foxNvArr);
+
+                        d3.text("msnbc_nv(clean).txt", function(text) {
+
+                            // original file, each arr element being a single line
+                            var msnbcNvArr = text.split("\n");
+
+                            // remove the empty lines at the end
+                            removeEmptyLines(msnbcNvArr);
+                            appendArray(allRawData, msnbcNvArr);
+
+                            // the list contains all the words
+                            allMsnbcNvWords = getListOfAllWords(msnbcNvArr);
+
+                            // first get all the nouns, then get all the verbs, then put them in the correct order
+                            var allNouns = [];
+                            var allVerbs = [];
+
+                            for (var i = 0; i < allRawData.length; i++) {
+                                var lineArr = allRawData[i].split(",");
+                                lineArr[0] = lineArr[0].trim();
+                                if (lineArr[0].length != 0) {
+                                    allNouns.push(lineArr[0]);
+                                } else {
+                                    break;
+                                }
+
+                                for (var j = 1; j < lineArr.length; j++) {
+                                    lineArr[j] = lineArr[j].trim();
+                                    if (lineArr[j].length == 0) {
+                                        break;
+                                    }
+                                    var wordArr = lineArr[j].split(":");
+                                    if (allVerbs.indexOf(wordArr[0]) == -1) {
+                                        allVerbs.push(wordArr[0]);
+                                    }
+                                }
+                            }
+
+                            // put together the words in the correct order
+                            allNvWords = [];
+                            allNouns.sort().reverse();
+                            allVerbs.sort();
+                            appendArray(allNvWords, allVerbs);
+                            allNvWords.push("");
+                            appendArray(allNvWords, allNouns);
+                            allNvWords.push("");
+
+                            nv2dArr = generateEmpry2dArray(allNvWords);
+
+                            // fills in the data
+                            fillIn2dArray(nv2dArr, allNvWords, allRawData);
+
+                            noun_to_verb("#noun_to_verb_div");
+                            
+                        });
+                        
+                    });
+
+                });
+
+
+                
+            }
+
+            // appends all elements of arr2 to the end of arr1
+            function appendArray(arr1, arr2) {
+                for (var i = 0; i < arr2.length; i++) {
+                    arr1.push(arr2[i]);
+                }
+            }
+
+            noun_to_verb_init();
+
+            /** --------------------------noun to verb plot ends------------------------------------------- */
+
+                // We're almost there
+
+            /** --------------------------scrollama implementation---------------------------------------- */
+
+            function scrolly() {
+                var container = d3.select('#scroll');
+                var graphic = container.select('.scroll__graphic');
+                var text = container.select('.scroll__text');
+                var step = text.selectAll('.step');
+        
+                // initialize the scrollama
+                var scroller = scrollama();
+        
+                // generic window resize listener event
+                function handleResize() {
+                    // 1. update height of step elements
+                    var stepHeight = Math.floor(window.innerHeight * 0.75);
+                    step.style('height', stepHeight + 'px');
+        
+                    // 2. update width/height of graphic element
+                    var bodyWidth = d3.select('body').node().offsetWidth;
+        
+                    var graphicMargin = 16 * 4;
+                    var textWidth = text.node().offsetWidth;
+                    var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
+                    var graphicHeight = Math.floor(window.innerHeight / 2)
+                    var graphicMarginTop = Math.floor(graphicHeight / 2)
+        
+                    graphic
+                        .style('width', graphicWidth + 'px')
+                        .style('height', graphicHeight + 'px')
+        
+        
+                    // 3. tell scrollama to update new element dimensions
+                    scroller.resize();
+                }
+        
+                // scrollama event handlers
+                function handleStepEnter(response) {
+                    // response = { element, direction, index }
+        
+                    // add color to current step only
+                    step.classed('is-active', function (d, i) {
+                        return i === response.index;
+                    })
+
+                    // update graphic based on step
+                    scatter_plot_update(response.index);
+                }
+        
+                function handleContainerEnter(response) {
+                    // response = { direction }
+        
+                    // old school
+                    // sticky the graphic
+                    graphic.classed('is-fixed', true);
+                    graphic.classed('is-bottom', false);
+                }
+        
+                function handleContainerExit(response) {
+                    // response = { direction }
+        
+                    // old school
+                    // un-sticky the graphic, and pin to top/bottom of container
+                    graphic.classed('is-fixed', false);
+                    graphic.classed('is-bottom', response.direction === 'down');
+                }
+        
+                function init() {
+                    // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+                    handleResize();
+        
+                    // 2. setup the scroller passing options
+                    // this will also initialize trigger observations
+                    // 3. bind scrollama event handlers (this can be chained like below)
+                    scroller.setup({
+                        container: '#scroll',
+                        graphic: '.scroll__graphic',
+                        text: '.scroll__text',
+                        step: '.scroll__text .step',
+                        debug: false,  // if you turn this on, then you'll be able to visualize the step triggers (Try it!)
+                        offset: 0.5,
+                    })
+                        .onStepEnter(handleStepEnter)
+                        .onContainerEnter(handleContainerEnter)
+                        .onContainerExit(handleContainerExit);
+        
+                    // setup resize event
+                    window.addEventListener('resize', handleResize);
+                }
+        
+                // kick things off
+                init();
+            }
+
+            scrolly();
+
+            // @Kevin: Your second scrolly section
+            function scrolly_1() {
+                var container = d3.select('#scroll_1');
+                var graphic = container.select('.scroll__graphic');
+                var text = container.select('.scroll__text');
+                var step = text.selectAll('.step');
+
+                // initialize the scrollama
+                var scroller_1 = scrollama();
+        
+                // generic window resize listener event
+                function handleResize() {
+                    // 1. update height of step elements
+                    var stepHeight = Math.floor(window.innerHeight * 0.75);
+                    step.style('height', stepHeight + 'px');
+        
+                    // 2. update width/height of graphic element
+                    var bodyWidth = d3.select('body').node().offsetWidth;
+        
+                    var graphicMargin = 16 * 4;
+                    var textWidth = text.node().offsetWidth;
+                    var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
+                    var graphicHeight = Math.floor(window.innerHeight / 2)
+                    var graphicMarginTop = Math.floor(graphicHeight / 2)
+        
+                    graphic
+                        .style('width', graphicWidth + 'px')
+                        .style('height', graphicHeight + 'px')
+        
+        
+                    // 3. tell scrollama to update new element dimensions
+                    scroller_1.resize();
+                }
+        
+                // scrollama event handlers
+                function handleStepEnter(response) {
+                    // response = { element, direction, index }
+        
+                    // add color to current step only
+                    step.classed('is-active', function (d, i) {
+                        return (i + 4) === response.index;
+                    })
+
+                    // @Kevin: Here's where your update function should go
+                    // update graphic based on step
+                    
+                    noun_to_noun_step(response.index);
+                }
+        
+                function handleContainerEnter(response) {
+                    // response = { direction }
+        
+                    // old school
+                    // sticky the graphic
+                    graphic.classed('is-fixed', true);
+                    graphic.classed('is-bottom', false);
+                }
+        
+                function handleContainerExit(response) {
+                    // response = { direction }
+        
+                    // old school
+                    // un-sticky the graphic, and pin to top/bottom of container
+                    graphic.classed('is-fixed', false);
+                    graphic.classed('is-bottom', response.direction === 'down');
+                }
+        
+                function init() {
+
+                    loadNnData();
+
+                    // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+                    handleResize();
+        
+                    // 2. setup the scroller passing options
+                    // this will also initialize trigger observations
+                    // 3. bind scrollama event handlers (this can be chained like below)
+                    scroller_1.setup({
+                        container: '#scroll_1',
+                        graphic: '.scroll__graphic',
+                        text: '.scroll__text',
+                        step: '.scroll__text .step',
+                        debug: false,  // if you turn this on, then you'll be able to visualize the step triggers (Try it!)
+                        offset: 0.5,
+                    })
+                        .onStepEnter(handleStepEnter)
+                        .onContainerEnter(handleContainerEnter)
+                        .onContainerExit(handleContainerExit);
+        
+                    // setup resize event
+                    window.addEventListener('resize', handleResize);
+                }
+        
+                // kick things off
+                init();
+            }
+
+            // @Kevin: kicking off your scrolly
+            scrolly_1();
+
+            /** --------------------------scrollama implementation ends------------------------------- */
+        </script>
+    </body>
 </html>
