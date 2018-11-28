@@ -25,6 +25,9 @@ public class NlpMappingWordToWord {
     //Main map: news -> noun -> noun -> frequency
     Map<String, Map<String, Map<String, Integer>>> newsToNounToVerb = new HashMap<>();
 
+    //Main map: news -> noun -> adj -> frequency
+    Map<String, Map<String, Map<String, Integer>>> newsToNounToAdj = new HashMap<>();
+
     Scanner inputFile = new Scanner(new File("data.csv"));
 
     //Scans each line
@@ -39,6 +42,9 @@ public class NlpMappingWordToWord {
       if (!newsToNounToVerb.containsKey(arr[1])) {
         newsToNounToVerb.put(arr[1], new HashMap<>());
       }
+      if (!newsToNounToAdj.containsKey(arr[1])) {
+        newsToNounToAdj.put(arr[1], new HashMap<>());
+      }
 
       //Split by ' '
       String[] tokens = whitespaceTokenizer.tokenize(arr[4]);
@@ -47,23 +53,30 @@ public class NlpMappingWordToWord {
 
       Set<String> nounInEachLine = new HashSet<>();
       Set<String> verbInEachLine = new HashSet<>();
+      Set<String> adjInEachLine = new HashSet<>();
 
       for (int i = 0; i < tags.length; i++) {
         if (tags[i].charAt(0) == 'N') {
           nounInEachLine.add(tokens[i]);
         } else if (tags[i].charAt(0) == 'V') {
           verbInEachLine.add(tokens[i]);
+        } else if (tags[i].startsWith("JJ")) {
+          adjInEachLine.add(tokens[i]);
         }
       }
 
       Map<String, Map<String, Integer>> nounToNoun = newsToNounToNoun.get(arr[1]);
       Map<String, Map<String, Integer>> nounToVerb = newsToNounToVerb.get(arr[1]);
+      Map<String, Map<String, Integer>> nounToAdj = newsToNounToAdj.get(arr[1]);
       for (String word1 : nounInEachLine) {
         if (!nounToNoun.containsKey(word1)) {
           nounToNoun.put(word1, new HashMap<>());
         }
         if (!nounToVerb.containsKey(word1)) {
           nounToVerb.put(word1, new HashMap<>());
+        }
+        if (!nounToAdj.containsKey(word1)) {
+          nounToAdj.put(word1, new HashMap<>());
         }
         Map<String, Integer> nouns = nounToNoun.get(word1);
         for (String word2 : nounInEachLine) {
@@ -79,6 +92,14 @@ public class NlpMappingWordToWord {
             verbs.put(word2, 1);
           } else {
             verbs.put(word2, verbs.get(word2) + 1);
+          }
+        }
+        Map<String, Integer> adjs = nounToAdj.get(word1);
+        for (String word2 : adjInEachLine) {
+          if (!adjs.containsKey(word2)) {
+            adjs.put(word2, 1);
+          } else {
+            adjs.put(word2, adjs.get(word2) + 1);
           }
         }
       }
@@ -112,6 +133,22 @@ public class NlpMappingWordToWord {
           if (word2.length() == 1)
             continue;
           output.print(" " + word2 + " " + verbs.get(word2));
+        }
+        output.println();
+      }
+    }
+    for (String news : newsToNounToAdj.keySet()) {
+      PrintStream output = new PrintStream(new FileOutputStream(news+"_N_to_J.txt"));
+      Map<String, Map<String, Integer>> nounToAdj = newsToNounToAdj.get(news);
+      for (String word1 : nounToAdj.keySet()) {
+        if (word1.length() == 1)
+          continue;
+        output.print(word1);
+        Map<String, Integer> adjs = nounToAdj.get(word1);
+        for (String word2 : adjs.keySet()) {
+          if (word2.length() == 1)
+            continue;
+          output.print(" " + word2 + " " + adjs.get(word2));
         }
         output.println();
       }
