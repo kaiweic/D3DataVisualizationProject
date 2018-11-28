@@ -1,7 +1,7 @@
 americans,turn:15,ridiculing:6,vote:7
 gop,accuses:18,hacked:14,hold:26
 voters,decide:40,hold:17,hit:54
-house,watch:warn:19,brace:32,win:27
+house,warn:19,brace:32,win:27
 democrats,closing:12,retain:9,win:12
 caravan,fears:3,await:4
 campaign,hated:5,insisted:12,heads:5
