@@ -18,7 +18,7 @@ public class OpenNlpExperiment {
     //Instantiating POSTaggerME class
     POSTaggerME tagger = new POSTaggerME(model);
 
-    String sentence = "He is a person";
+    String sentence = "He is a good person";
 
     //Tokenizing the sentence using WhitespaceTokenizer class
     WhitespaceTokenizer whitespaceTokenizer= WhitespaceTokenizer.INSTANCE;
