@@ -250,7 +250,7 @@
         }
         
         .slider:before{
-            content:'Duration';
+            content:'100% <- Screentime';
             text-transform:uppercase;
             font-size:11px;
             letter-spacing:.05em;
@@ -262,7 +262,7 @@
         }
         
         .slider:after{
-            content:'Frequency';
+            content:'Mentions -> 100%';
             text-transform:uppercase;
             font-size:11px;
             letter-spacing:.05em;
@@ -306,8 +306,12 @@
             text-align: center;
         }
 
-        .graphic--1, .graphic--2, .graphic--3 {
+        .graphic--2, .graphic--3 {
             float: left;
+        }
+        .graphic--1 {
+            padding-top: 300px;
+            margin: auto;
         }
 
         #pivot_intro {
@@ -322,13 +326,17 @@
         }
 
         #pivot_info {
-            padding-bottom: 6rem;
             font-size: 1.4rem;
             color:#888;
+            text-align: center;
+            line-height: 1.3em;
+            padding-bottom: 100px;
+            padding-left: 300px;
+            padding-right: 300px;
         }
 
         #pivot_container {
-            padding-left: 8%;
+            padding-left: 5%;
         }
 
         #nn_title, #nv_title {
@@ -443,7 +451,7 @@
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
                         <p>Next, we decided to look at the <span style = "font-weight: bold; text-decoration: underline;">inclusivity</span> 
-                            of the language used by the three news channels by looking at the number of mentions of underpresented and minority groups
+                            of the language used by the three news channels by looking at the number of mentions of under-represented and minority groups.
                         </p>
                         <br>
                         <p>
@@ -462,7 +470,15 @@
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
-                        <p>[Add scroll text here]</p>
+                        <p>Moving on, we also filtered out the congressional candidates that generated the most buzz in all three news  channels.</p>
+                        <br>
+                        <p>
+                            <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> mentioned Brian <span class = "topic">Kemp</span> and Stacey 
+                            <span class = "topic">Abrams</span> way more often than <span class = "topic">FOX NEWS</span> did. Moreover, we saw a dispropotionately frequent
+                            number of mentions of Marsha <span class = "topic">Blackburn</span> in case of <span class = "channel">FOX NEWS</span>, Kristen 
+                            <span class = "topic">Sinema</span> and Nancy <span class = "topic">McSally</span> in case of <span class = "channel">MSNBC</span> and Doug 
+                            <span class = "topic">Jones</span> in case of <span class = "channel">CNN</span>.
+                        </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
                             <button id = "sinema" class = "b">SINEMA</button>
                             <button id = "orourke" class = "b">O'ROURKE</button>
@@ -482,18 +498,27 @@
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
-                        <p>[Add scroll text here]</p>
+                        <p>We also decided to look at some of the most talked about issues during the election. </p>
+                        <br>
+                        <p><span class = "topic">Immigration</span> and <span class = "topic">economy</span> were some of the most frequently mentioned issues and group
+                        relatively proportional coverage from all three channels. Meanwhile, we saw dispropotionately frequent mentions of
+                        Brett <span class = "topic">Kavanaugh</span> and <span class = "topic">ICE</span> by <span class = "channel">FOX NEWS</span>, 
+                        <span class = "topic">Facebook</span>, <span class = "topic">fearmongering</span> and <span class = "topic">approval-rating</span> 
+                        by <span class = "channel">CNN</span>, and <span class = "topic">abortion</span> and <span class = "topic">impeachment</span> by
+                        <span class = "channel">MSNBC</span>.
+                        </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "snl" class = "c">SNL</button>
                             <button id = "probe" class = "c">PROBE</button>
                             <button id = "media-bias" class = "c">MEDIA-BIAS</button>
                             <button id = "marijuana" class = "c">MARIJUANA</button>
+                            <button id = "kavanaugh" class = "c">KAVANAUGH</button>
                             <button id = "impeachment" class = "c">IMPEACHMENT</button>
                             <button id = "immigration" class = "c">IMMIGRATION</button>
                             <button id = "ice" class = "c">ICE</button>
                             <button id = "healthcare" class = "c">HEALTHCARE</button>
                             <button id = "fear" class = "c">FEAR</button>
                             <button id = "facebook" class = "c">FACEBOOK</button>
+                            <button id = "economy" class = "c">ECONOMY</button>
                             <button id = "caravan" class = "c">CARAVAN</button>
                             <button id = "border" class = "c">BORDER</button>
                             <button id = "approval-rating" class = "c">APPROVAL-RATING</button>
@@ -503,31 +528,33 @@
                 </div>
             </section>
         </div>
-
-        <!-- dummy, seperation for the large graph above -->
-        <svg height="200px"></svg>
         
         <div id = "pivot_scatter">
-            <h2 id = 'pivot_intro'>Frequency vs. Duration</h2>
-            <p class="intro__dek" id = 'pivot_info'>[Uses dummy data for now]</p>
+            <h2 id = 'pivot_intro'>Number of Mentions vs. Total Screen Time</h2>
+            <div id = 'pivot_info'>
+                <p class="intro__dek">While cable news may mention some topics more or less frequently than others, there is a 
+                    possibility that the channels spend a significantly more time in talking about a particular headline or topic. So,
+                    sometimes the choice of metric can yield different results. 
+                </p>
+                <br>
+                <p style = "text-decoration: underline;">Watch the transition in results in action below by using the slider to alter the metrics and pivot the charts for all three channels!</p>
+            </div>
+            <div class='graphic graphic--2' style = "width: 50%">
+                <p class = 'pivot_label'>MSNBC</p>
+                <div class='chart'></div>
+                <div class='slider'><input type='range' min='0' max='100' value='50'></div>
+            </div>
             <div id = 'pivot_container' style = "height: 420px">
-                <div class='graphic graphic--3' style = "width: 30%">
+                <div class='graphic graphic--3' style = "width: 50%">
                     <p class = 'pivot_label'>FOX</p>
                     <div class='chart'></div>
                     <div class='slider'><input type='range' min='0' max='100' value='50'></div>
                 </div>
-                    
-                <div class='graphic graphic--2' style = "width: 30%">
-                    <p class = 'pivot_label'>CNN</p>
-                    <div class='chart'></div>
-                    <div class='slider'><input type='range' min='0' max='100' value='50'></div>
-                </div>
-            
-                <div class='graphic graphic--1' style = "width: 30%">
-                    <p class = 'pivot_label'>MSNBC</p>
-                    <div class='chart'></div>
-                    <div class='slider'><input type='range' min='0' max='100' value='50'></div>
-                </div>
+            </div>
+            <div class='graphic graphic--1' style = "width: 50%">
+                <p class = 'pivot_label'>CNN</p>
+                <div class='chart'></div>
+                <div class='slider'><input type='range' min='0' max='100' value='50'></div>
             </div>
         </div>
 
@@ -540,20 +567,17 @@
                 <!-- This is where text goes, as we scroll -->
                 <div class="scroll__text">
                     <div class="step is-active" style="height: 615px;">
-                        <p>CNN</p>
+                        <p class = "channel">CNN</p>
                     </div>
                     <div class="step" style="height: 615px;">
-                        <p>FOX</p>
+                        <p class = "channel">FOX</p>
                     </div>
                     <div class="step" style="height: 615px;">
-                        <p>MSNBC</p>
+                        <p class = "channel">MSNBC</p>
                     </div>
                 </div>
             </section>
         </div>
-
-        <!-- dummy, seperation for the large graph above -->
-        <svg height="300px"></svg>
 
         <div id = "noun_to_verb_div">
             <h2 id = 'nv_title'>Noun to Verb Mapping</h2>
@@ -874,7 +898,7 @@
                         .transition()
                         .style('opacity', 0.1);
 
-                    var selection = plot.selectAll('#abortion_point, #approval-rating_point, #media-bias_point, #border_point, #caravan_point, #facebook_point, #fear_point, #healthcare_point, #ice_point, #immigration_point, #marijuana_point, #impeachment_point, #probe_point, #snl_point, #kavanaugh_point #economy_point');
+                    var selection = plot.selectAll('#abortion_point, #approval-rating_point, #media-bias_point, #border_point, #caravan_point, #facebook_point, #fear_point, #healthcare_point, #ice_point, #immigration_point, #marijuana_point, #impeachment_point, #probe_point, #kavanaugh_point, #economy_point');
                     selection.transition()
                         .style('opacity', 1)
                         .style('fill', 'black');
@@ -966,11 +990,11 @@
 
                         x.append('text').attr('class', 'axis__label')
                             .attr('text-anchor', 'start')
-                            .text('Frequency')
+                            .text('Mentions')
 
                         y.append('text').attr('class', 'axis__label')
                             .attr('text-anchor', 'end')
-                            .text('Duration')	
+                            .text('Screentime')	
                     }
 
                     function exit({ container, data }) {
@@ -1159,7 +1183,7 @@
                         index: d.index
                     }
                 })
-                pivot_scatter(".graphic--2", data_cnn);
+                pivot_scatter(".graphic--1", data_cnn);
             })
 
             d3.csv('td_msnbc.csv', function(data) {
@@ -1171,7 +1195,7 @@
                         index: d.index
                     }
                 })
-                pivot_scatter(".graphic--1", data_msnbc);
+                pivot_scatter(".graphic--2", data_msnbc);
             })
 
             /** --------------------------duration + frequency scatter plot ends--------------------------- */
@@ -1458,287 +1482,6 @@
 
             /** --------------------------noun to verb plot----------------------------------------------- */
 
-            var nv2dArr, allNvWords, allCnnNvWords, allFoxNvWords, allMsnbcNvWords;
-
-            function noun_to_verb(selector) {
-
-                // var allWords = ["ONE", "TWO", "", "THREE", "FOUR", "FIVE", ""];
-                
-                // // temporary data for experiment
-                // var data = [
-                //   [0, 0, 0, 5, 10, 0, 0],
-                //   [0, 0, 0, 3, 16, 20, 0],
-                //   [0, 0, 0, 0, 0, 0, 0], 
-                //   [5, 3, 0, 0, 0, 0, 0],
-                //   [10, 16, 0, 0, 0, 0, 0],
-                //   [0, 20, 0, 0, 0, 0, 0], 
-                //   [0, 0, 0, 0, 0, 0, 0]
-                // ];
-
-                var allWords = allNvWords;
-                var data = nv2dArr;
-
-                var emptyPercent = 0.01;
-
-                var total = 0;
-                for (var i = 0; i < data.length; i++) {
-                    for (j = 0; j < data[i].length; j++) {
-                        total += data[i][j];
-                    }
-                }
-
-                // the width of the middle empty section
-                var emptyWidth = Math.round(total * emptyPercent);
-                // the offset that the graph must rotate clockwise in order to be symmertical
-                var offset = Math.PI * (emptyWidth * 2 / (total + emptyWidth * 2)) / 2;
-
-                // fills in the empty width for the data matrix
-                data[allWords.indexOf("")][allWords.lastIndexOf("")] = emptyWidth;
-                data[allWords.lastIndexOf("")][allWords.indexOf("")] = emptyWidth;
-
-                var height = $(document).height() * 0.1;
-                var width = $(document).width() * 0.9;
-
-                var outerRadius = Math.min(width, height) * 0.48;
-                var innerRadius = outerRadius * 0.95;
-                // var outmostRadius = outerRadius * 1.1;
-
-                // set up the arc between label and outer path boundary
-                var arc = d3.arc()
-                            .innerRadius(innerRadius)
-                            .outerRadius(outerRadius)
-                            .startAngle(startAngle)
-                            .endAngle(endAngle);
-
-                // var outmostArc = d3.arc()
-                //                    .innerRadius(innerRadius)
-                //                    .outerRadius(outmostRadius);
-
-                // function for passing in data
-                var chord = d3.chord()
-                              .padAngle(0.05)
-                              .sortSubgroups(d3.descending);
-
-                // the path main svg element
-                var svg = d3.select(selector)
-                            .append("svg")
-                            .attr("id", "n_to_v")
-                            .attr("width", width)
-                            .attr("height", height)
-
-                            .append("g")
-                            .attr("id", "circle")
-                            .attr("width", width)
-                            .attr("height", height)
-                            .attr("transform", "translate(" + width / 2 + "," + (outerRadius * 0.7) + ")");
-
-                svg.append("circle").attr("r", outerRadius);
-
-                // the paths
-                var ribbon = d3.ribbon()
-                               .radius(innerRadius)
-                               .startAngle(startAngle)
-                               .endAngle(endAngle);
-
-                // color elements
-                var color = d3.scaleOrdinal()
-                              .domain(d3.range(data.length))
-                              .range(["#BBBBBB", "#BBBBBB", "#E0E0E0", "#BBBBBB", "#BBBBBB", "#E0E0E0"]);
-
-                // pass the matrix in for processing
-                var chords = chord(data);
-
-                // seperates each group for its own "g" element (for mouseover)
-                var group = svg.selectAll("g")
-                               .data(chords.groups)
-                               .enter().append("g")            
-                               //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")")
-                               .on("mouseover", chordMouseOver);
-
-                               console.log(chords.groups);
-
-                // // creates the marks 
-                // var groupTick = group.selectAll("g")
-                //                      .data(d => calculateMiddle(d))
-                //                      .enter().append("g")
-                //                      .attr("transform", d => `rotate(${(d.angle + offset) * 180 / Math.PI - 90}) translate(${outerRadius},0)`);
-
-                // // creates a white outer arc
-                // group.append("path")
-                //      .attr("d", outmostArc)
-                //      .attr("fill", "#FFFFFF")
-                //      ;
-
-                // // creates the labels
-                // groupTick.filter(d => d.value === 0)
-                //          .append("text")
-                //          .attr("x", 8) 
-                //          .attr("dy", ".35em")
-                //          .attr("transform", d => d.angle > Math.PI ? "rotate(180) translate(-16)" : null)
-                //          .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
-                //          .text(function(d,i) { console.log(i); return allWords[i]; });
-
-                // creates the labels
-                group.append("text")
-                     .each(function(d) { d.angle = ((d.startAngle + d.endAngle) / 2);})
-                     .attr("dy", ".35em")
-                     .attr("class", "titles")
-                     .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
-                     .attr("transform", function(d,i) { 
-                         var c = arc.centroid(d);
-                         return "rotate(" + ((d.angle + offset) * 180 / Math.PI - 90) + ")"
-                         + "translate(" + (outerRadius + 15) + ")"
-                         + (d.angle > Math.PI ? "rotate(180)" : "")
-                     })
-
-                     // .attr("transform", d => {
-                     //     var angle = (d.angle + offset) * 180 / Math.PI - 90;
-                     //     return `rotate(${angle > Math.PI? angle + 180 : angle}) translate(${outerRadius},0)`
-                     // })
-                     .text(function(d,i) { return allWords[i]; });
-                console.log("here");
-
-                // creates the paths
-                var edges = svg.append("g")
-                               .attr("fill-opacity", 0.67)
-                               .selectAll("path")
-                               .data(chords)
-                               .enter().append("path")
-                               .attr("d", ribbon)
-                               .attr("fill", d => color(d.target.index))
-                               .attr("stroke", d => d3.rgb(color(d.target.index)).darker())
-                               .attr("opacity", d => allWords[d.source.index] === "" ? 0 : 0.67);
-                               //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")");
-
-                // creates the arc on the edge besides the text
-                var groupChord = group.append("path")
-                                      .attr("d", arc)
-                                      .attr("fill", function(d,i) { return (allWords[i] === "" ? "#FFFFFF" : "#888888"); });
-                                      //.on("mouseover", chordMouseOver);
-
-                function calculateMiddle(d) {
-                  const k = (d.endAngle + d.startAngle) / 2;
-                  return d3.range(0, d.value).map(value => {
-                    return {value: value, angle: k};
-                  });
-                }
-
-                function chordMouseOver(d, i) {
-                    console.log("arc index: " + i);
-                    edges.classed("fade", function(p) {
-                        return i != data.length - 1 && i != data.length / 2 - 1 && p.source.index != i && p.target.index != i;
-                    })
-                }
-
-                // Calculates the start angle by considering the empty section
-                function startAngle(d) { return d.startAngle + offset; }
-                function endAngle(d) { return d.endAngle + offset; }
-            }
-
-            // var nv2dArr, allNvWords, allCnnNvWords, allFoxNvWords, allMsnbcNvWords;
-
-            // the initial function that loads all the data from files and stores them in cache
-            function noun_to_verb_init() {
-
-                d3.text("cnn_nv(clean).txt", function(text) {
-
-                    var allRawData = [];
-
-                    // original file, each arr element being a single line
-                    var cnnNvArr = text.split("\n");
-
-                    // remove the empty lines at the end
-                    removeEmptyLines(cnnNvArr);
-                    appendArray(allRawData, cnnNvArr);
-
-
-                    // the list contains all the words
-                    allCnnNvWords = getListOfAllWords(cnnNvArr);
-
-                    d3.text("fox_nv(clean).txt", function(text) {
-
-                        // original file, each arr element being a single line
-                        var foxNvArr = text.split("\n");
-
-                        // remove the empty lines at the end
-                        removeEmptyLines(foxNvArr);
-                        appendArray(allRawData, foxNvArr);
-
-                        // the list contains all the words
-                        allFoxNvWords = getListOfAllWords(foxNvArr);
-
-                        d3.text("msnbc_nv(clean).txt", function(text) {
-
-                            // original file, each arr element being a single line
-                            var msnbcNvArr = text.split("\n");
-
-                            // remove the empty lines at the end
-                            removeEmptyLines(msnbcNvArr);
-                            appendArray(allRawData, msnbcNvArr);
-
-                            // the list contains all the words
-                            allMsnbcNvWords = getListOfAllWords(msnbcNvArr);
-
-                            // first get all the nouns, then get all the verbs, then put them in the correct order
-                            var allNouns = [];
-                            var allVerbs = [];
-
-                            for (var i = 0; i < allRawData.length; i++) {
-                                var lineArr = allRawData[i].split(",");
-                                lineArr[0] = lineArr[0].trim();
-                                if (lineArr[0].length != 0) {
-                                    allNouns.push(lineArr[0]);
-                                } else {
-                                    break;
-                                }
-
-                                for (var j = 1; j < lineArr.length; j++) {
-                                    lineArr[j] = lineArr[j].trim();
-                                    if (lineArr[j].length == 0) {
-                                        break;
-                                    }
-                                    var wordArr = lineArr[j].split(":");
-                                    if (allVerbs.indexOf(wordArr[0]) == -1) {
-                                        allVerbs.push(wordArr[0]);
-                                    }
-                                }
-                            }
-
-                            // put together the words in the correct order
-                            allNvWords = [];
-                            allNouns.sort().reverse();
-                            allVerbs.sort();
-                            appendArray(allNvWords, allVerbs);
-                            allNvWords.push("");
-                            appendArray(allNvWords, allNouns);
-                            allNvWords.push("");
-
-                            nv2dArr = generateEmpry2dArray(allNvWords);
-
-                            // fills in the data
-                            fillIn2dArray(nv2dArr, allNvWords, allRawData);
-
-                            noun_to_verb("#noun_to_verb_div");
-                            
-                        });
-                        
-                    });
-
-                });
-
-
-                
-            }
-
-            // appends all elements of arr2 to the end of arr1
-            function appendArray(arr1, arr2) {
-                for (var i = 0; i < arr2.length; i++) {
-                    arr1.push(arr2[i]);
-                }
-            }
-
-            noun_to_verb_init();
-
             /** --------------------------noun to verb plot ends------------------------------------------- */
 
                 // We're almost there
@@ -1766,7 +1509,7 @@
                     var graphicMargin = 16 * 4;
                     var textWidth = text.node().offsetWidth;
                     var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
-                    var graphicHeight = Math.floor(window.innerHeight / 2)
+                    var graphicHeight = Math.floor(4 * window.innerHeight / 5)
                     var graphicMarginTop = Math.floor(graphicHeight / 2)
         
                     graphic
@@ -1860,7 +1603,7 @@
                     var graphicMargin = 16 * 4;
                     var textWidth = text.node().offsetWidth;
                     var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
-                    var graphicHeight = Math.floor(window.innerHeight / 2)
+                    var graphicHeight = Math.floor(4.5 * window.innerHeight / 5)
                     var graphicMarginTop = Math.floor(graphicHeight / 2)
         
                     graphic
