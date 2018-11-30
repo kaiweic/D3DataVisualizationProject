@@ -4,7 +4,74 @@
  <head>
   <meta charset="utf-8" />
   <title>d3.js concept browser - ramblings.mcpher.com</title>
-<base href="https://storage.googleapis.com/xliberation.com/">
+  <style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        margin: auto;
+        width: 960px;
+    }
+
+    #chart {
+        font: 10px sans-serif;
+        margin: auto;
+        height: 960px;
+    }
+
+    .node rect {
+        cursor: move;
+        fill-opacity: .9;
+        shape-rendering: crispEdges;
+    }
+
+    .node text {
+        pointer-events: all;
+        text-shadow: 0 1px 0 #fff;
+    }
+
+    .link {
+        fill: none;
+        stroke: #000;
+        stroke-opacity: .2;
+    }
+
+    .link:hover {
+        stroke-opacity: .5;
+    }
+
+    circle.node-dot {
+        fill: DarkSlateGray;
+        stroke: SlateGray;
+        stroke-width: 1px;
+    }
+
+    line.link {
+        fill: none;
+        stroke: SlateGray;
+        stroke-width: 1.5px;
+    }
+
+    marker#defaultMarker {
+        fill: SlateGray;
+    }
+
+    line.link.defaultMarker {
+        stroke: SlateGray;
+    }
+
+    .node {
+        fill-opacity: 0.6;
+    }
+
+    text {
+        pointer-events: all;
+    }
+
+    text.shadow {
+        stroke: #fff;
+        stroke-width: 3px;
+        stroke-opacity: .8;
+    }
+  </style>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <link rel="stylesheet" type="text/css" href="cdn/css/d3direct.css">
   <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
@@ -66,7 +133,7 @@
     var nodeEnter = node.enter()
       .append("svg:g")
         .attr("class", "node")
-        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y+ ")"; })
         .on("dblclick", function(d){
             control.nodeClickInProgress=false;
             if (d.url)window.open(d.url);
@@ -274,13 +341,13 @@ function initialize () {
     //some basic options
     var newoptions = {  nodeLabel:"label", 
                     nodeResize:"count", height:900,
-                    nodeFocus:true, radius:3, charge:-500};
+                    nodeFocus:true, radius:3, charge:-3000};
     // defaults
     control.options = $.extend({
             stackHeight : 12,
             radius : 5,
             fontSize : 14,
-            labelFontSize : 8,
+            labelFontSize : 20,
             labelLineSpacing: 2.5,
             nodeLabel : null,
             markerWidth : 0,
@@ -289,16 +356,16 @@ function initialize () {
             gap : 1.5,
             nodeResize : "",
             linkDistance : 80,
-            charge : -120,
+            charge :  120,
             styleColumn : null,
             styles : null,
             linkName : null,
             nodeFocus: true,
             nodeFocusRadius: 25,
-            nodeFocusColor: "FireBrick",
+            nodeFocusColor: "Brown",
             labelOffset: 5,
             gravity: .05,
-            routeFocusStroke: "FireBrick",
+            routeFocusStroke: "Brown",
             routeFocusStrokeWidth: 3,
             circleFill: "Black",
             routeStroke: "Black",
@@ -447,7 +514,7 @@ function getTheRawData() {
     // sitewheel.json - both
     // allwheel.json - site
 
-    var dataUrl = getParameterByName('data') || "https://raw.githubusercontent.com/cse442-18f/fp-divided-congress-and-coverage/master/verb-adj%20data/data.json?token=AkZWGldryzyEdzoGZtxg3eOz3zegNj-Tks5cCfR6wA%3D%3D";
+    var dataUrl = getParameterByName('data') || "https://raw.githubusercontent.com/cse442-18f/fp-divided-congress-and-coverage/master/verb-adj%20data/data.json?token=AkZWGklwZz82Qa4E4DFUEzBbyY0pJX12ks5cCfs5wA%3D%3D";
       
     // promise will be resolved when done
     return getPromiseData(dataUrl,proxyUrl);
@@ -474,10 +541,7 @@ function getPromiseData(url,proxyUrl){
   return deferred.promise();
 }
 
-</script></head><body><div>d3.js force directed node focus:<strong>Site Concept Browser</strong><span style="color:darslateblue;"> <small>click a node to focus, double click to visit page</small></span><aside><small>
-   <a href='http://ramblings.mcpher.com'>ramblings.mcpher.com</a> ackowledgements:<a href='http://bost.ocks.org/mike/'>Mike Bostok(d3.js)</a></small>
-   </aside>
-</div>
+</script></head><body>
   <div id="chart">
 
   </div>
