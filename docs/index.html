@@ -1350,7 +1350,6 @@
                             .attr("width", width)
                             .attr("height", height)
                             .attr("transform", "translate(0, 15)")
-
                             .append("g")
                             .attr("id", "circle")
                             .attr("width", width)
@@ -1376,6 +1375,8 @@
                                .data(chords.groups)
                                .enter().append("g")
                                .on("mouseover", chordMouseOver);
+
+                console.log(chords.groups);
 
                 // // creates the marks 
                 // var groupTick = group.selectAll("g")
