@@ -1163,7 +1163,8 @@
                             .style('opacity', 0.7)
                             .attr('transform',  d => translate(scaleX(d.x), scaleY(d.y)))
 
-                        var tooltip = d3.select('body').append("div").attr("class", "toolTip");
+                        $(selector + ' .toolTip').remove();
+                        var tooltip = d3.select(selector).append("div").attr("class", "toolTip");
 
                         plot.selectAll('.item')
                             .on("mousemove", function(d){
@@ -1242,23 +1243,48 @@
                     return chart
                 }
 
-                function handleInput() {
-                    const val = +this.value
-                    const x = val
-                    const y = 100 - val
-                    const weighted = weightData({ x, y })
+                function handleInput(sliderInput) {
+                    let val = sliderInput.value;
+                    let x = val;
+                    let y = 100 - val;
+                    let weighted = weightData({x, y});
 
-                    chart.weight({ x, y })
-                    el.datum(weighted)
-                    el.call(chart)
+                    chart.weight({x, y});
+                    el.datum(weighted);
+                    el.call(chart);
                 }
 
                 function init() {
-                    el.datum(weightData({ x: 50, y: 50 }))
-                    el.call(chart)
-                    resize()
-                    window.addEventListener('resize', resize)
-                    graphic.select('.slider input').on('input', handleInput)
+                    el.datum(weightData({x: 50, y: 50}));
+                    el.call(chart);
+                    resize();
+                    window.addEventListener('resize', resize);
+
+                    let sliderInput = $(selector + ' .slider input')[0];
+                    let min = sliderInput.min;
+                    let max = sliderInput.max;
+
+                    let interval;
+                    function play() {
+                        function next() {
+                            let val = parseInt(sliderInput.value);
+                            sliderInput.value = (val + 1) > max ? min : (val + 1);
+                            handleInput(sliderInput);
+                        }
+                        clearInterval(interval);
+                        interval = setInterval(next, 60);
+                    }
+
+
+                    function manualOverride() {
+                        clearInterval(interval);
+                        handleInput(sliderInput)
+                        interval = setTimeout(play, 2500);  // delay when user manually select slider
+                    }
+
+                    sliderInput.oninput = manualOverride;
+                    play();
+
                 }
 
                 init()
