@@ -8,4 +8,3 @@ nationalism,embraces:7,rejects:3,putting:3
 senate,win:4,call:5,speaks:5
 trump,awaiting:15,calls:10,holds:10,take:10,rallies:16,focus:10,take:90,retain:92,win:10
 immigration,focus:5,warns:2,win:2
-kavanaugh,admits:6,falling:8,lied:6

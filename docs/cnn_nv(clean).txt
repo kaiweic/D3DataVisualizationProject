@@ -1,13 +1,10 @@
-americans,turn:15,ridiculing:6,vote:7
 gop,accuses:18,hacked:14,hold:26
 voters,decide:40,hold:17,hit:54
 house,warn:19,brace:32,win:27
 democrats,closing:12,retain:9,win:12
 caravan,fears:3,await:4
 campaign,hated:5,insisted:12,heads:5
-nationalism,failed:12,fearmongering:4
 migrants,deny:3,heading:4,demonized:4
-border,await:4,heading:4,demonized:4
 senate,brace:3,keep:3,faces:4
 trump,fearmongering:16,hold:22,warn:20,cast:20,hated:25,brace:33,touts:11
 republicans,preexisting:5,closing:7,keep:7
