@@ -1,0 +1,394 @@
+[
+    {
+      "name": "Trump",
+      "count": 970,
+      "key": "Trump",
+      "pages": [
+        {
+          "name": "fighting",
+          "key": "1",
+          "title": "fighting",
+          "url": ""
+        },
+        {
+          "name": "loses",
+          "key": "2",
+          "title": "loses",
+          "url": ""
+        },
+        {
+          "name": "investigate",
+          "key": "3",
+          "title": "investigate",
+          "url": ""
+        },
+        {
+          "name": "heading",
+          "key": "4",
+          "title": "heading",
+          "url": ""
+        },
+        {
+          "name": "booming",
+          "key": "5",
+          "title": "booming",
+          "url": ""
+        },
+        {
+          "name": "awaiting",
+          "key": "6",
+          "title": "awaiting",
+          "url": ""
+        },
+        {
+          "name": "expected",
+          "key": "7",
+          "title": "expected",
+          "url": ""
+        },
+        {
+          "name": "calls",
+          "key": "8",
+          "title": "calls",
+          "url": ""
+        },
+        {
+          "name": "speaks",
+          "key": "9",
+          "title": "speaks",
+          "url": ""
+        },
+        {
+          "name": "holds",
+          "key": "10",
+          "title": "holds",
+          "url": ""
+        },
+        {
+          "name": "rallies",
+          "key": "11",
+          "title": "rallies",
+          "url": ""
+        },
+        {
+          "name": "says",
+          "key": "12",
+          "title": "says",
+          "url": ""
+        },
+        {
+          "name": "coming",
+          "key": "13",
+          "title": "coming",
+          "url": ""
+        }
+      ]
+    },
+    {
+        "name": "Democrats",
+        "count": 120,
+        "key": "Democrats",
+        "pages": [
+            {
+                "name": "robbing",
+                "key": "1",
+                "title": "robbing",
+                "url": ""
+            },
+            {
+                "name": "closing",
+                "key": "2",
+                "title": "closing",
+                "url": ""
+            },
+            {
+                "name": "retain",
+                "key": "3",
+                "title": "retain",
+                "url": ""
+            },
+            {
+                "name": "distract",
+                "key": "4",
+                "title": "distract",
+                "url": ""
+            },
+            {
+                "name": "trying",
+                "key": "5",
+                "title": "trying",
+                "url": ""
+            },
+            {
+                "name": "win",
+                "key": "6",
+                "title": "win",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Economy",
+        "count": 100,
+        "key": "Economy",
+        "pages": [
+            {
+                "name": "hated",
+                "key": "1",
+                "title": "hated",
+                "url": ""
+            },
+            {
+                "name": "opted",
+                "key": "1",
+                "title": "opted",
+                "url": ""
+            },
+            {
+                "name": "emphasizes",
+                "key": "2",
+                "title": "emphasizes",
+                "url": ""
+            },
+            {
+                "name": "insisted",
+                "key": "3",
+                "title": "insisted",
+                "url": ""
+            },
+            {
+                "name": "pulling",
+                "key": "4",
+                "title": "pulling",
+                "url": ""
+            },
+            {
+                "name": "admits",
+                "key": "5",
+                "title": "admits",
+                "url": ""
+            },
+            {
+                "name": "talk",
+                "key": "6",
+                "title": "talk",
+                "url": ""
+            },
+            {
+                "name": "closing",
+                "key": "7",
+                "title": "closing",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Immigration",
+        "count": 120,
+        "key": "Immigration",
+        "pages": [
+            {
+                "name": "fears",
+                "key": "1",
+                "title": "fears",
+                "url": ""
+            },
+            {
+                "name": "hated",
+                "key": "2",
+                "title": "hated",
+                "url": ""
+            },
+            {
+                "name": "stoking",
+                "key": "3",
+                "title": "stoking",
+                "url": ""
+            },
+            {
+                "name": "reject",
+                "key": "4",
+                "title": "reject",
+                "url": ""
+            },
+            {
+                "name": "keep",
+                "key": "5",
+                "title": "keep",
+                "url": ""
+            },
+            {
+                "name": "spreads",
+                "key": "6",
+                "title": "spreads",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Republicans",
+        "count": 42,
+        "key": "Republicans",
+        "pages": [
+            {
+                "name": "pre-existing",
+                "key": "1",
+                "title": "pre-existing",
+                "url": ""
+            },
+            {
+                "name": "closing",
+                "key": "2",
+                "title": "closing",
+                "url": ""
+            },
+            {
+                "name": "keep",
+                "key": "3",
+                "title": "keep",
+                "url": ""
+            },
+            {
+                "name": "vows",
+                "key": "4",
+                "title": "vows",
+                "url": ""
+            },
+            {
+                "name": "pulling",
+                "key": "5",
+                "title": "pulling",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Voters",
+        "count": 320,
+        "key": "Voters",
+        "pages": [
+            {
+                "name": "decide",
+                "key": "1",
+                "title": "decide",
+                "url": ""
+            },
+            {
+                "name": "hit",
+                "key": "2",
+                "title": "hit",
+                "url": ""
+            },
+            {
+                "name": "hold",
+                "key": "3",
+                "title": "hold",
+                "url": ""
+            },
+            {
+                "name": "casting",
+                "key": "4",
+                "title": "casting",
+                "url": ""
+            },
+            {
+                "name": "spreads",
+                "key": "5",
+                "title": "spreads",
+                "url": ""
+            },
+            {
+                "name": "watch",
+                "key": "6",
+                "title": "watch",
+                "url": ""
+            },
+            {
+                "name": "send",
+                "key": "7",
+                "title": "send",
+                "url": ""
+            },
+            {
+                "name": "say",
+                "key": "8",
+                "title": "say",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Campaign",
+        "count": 108,
+        "key": "Campaign",
+        "pages": [
+            {
+                "name": "hated",
+                "key": "1",
+                "title": "hated",
+                "url": ""
+            },
+            {
+                "name": "condone",
+                "key": "2",
+                "title": "condone",
+                "url": ""
+            },
+            {
+                "name": "take",
+                "key": "3",
+                "title": "take",
+                "url": ""
+            },
+            {
+                "name": "keep",
+                "key": "4",
+                "title": "keep",
+                "url": ""
+            },
+            {
+                "name": "insisted",
+                "key": "5",
+                "title": "insisted",
+                "url": ""
+            },
+            {
+                "name": "heads",
+                "key": "6",
+                "title": "heads",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Migrants",
+        "count": 25,
+        "key": "Migrants",
+        "pages": [
+            {
+                "name": "deny",
+                "key": "1",
+                "title": "deny",
+                "url": ""
+            },
+            {
+                "name": "carrying",
+                "key": "2",
+                "title": "carrying",
+                "url": ""
+            },
+            {
+                "name": "heading",
+                "key": "3",
+                "title": "heading",
+                "url": ""
+            },
+            {
+                "name": "demonized",
+                "key": "4",
+                "title": "demonized",
+                "url": ""
+            }
+        ]
+    }
+  ]
