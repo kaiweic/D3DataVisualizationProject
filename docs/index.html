@@ -342,16 +342,19 @@
         #nn_title, #nv_title {
             font-size: 32px;
             line-height: 1em;
-			margin: auto;
+			      margin: auto;
             padding-top: 2.5rem;
             padding-bottom: 2.5rem;
-			text-transform: uppercase;
-			font-weight: 700;
+			      text-transform: uppercase;
+			      font-weight: 700;
         }
 
         #nn_info, #nv_info {
-            padding-bottom: 6rem;
             font-size: 1.4rem;
+            padding-bottom: 50px;
+            padding-left: 200px;
+            padding-right: 200px;
+            color:#888;
         }
 
         #assoc {
@@ -388,6 +391,12 @@
         .btns {
             margin-left: 5px;
             margin-bottom: 10px;
+        }
+
+        .step .nn_description {
+            font-size: 1.25rem;
+            padding-left: 50px;
+            padding-right: 50px;
         }
 
         </style>
@@ -563,19 +572,37 @@
 
         <!-- @Kevin: This is the HTML section for your visualization [Also has associated CSS contentx] -->
         <div class = "d_back_white" id = 'assoc'>
+
             <h2 id = 'nn_title'>Which topics are most frequently mentioned together?</h2>
+            <p class="intro__dek" id = 'nn_info'>
+              It's also interesting to take a look at the frequencies of pair of words appear in the same context.  In this section, we count how frequent any two <b><u>nouns</u></b> appear in the same headlines and retain the top ~60 nouns that show up the most.  The width of edges in the graph is proportional to the frequency between those two words.
+            </p>
+            <p class="intro__dek" id = 'nn_info'>
+              On each of the graph below, hover over the words or the arcs to show the highlight on that particular word.  You can also hover over the boxed words in the descriptions on the left to highlight those words.  
+            </p>
             <section id = "scroll_1" class = "scroll_section">
                 <div id="noun_to_noun" class="scroll__graphic" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
                 <!-- This is where text goes, as we scroll -->
                 <div class="scroll__text">
                     <div class="step is-active" style="height: 615px;">
                         <p class = "channel">CNN</p>
+                        <p class = "nn_description">
+                          The graph of CNN shows that during the day of 2018 midterm elections, politics was at the central of all topics, and it's not surprising that the media coverage was surrounding "Trump" on that day.  
+                        </p>
                     </div>
                     <div class="step" style="height: 615px;">
                         <p class = "channel">FOX</p>
+                        <p class = "nn_description">
+                          The graph of FOX shows something that's a little bit different.  While "Trump" was also being mentioned with many other words, the frequencies were much lower.  In addition, we see a triangualr relationship between three words: "republicans", "democrats", and "house".  This is something worth noting, as FOX seemed to be diverting the attentions away from Trump and mentioning the political parties directly instead.
+                        </p>
+                        <br><br>
+
                     </div>
                     <div class="step" style="height: 615px;">
                         <p class = "channel">MSNBC</p>
+                        <p class = "nn_description">
+                          There isn't any particular patterns that we find to be interesting for MSNBC.  "Trump" was still being frequently mentioned, but "voters" was too, showing that this network was also focusing on the publics' standings on that day.  
+                        </p>
                     </div>
                 </div>
             </section>
