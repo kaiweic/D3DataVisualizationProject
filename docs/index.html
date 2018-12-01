@@ -299,7 +299,7 @@
             color: #888;
         }
 
-        #pivot_scatter, #chart_1 {
+        #pivot_scatter, #noun_to_verb {
             margin-top: 50px;
             margin-bottom: 50px;
             align-content: center;
@@ -741,9 +741,15 @@
             </section>
         </div>
 
-        <div id = "chart_1">
-            <h2 id = 'nv_title'>Noun to Verb Mapping</h2>
-            <p class="intro__dek" id = 'nv_info'>[Vis in the works]</p>
+        <div id = "noun_to_verb">
+                <h2 id = 'nv_title'>Noun to Verb Mapping</h2>
+                <p class="intro__dek" id = 'nv_info'>[Vis in the works]</p>
+            <div id = "chart_1">
+            </div>
+            <div id = "chart_2">
+            </div>
+            <div id = "chart_3">
+            </div>
         </div>
 
         <section id="outro"></section>
@@ -2342,7 +2348,7 @@
                     return deferred.promise();
                     }
             }
-            noun_to_verb("#chart_1", "https://raw.githubusercontent.com/cse442-18f/fp-divided-congress-and-coverage/master/verb-adj%20data/data.json?token=AkZWGklwZz82Qa4E4DFUEzBbyY0pJX12ks5cCfs5wA%3D%3D");
+            noun_to_verb("#chart_1", "https://raw.githubusercontent.com/cse442-18f/fp-divided-congress-and-coverage/master/docs/cnn.json?token=AkZWGmXq_dKqkzcXGnFEm50RvXih1cNMks5cDDi_wA%3D%3D");
         </script>
     </body>
 </html>

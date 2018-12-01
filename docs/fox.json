@@ -1,0 +1,382 @@
+[
+    {
+        "name": "Trump",
+        "count": 420,
+        "key": "Trump",
+        "pages": [
+            {
+                "name": "fighting",
+                "key": "1",
+                "title": "fighting",
+                "url": ""
+            },
+            {
+                "name": "loses",
+                "key": "2",
+                "title": "loses",
+                "url": ""
+            },
+            {
+                "name": "investigate",
+                "key": "3",
+                "title": "investigate",
+                "url": ""
+            },
+            {
+                "name": "heading",
+                "key": "4",
+                "title": "heading",
+                "url": ""
+            },
+            {
+                "name": "booming",
+                "key": "5",
+                "title": "booming",
+                "url": ""
+            },
+            {
+                "name": "awaiting",
+                "key": "6",
+                "title": "awaiting",
+                "url": ""
+            },
+            {
+                "name": "expected",
+                "key": "7",
+                "title": "expected",
+                "url": ""
+            },
+            {
+                "name": "calls",
+                "key": "8",
+                "title": "calls",
+                "url": ""
+            },
+            {
+                "name": "speaks",
+                "key": "9",
+                "title": "speaks",
+                "url": ""
+            },
+            {
+                "name": "holds",
+                "key": "10",
+                "title": "holds",
+                "url": ""
+            },
+            {
+                "name": "rallies",
+                "key": "11",
+                "title": "rallies",
+                "url": ""
+            },
+            {
+                "name": "says",
+                "key": "12",
+                "title": "says",
+                "url": ""
+            },
+            {
+                "name": "coming",
+                "key": "13",
+                "title": "coming",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Voters",
+        "count": 130,
+        "key": "Voters",
+        "pages": [
+            {
+                "name": "talk",
+                "key": "14",
+                "title": "talk",
+                "url": ""
+            },
+            {
+                "name": "react",
+                "key": "15",
+                "title": "react",
+                "url": ""
+            },
+            {
+                "name": "weigh",
+                "key": "16",
+                "title": "weigh",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Democrats",
+        "count": 360,
+        "key": "Democrats",
+        "pages": [
+            {
+                "name": "take",
+                "key": "17",
+                "title": "take",
+                "url": ""
+            },
+            {
+                "name": "retain",
+                "key": "18",
+                "title": "retain",
+                "url": ""
+            },
+            {
+                "name": "flip",
+                "key": "19",
+                "title":"flip",
+                "url": ""
+            },
+            {
+                "name": "call",
+                "key": "20",
+                "title": "call",
+                "url": ""
+            },
+            {
+                "name": "win",
+                "key": "21",
+                "title": "win",
+                "url": ""
+            },
+            {
+                "name": "need",
+                "key": "22",
+                "title": "need",
+                "url": ""
+            },
+            {
+                "name": "investigate",
+                "key": "23",
+                "title": "investigate",
+                "url": ""
+            },
+            {
+                "name": "focussing",
+                "key": "24",
+                "title": "focussing",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Economy",
+        "count": 49,
+        "key": "Economy",
+        "pages": [
+            {
+                "name": "booming",
+                "key": "25",
+                "title": "booming",
+                "url": ""
+            },
+            {
+                "name": "soaring",
+                "key": "26",
+                "title": "soaring",
+                "url": ""
+            },
+            {
+                "name": "surging",
+                "key": "27",
+                "title": "surging",
+                "url": ""
+            },
+            {
+                "name": "shifting",
+                "key": "28",
+                "title": "shifting",
+                "url": ""
+            },
+            {
+                "name": "heading",
+                "key": "29",
+                "title": "heading",
+                "url": ""
+            },
+            {
+                "name": "rising",
+                "key": "30",
+                "title": "rising",
+                "url": ""
+            },
+            {
+                "name": "worry",
+                "key": "31",
+                "title": "worry",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name":"Immigration",
+        "count": 60,
+        "key": "Immigration",
+        "pages": [
+            {
+                "name": "focus",
+                "key": "32",
+                "title": "focus",
+                "url": ""
+            },
+            {
+                "name": "warns",
+                "key": "33",
+                "title": "warns",
+                "url": ""
+            },
+            {
+                "name": "decide",
+                "key": "34",
+                "title": "decide",
+                "url": ""
+            },
+            {
+                "name": "heading",
+                "key": "35",
+                "title": "heading",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Republicans",
+        "count": 220,
+        "key": "Republicans",
+        "pages": [
+            {
+                "name": "focus",
+                "key": "36",
+                "title": "focus",
+                "url": ""
+            },
+            {
+                "name": "fighting",
+                "key": "37",
+                "title": "fighting",
+                "url": ""
+            },
+            {
+                "name": "losing",
+                "key": "38",
+                "title": "losing",
+                "url": ""
+            },
+            {
+                "name": "take",
+                "key": "40",
+                "title": "take",
+                "url": ""
+            },
+            {
+                "name": "retain",
+                "key": "41",
+                "title": "retain",
+                "url": ""
+            },
+            {
+                "name": "win",
+                "key": "42",
+                "title": "win",
+                "url": ""
+            },
+            {
+                "name": "expand",
+                "key": "43",
+                "title": "expand",
+                "url": ""
+            },
+            {
+                "name": "call",
+                "key": "44",
+                "title": "call",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Campaign",
+        "count": 45,
+        "key": "Campaign",
+        "pages": [
+            {
+                "name": "united",
+                "key": "45",
+                "title": "united",
+                "url": ""
+            },
+            {
+                "name": "retain",
+                "key": "46",
+                "title": "retain",
+                "url": ""
+            },
+            {
+                "name": "finishes",
+                "key": "47",
+                "title": "finishes",
+                "url": ""
+            },
+            {
+                "name": "says",
+                "key": "48",
+                "title": "says",
+                "url": ""
+            },
+            {
+                "name": "take",
+                "key": "49",
+                "title": "take",
+                "url": ""
+            },
+            {
+                "name": "backs",
+                "key": "50",
+                "title": "backs",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Migrants",
+        "count": 15,
+        "key": "Migrants",
+        "pages": [
+            {
+                "name": "warns",
+                "key": "51",
+                "title": "warns",
+                "url": ""
+            },
+            {
+                "name": "come",
+                "key": "52",
+                "title": "come",
+                "url": ""
+            },
+            {
+                "name": "focussing",
+                "key": "53",
+                "title": "focussing",
+                "url": ""
+            },
+            {
+                "name": "criticizes",
+                "key": "54",
+                "title": "criticizes",
+                "url": ""
+            },
+            {
+                "name": "coming",
+                "key": "55",
+                "title": "coming",
+                "url": ""
+            }
+        ]
+    }
+]

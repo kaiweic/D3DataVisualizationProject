@@ -1,0 +1,501 @@
+[
+    {
+        "name": "Trump",
+        "count": 650,
+        "key": "Trump",
+        "pages": [
+            {
+                "name": "wraps",
+                "key": "1",
+                "title": "wraps",
+                "url": ""
+            },
+            {
+                "name": "driving",
+                "key": "2",
+                "title": "driving",
+                "url": ""
+            },
+            {
+                "name": "unite",
+                "key": "3",
+                "title": "unite",
+                "url": ""
+            },
+            {
+                "name": "says",
+                "key": "4",
+                "title": "says",
+                "url": ""
+            },
+            {
+                "name": "fired",
+                "key": "5",
+                "title": "fired",
+                "url": ""
+            },
+            {
+                "name": "approve",
+                "key": "6",
+                "title": "approve",
+                "url": ""
+            },
+            {
+                "name": "voted",
+                "key": "7",
+                "title": "voted",
+                "url": ""
+            },
+            {
+                "name": "spends",
+                "key": "8",
+                "title": "spends",
+                "url": ""
+            },
+            {
+                "name": "flip",
+                "key": "9",
+                "title": "flip",
+                "url": ""
+            },
+            {
+                "name": "makes",
+                "key": "10",
+                "title": "makes",
+                "url": ""
+            },
+            {
+                "name": "pull",
+                "key": "11",
+                "title": "pull",
+                "url": ""
+            },
+            {
+                "name": "speaks",
+                "key": "12",
+                "title": "speaks",
+                "url": ""
+            },
+            {
+                "name": "hold",
+                "key": "13",
+                "title": "hold",
+                "url": ""
+            },
+            {
+                "name": "warn",
+                "key": "14",
+                "title": "warn",
+                "url": ""
+            },
+            {
+                "name": "show",
+                "key": "15",
+                "title": "show",
+                "url": ""
+            },
+            {
+                "name": "want",
+                "key": "16",
+                "title": "want",
+                "url": ""
+            },
+            {
+                "name": "lying",
+                "key": "17",
+                "title": "lying",
+                "url": ""
+            },
+            {
+                "name": "framing",
+                "key": "18",
+                "title": "framing",
+                "url": ""
+            },
+            {
+                "name": "acting",
+                "key": "19",
+                "title": "acting",
+                "url": ""
+            },
+            {
+                "name": "fuelling",
+                "key": "20",
+                "title": "fuelling",
+                "url": ""
+            },
+            {
+                "name": "heading",
+                "key": "21",
+                "title": "heading",
+                "url": ""
+            },
+            {
+                "name": "hits",
+                "key": "22",
+                "title": "hits",
+                "url": ""
+            },
+            {
+                "name": "points",
+                "key": "23",
+                "title": "points",
+                "url": ""
+            },
+            {
+                "name": "polling",
+                "key": "24",
+                "title": "polling",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Voters",
+        "count": 800,
+        "key": "Voters",
+        "pages": [
+            {
+                "name": "head",
+                "key": "25",
+                "title": "head",
+                "url": ""
+            },
+            {
+                "name": "driving",
+                "key": "26",
+                "title": "driving",
+                "url": ""
+            },
+            {
+                "name": "stays",
+                "key": "27",
+                "title": "stays",
+                "url": ""
+            },
+            {
+                "name": "leading",
+                "key": "28",
+                "title": "leading",
+                "url": ""
+            },
+            {
+                "name": "want",
+                "key": "29",
+                "title": "want",
+                "url": ""
+            },
+            {
+                "name": "voted",
+                "key": "30",
+                "title": "voted",
+                "url": ""
+            },
+            {
+                "name": "oppose",
+                "key": "31",
+                "title": "oppose",
+                "url": ""
+            },
+            {
+                "name": "won",
+                "key": "32",
+                "title": "won",
+                "url": ""
+            },
+            {
+                "name": "decide",
+                "key": "33",
+                "title": "decide",
+                "url": ""
+            },
+            {
+                "name": "focussing",
+                "key": "34",
+                "title": "focussing",
+                "url": ""
+            },
+            {
+                "name": "speak",
+                "key": "35",
+                "title": "speak",
+                "url": ""
+            },
+            {
+                "name": "prefer",
+                "key": "36",
+                "title": "prefer",
+                "url": ""
+            },
+            {
+                "name": "polling",
+                "key": "37",
+                "title": "polling",
+                "url": ""
+            },
+            {
+                "name": "approve",
+                "key": "38",
+                "title": "approve",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Democrats",
+        "count": 130,
+        "key": "Democrats",
+        "pages": [
+            {
+                "name": "decided",
+                "key": "39",
+                "title": "decided",
+                "url": ""
+            },
+            {
+                "name": "urges",
+                "key": "40",
+                "title": "urges",
+                "url": ""
+            },
+            {
+                "name": "facing",
+                "key": "41",
+                "title": "facing",
+                "url": ""
+            },
+            {
+                "name": "headed",
+                "key": "42",
+                "title": "headed",
+                "url": ""
+            },
+            {
+                "name": "fret",
+                "key": "43",
+                "title": "fret",
+                "url": ""
+            },
+            {
+                "name": "need",
+                "key": "44",
+                "title": "need",
+                "url": ""
+            },
+            {
+                "name": "running",
+                "key": "45",
+                "title": "running",
+                "url": ""
+            },
+            {
+                "name": "win",
+                "key": "46",
+                "title": "win",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Economy",
+        "count": 47,
+        "key": "Economy",
+        "pages": [
+            {
+                "name": "pushes",
+                "key": "47",
+                "title": "pushes",
+                "url": ""
+            },
+            {
+                "name": "talk",
+                "key": "48",
+                "title": "talk",
+                "url": ""
+            },
+            {
+                "name": "fact-checking",
+                "key": "49",
+                "title": "fact-checking",
+                "url": ""
+            },
+            {
+                "name": "begs",
+                "key": "50",
+                "title": "begs",
+                "url": ""
+            },{
+                "name": "touts",
+                "key": "51",
+                "title": "touts",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Immigration",
+        "count": 65,
+        "key": "Immigration",
+        "pages": [
+            {
+                "name": "driving",
+                "key": "52",
+                "title": "driving",
+                "url": ""
+            },
+            {
+                "name": "closing",
+                "key": "53",
+                "title": "closing",
+                "url": ""
+            },
+            {
+                "name": "makes",
+                "key": "54",
+                "title": "makes",
+                "url": ""
+            },
+            {
+                "name": "associated",
+                "key": "55",
+                "title": "associated",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Republicans",
+        "count": 40,
+        "key": "Republicans",
+        "pages": [
+            {
+                "name": "prefer",
+                "key": "56",
+                "title": "prefer",
+                "url": ""
+            },
+            {
+                "name": "running",
+                "key": "57",
+                "title": "running",
+                "url": ""
+            },
+            {
+                "name": "won",
+                "key": "58",
+                "title": "won",
+                "url": ""
+            },
+            {
+                "name": "vote",
+                "key": "59",
+                "title": "vote",
+                "url": ""
+            },
+            {
+                "name": "stay",
+                "key": "60",
+                "title": "stay",
+                "url": ""
+            },
+            {
+                "name": "limiting",
+                "key": "61",
+                "title": "limiting",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Campaign",
+        "count": 170,
+        "key": "Campaign",
+        "pages": [
+            {
+                "name": "closing",
+                "key": "62",
+                "title": "closing",
+                "url": ""
+            },
+            {
+                "name": "begs",
+                "key": "63",
+                "title": "begs",
+                "url": ""
+            },
+            {
+                "name": "hits",
+                "key": "64",
+                "title": "hits",
+                "url": ""
+            },
+            {
+                "name": "makes",
+                "key": "65",
+                "title": "makes",
+                "url": ""
+            },
+            {
+                "name": "points",
+                "key": "66",
+                "title": "points",
+                "url": ""
+            },
+            {
+                "name": "hold",
+                "key": "67",
+                "title": "hold",
+                "url": ""
+            },
+            {
+                "name": "wraps",
+                "key": "68",
+                "title": "wraps",
+                "url": ""
+            },
+            {
+                "name": "lies",
+                "key": "69",
+                "title": "lies",
+                "url": ""
+            },
+            {
+                "name": "built",
+                "key": "70",
+                "title": "built",
+                "url": ""
+            },
+            {
+                "name": "gets",
+                "key": "71",
+                "title": "gets",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "name": "Migrants",
+        "count": 19,
+        "key": "Migrants",
+        "pages": [
+            {
+                "name": "fuelling",
+                "key": "72",
+                "title": "fuelling",
+                "url": ""
+            },
+            {
+                "name": "say",
+                "key": "73",
+                "title": "say",
+                "url": ""
+            },
+            {
+                "name": "pull",
+                "key": "74",
+                "title": "pull",
+                "url": ""
+            }
+        ]
+    }
+]
