@@ -67,41 +67,45 @@
 			font-size: 1.4rem;
 		}
 
-        #c_smart {
-            font-size: 12px;
-            font-style: italic;
-            padding-bottom: 2.5rem;
-        }
+    #c_smart {
+      font-size: 12px;
+      font-style: italic;
+      padding-bottom: 2.5rem;
+    }
 
-        #f_char {
-            float: left;
-            font-size: 350%;
-            font-weight: 600;
-            line-height: 60px;
-            padding-top: 4px;
-        }
+    #f_char {
+      float: left;
+      font-size: 350%;
+      font-weight: 600;
+      line-height: 60px;
+      padding-top: 4px;
+    }
 
-        .word_cloud {
-            display: inline-block;
-        }
+    .word_cloud {
+      display: inline-block;
+    }
 
 		/* demo */
 
-        .d_back_black {
-            background-color: #30303d;
-            color: #efefef;
-            line-height: 1.7;
-            font-size: 15px;
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
-            padding-top: 3rem;
-        }
+    .d_back_black {
+      background-color: #30303d;
+      color: #efefef;
+      line-height: 1.7;
+      font-size: 15px;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+      padding-top: 3rem;
+    }
 
-        .d_back_white {
-            padding-top: 3rem;
-            background-color: #fafafa;
-            color: #181619;
-        }
+    .d_back_white {
+      padding-top: 3rem;
+      background-color: #fafafa;
+      color: #181619;
+    }
+
+    .nn_mouse_over_current {
+      fill: #ff0000;
+    }
 
 		#outro {
 			height: 640px;
@@ -1545,9 +1549,12 @@
                     .on("mouseover", function() {
                         svg.selectAll(".nn_mouse_over").attr("visibility", "hidden");
                         svg.selectAll(".nn_mouse_over_" + this.id).attr("visibility", "visible");
+                        svg.selectAll(".nn_mouse_over_" + this.id + "_1").classed("nn_mouse_over_current", true);
+                        svg.selectAll(".nn_mouse_over_" + this.id + "_1").select("path").attr("fill", "#ff0000");
                     })
                     .on("mouseout", function() {
-                        svg.selectAll(".nn_mouse_over").attr("visibility", "visible");
+                        svg.selectAll(".nn_mouse_over").attr("visibility", "visible").classed("nn_mouse_over_current", false);
+                        svg.selectAll(".nn_mouse_over_" + this.id + "_1").select("path").attr("fill", "#888888");
                     });
 
                 function calculateMiddle(d) {
@@ -1563,10 +1570,13 @@
                     // })
                     svg.selectAll(".nn_mouse_over").attr("visibility", "hidden");
                     svg.selectAll(".nn_mouse_over_" + allWords[i]).attr("visibility", "visible");
+                    svg.selectAll(".nn_mouse_over_" + allWords[i] + "_1").classed("nn_mouse_over_current", true);
+                    svg.selectAll(".nn_mouse_over_" + allWords[i] + "_1").select("path").attr("fill", "#ff0000");
                 }
 
                 function nnMouseOut(d, i) {
-                    svg.selectAll(".nn_mouse_over").attr("visibility", "visible");
+                    svg.selectAll(".nn_mouse_over").attr("visibility", "visible").classed("nn_mouse_over_current", false);
+                    svg.selectAll(".nn_mouse_over_" + allWords[i] + "_1").select("path").attr("fill", "#888888");
                 }
 
             }
