@@ -292,7 +292,7 @@
             fill-opacity:.75;
         }
 
-        .pivot_label {
+        .pivot_label, .chart_label {
             text-align: center;
             font-weight:  900;
             font-size: 150%;
@@ -738,13 +738,24 @@
         </div>
 
         <div id = "noun_to_verb">
-                <h2 id = 'nv_title'>Noun to Verb Mapping</h2>
-                <p class="intro__dek" id = 'nv_info'>[Vis in the works]</p>
+                <h2 id = 'nv_title'>Which action verbs were often used with some of the dominant topics?</h2>
+                <div id = "nv_info">
+                    <p class="intro__dek">
+                        Action verbs serve as a powerful tool in creating ideas and impressions. By exploring what actions verbs were
+                        most frequently associated with the major topics, we can gain a further contextualize how those topics are being
+                        framed.
+                    </p>
+                    <br>
+                    <p style = "text-decoration: underline;">Click and drag the topics to isolate the verbs by topic!</p>
+                </div>
             <div id = "chart_1">
+                <p class = 'chart_label'>CNN</p>
             </div>
             <div id = "chart_2">
+                <p class = 'chart_label'>FOX</p>
             </div>
             <div id = "chart_3">
+                <p class = 'chart_label'>MSNBC</p>
             </div>
         </div>
 
@@ -1908,7 +1919,7 @@
 
             d3v3 = d3;
 
-            function noun_to_verb(selector, data_url) {
+            function noun_to_verb(selector, data_url, h) {
                 google.setOnLoadCallback(function() {
                     initialize().then (
                         function (control) {
@@ -2111,9 +2122,10 @@
                         return makeRadius(control,d);
                     }
                     function getColor(d) {
-                        return control.options.nodeFocus && d.isCurrentlyFocused ? control.options.nodeFocusColor  : control.color(d.group) ;
+                        console.log(control.options.nodeFocusColor);
+                        return control.options.nodeFocus && d.isCurrentlyFocused ? control.options.nodeFocusColor  : '#fe5c34' ;
                     }
-
+5
                     }
 
                     function makeRadius(control,d) {
@@ -2167,14 +2179,14 @@
 
                     //some basic options
                     var newoptions = {  nodeLabel:"label", 
-                                    nodeResize:"count", height:400,
-                                    nodeFocus:true, radius:3, charge:-300};
+                                    nodeResize:"count", height: h,
+                                    nodeFocus:true, radius:3, charge:-100};
                     // defaults
                     control.options = $.extend({
                             stackHeight : 12,
                             radius : 5,
                             fontSize : 14,
-                            labelFontSize : 10,
+                            labelFontSize : 15,
                             labelLineSpacing: 2.5,
                             nodeLabel : null,
                             markerWidth : 0,
@@ -2218,7 +2230,6 @@
                         control.data = data;
                         control.nodes = data.nodes;
                         control.links = data.links;
-                        control.color = d3.scale.category20();
                         control.clickHack = 200;
 
                         control.svg = d3v3.select(control.divName)
@@ -2368,9 +2379,9 @@
                     return deferred.promise();
                     }
             }
-            noun_to_verb("#chart_1", "https://raw.githubusercontent.com/cse442-18f/fp-divided-congress-and-coverage/master/docs/cnn.json?token=AkZWGnd28Bs81IUaDRqn75Rfr58YEZyiks5cDDkhwA%3D%3D");
-            noun_to_verb("#chart_2", "https://raw.githubusercontent.com/cse442-18f/fp-divided-congress-and-coverage/master/docs/fox.json?token=AkZWGh9WbO1UOAHmvQ0SBV5LjewSzoqVks5cDDk0wA%3D%3D");
-            noun_to_verb("#chart_3", "https://raw.githubusercontent.com/cse442-18f/fp-divided-congress-and-coverage/master/docs/msnbc.json?token=AkZWGs-Rsm5dhTOHtUyrXDViEXo-bASwks5cDDlMwA%3D%3D");
+            noun_to_verb("#chart_1", "https://raw.githubusercontent.com/cse442-18f/fp-divided-congress-and-coverage/master/docs/cnn.json?token=AkZWGrX3FTNAQuWlJRpdVcOdD18_wdyMks5cDD9ewA%3D%3D", 400);
+            noun_to_verb("#chart_2", "https://raw.githubusercontent.com/cse442-18f/fp-divided-congress-and-coverage/master/docs/fox.json?token=AkZWGiS-pM9DlJDGsERS8kQ5uiX5aSHLks5cDD90wA%3D%3D", 400);
+            noun_to_verb("#chart_3", "https://raw.githubusercontent.com/cse442-18f/fp-divided-congress-and-coverage/master/docs/msnbc.json?token=AkZWGgYKq5zhTn3Ls8OypfZvhgzc9Sryks5cDD-NwA%3D%3D", 450);
         </script>
     </body>
 </html>
