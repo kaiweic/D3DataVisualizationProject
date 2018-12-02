@@ -1514,7 +1514,7 @@
                                   //     var angle = d.angle * 180 / Math.PI - 90;
                                   //     return `rotate(${angle > Math.PI? angle + 180 : angle}) translate(${outerRadius},0)`
                                   // })
-                                  .text(function(d,i) { return allWords[i]; });
+                                  .text(function(d,i) { return allWords[i].charAt(0).toUpperCase() + allWords[i].substr(1); });
 
                 // creates the paths
                 var edges = svg.append("g")
