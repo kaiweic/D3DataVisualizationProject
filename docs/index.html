@@ -367,10 +367,6 @@
             pointer-events: all;
         }
 
-        #circle:hover path.fade {
-            display: none;
-        }
-
         button {
             background-color: #555555;
             border: none;
@@ -687,12 +683,12 @@
                             and the <span class = "topic">economy</span>.
                         </p>
                         <br>
-                        <p style = "text-decoration: underline; font-size: 18px;">Hover over the topics on the chart to explore.</p>
+                        <p style = "text-decoration: underline; font-size: 18px;">Hover over the topics on the chart or the keywords below!</p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "voters_cnn" class = "e">VOTERS</button>
-                            <button id = "trump_cnn" class = "e">TRUMP</button>
-                            <button id = "immigration_cnn" class = "e">IMMIGRATION</button>
-                            <button id = "economy_cnn" class = "e">ECONOMY</button>
+                            <button id = "voters" class = "e">VOTERS</button>
+                            <button id = "trump" class = "e">TRUMP</button>
+                            <button id = "immigration" class = "e">IMMIGRATION</button>
+                            <button id = "economy" class = "e">ECONOMY</button>
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
@@ -707,10 +703,10 @@
                             <span class = "topic">immigration</span> and the mueller-<span class = "topic">investigation</span>.
                         </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "voters_cnn" class = "e">VOTERS</button>
-                            <button id = "trump_cnn" class = "e">TRUMP</button>
-                            <button id = "immigration_cnn" class = "e">IMMIGRATION</button>
-                            <button id = "economy_cnn" class = "e">ECONOMY</button>
+                            <button id = "voters" class = "e">VOTERS</button>
+                            <button id = "trump" class = "e">TRUMP</button>
+                            <button id = "immigration" class = "e">IMMIGRATION</button>
+                            <button id = "economy" class = "e">ECONOMY</button>
                         </div>
 
                     </div>
@@ -731,10 +727,10 @@
                             to the <span class = "topic">economy</span> and <span class = "topic">immigration</span>.
                         </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "voters_cnn" class = "e">VOTERS</button>
-                            <button id = "trump_cnn" class = "e">TRUMP</button>
-                            <button id = "immigration_cnn" class = "e">IMMIGRATION</button>
-                            <button id = "economy_cnn" class = "e">ECONOMY</button>
+                            <button id = "voters" class = "e">VOTERS</button>
+                            <button id = "trump" class = "e">TRUMP</button>
+                            <button id = "immigration" class = "e">IMMIGRATION</button>
+                            <button id = "economy" class = "e">ECONOMY</button>
                         </div>
                     </div>
                 </div>
@@ -1464,9 +1460,10 @@
                 var group = svg.selectAll("g")
                                .data(chords.groups)
                                .enter().append("g")
-                               .on("mouseover", chordMouseOver);
-
-                console.log(chords.groups);
+                               // adds the class for identifying each arc & text
+                               .attr("class", (d, i) => {return "group nn_mouse_over nn_mouse_over_" + allWords[i] + " nn_mouse_over nn_mouse_over_" + allWords[i] + "_1";})
+                               .on("mouseover", nnMouseOver)
+                               .on("mouseout", nnMouseOut);
 
                 // // creates the marks 
                 // var groupTick = group.selectAll("g")
@@ -1490,23 +1487,23 @@
                 //          .text(function(d,i) { console.log(i); return allWords[i]; });
 
                 // creates the labels
-                group.append("text")
-                     .each(function(d) { d.angle = ((d.startAngle + d.endAngle) / 2);})
-                     .attr("dy", ".35em")
-                     .attr("class", "titles")
-                     .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
-                     .attr("transform", function(d,i) { 
-                         var c = arc.centroid(d);
-                         return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
-                         + "translate(" + (outerRadius + 9) + ")"
-                         + (d.angle > Math.PI ? "rotate(180)" : "")
-                     })
+                var labels = group.append("text")
+                                  .each(function(d) { d.angle = ((d.startAngle + d.endAngle) / 2);})
+                                  .attr("dy", ".35em")
+                                  .attr("class", "titles")
+                                  .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+                                  .attr("transform", function(d,i) { 
+                                      var c = arc.centroid(d);
+                                      return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+                                      + "translate(" + (outerRadius + 9) + ")"
+                                      + (d.angle > Math.PI ? "rotate(180)" : "")
+                                  })
 
-                     // .attr("transform", d => {
-                     //     var angle = d.angle * 180 / Math.PI - 90;
-                     //     return `rotate(${angle > Math.PI? angle + 180 : angle}) translate(${outerRadius},0)`
-                     // })
-                     .text(function(d,i) { return allWords[i]; });
+                                  // .attr("transform", d => {
+                                  //     var angle = d.angle * 180 / Math.PI - 90;
+                                  //     return `rotate(${angle > Math.PI? angle + 180 : angle}) translate(${outerRadius},0)`
+                                  // })
+                                  .text(function(d,i) { return allWords[i]; });
 
                 // creates the paths
                 var edges = svg.append("g")
@@ -1517,13 +1514,30 @@
                                .attr("d", ribbon)
                                .attr("fill", d => color(d.target.index))
                                .attr("stroke", d => d3v4.rgb(color(d.target.index)).darker())
+                               .attr("class", d => "nn_mouse_over nn_mouse_over_" + allWords[d.source.index] + " nn_mouse_over_" + allWords[d.target.index]);
                                //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")");
+
+                // for each pair of edges, add class attribute to text and arc
+                edges.each((d, i) => {
+                  svg.selectAll(".group.nn_mouse_over_" + allWords[d.source.index] + "_1").classed("nn_mouse_over_" + allWords[d.target.index], true);
+                  svg.selectAll(".group.nn_mouse_over_" + allWords[d.target.index] + "_1").classed("nn_mouse_over_" + allWords[d.source.index], true);
+                })
 
                 // creates the arc on the edge besides the text
                 var groupChord = group.append("path")
                                       .attr("d", arc)
                                       .attr("fill", "#888888");
                                       //.on("mouseover", chordMouseOver);
+
+                // set the mouseover and mouseout of buttons at the bottom of descriptions
+                d3v4.selectAll(".e")
+                    .on("mouseover", function() {
+                        svg.selectAll(".nn_mouse_over").attr("visibility", "hidden");
+                        svg.selectAll(".nn_mouse_over_" + this.id).attr("visibility", "visible");
+                    })
+                    .on("mouseout", function() {
+                        svg.selectAll(".nn_mouse_over").attr("visibility", "visible");
+                    });
 
                 function calculateMiddle(d) {
                   const k = (d.endAngle + d.startAngle) / 2;
@@ -1532,10 +1546,16 @@
                   });
                 }
 
-                function chordMouseOver(d, i) {
-                    edges.classed("fade", function(p) {
-                        return p.source.index != i && p.target.index != i;
-                    })
+                function nnMouseOver(d, i) {
+                    // edges.classed("fade", function(p) {
+                    //     return p.source.index != i && p.target.index != i;
+                    // })
+                    svg.selectAll(".nn_mouse_over").attr("visibility", "hidden");
+                    svg.selectAll(".nn_mouse_over_" + allWords[i]).attr("visibility", "visible");
+                }
+
+                function nnMouseOut(d, i) {
+                    svg.selectAll(".nn_mouse_over").attr("visibility", "visible");
                 }
 
             }
