@@ -1015,7 +1015,7 @@
                     var plot = d3.select('#scatter_plot');
 
                     d3v4.selectAll(".d")
-                        .on("mousemove", function() {
+                        .on("mouseover", function() {
                             var point = d3v4.select("#" + this.id + "_point");
                             plot.selectAll('.point')
                                 .style('opacity', 0.05);
@@ -1039,7 +1039,7 @@
                         .style('fill', 'black');
 
                     d3v4.selectAll(".a")
-                        .on("mousemove", function() {
+                        .on("mouseover", function() {
                             var point = d3v4.select("#" + this.id + "_point");
                             selection.style('opacity', 0.05);
                             point.style('opacity', 1).style('fill', 'black');
@@ -1060,7 +1060,7 @@
                         .style('fill', 'black');
 
                     d3v4.selectAll(".b")
-                        .on("mousemove", function() {
+                        .on("mouseover", function() {
                             var point = d3v4.select("#" + this.id + "_point");
                             selection.style('opacity', 0.05);
                             point.style('opacity', 1).style('fill', 'black');
@@ -1081,7 +1081,7 @@
                         .style('fill', 'black');
 
                     d3v4.selectAll(".c")
-                        .on("mousemove", function() {
+                        .on("mouseover", function() {
                             var point = d3v4.select("#" + this.id + "_point");
                             selection.style('opacity', 0.05);
                             point.style('opacity', 1).style('fill', 'black');
