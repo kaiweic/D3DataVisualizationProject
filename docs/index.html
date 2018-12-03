@@ -492,18 +492,39 @@
                 <img src="intro_icon.png" width="200" height="350" class = "center">
                 <p class="intro__dek">
                     <span id = "f_char">T</span>oday, Americans are more ideologically divided than anytime in the past. As a result, the American consumers increasingly prefer media
-                    that confirms to their own political and social preferences, which inturn seeps bias into the content itself. It becomes a vicious feedback loop.                     
+                    that confirms to their own political and social preferences, which inturn seeps bias into the content itself. It becomes a vicious feedback loop.
+                    Research shows that this bias in content operates via two mechanisms:
+                    <a href = "https://www8.gsb.columbia.edu/media/sites/media/files/JustinRaoMediaBias.pdf" target = "_blank"><span style = "font-weight: bold">ISSUE <span style = "color: brown">FILTERING</span></span>
+                        and <span style = "font-weight: bold">ISSUE <span style = "color: brown">FRAMING</span></span></a>.
                 </p>
                 <br>
                 <p class="intro__dek">
-                    Research shows that this bias in content operates via two mechanisms: <span style = "font-weight: bold">ISSUE <span style = "color: brown">FILTERING</span></span>
-                    and <span style = "font-weight: bold">ISSUE <span style = "color: brown">FRAMING</span></span>.
-                    <a href = "https://www8.gsb.columbia.edu/media/sites/media/files/JustinRaoMediaBias.pdf" target = "_blank">(Source)</a>
+                    <span style = "font-weight: bold">ISSUE <span style = "color: brown">FILTERING</span></span> implies selective coverage of certain topics.
+                    Here, the problem isn't fake news or alternative facts, but 
+                    <a href = "https://qz.com/1130094/todays-biggest-threat-to-democracy-isnt-fake-news-its-selective-facts/" target = "_blank">selective facts</a>. 
+                    Selective facts are still legitimate facts, but they often times either paint an incomplete picture of a story or leave some 
+                    stories out altogether. Issue Filtering tells the audience what to think about. It's curated content, but for facts.
                 </p>
                 <br>
                 <p class="intro__dek">
-                    We decided to visualize the extent of this bias by examining the cable news headlines for CNN, Fox News and MSNBC during their coverage of the midterm
-                    elections of 2018.
+                    <span style = "font-weight: bold">ISSUE <span style = "color: brown">FRAMING</span></span>, on the other hand, is about how topics are presented.
+                    Framing of a story affects the structure of its message and 
+                    <a href = "https://masscommtheory.com/theory-overviews/framing-theory/" target = "_blank">specifies its field of meaning</a>. So, while
+                    Issue Filtering tells the audience what to think about, Issue Framing tells them how to think about it. 
+                </p>
+                <br>
+                <p class="intro__dek">
+                    There is a huge quantity of information disemminated via media every minute, especially during election campaigns. As a result, filtering and framing                
+                    may affect the audience's views on various topics and push them towards drawing different conclusions, sometimes divisive ones. Why does this happen? 
+                    A possible explanation might be because people prefer to view information that confirms to their pre-existing views and the publishers and platforms 
+                    presenting this information to them know who their viewers are. This phenomenon has often been defined as 
+                    <a href = "http://psy2.ucsd.edu/~mckenzie/nickersonConfirmationBias.pdf" target = "_blank">confirmation bias</a>.
+                </p>
+                <br>
+                <p class="intro__dek">
+                    We decided to visualize the extent of content and coverage bias during the midterm elections of 2018 by examining the cable news headlines for CNN, Fox News 
+                    and MSNBC during a three day window of before, during and after the elections. The underlying mechanisms being
+                    <span style = "font-weight: bold; color: brown">FILTERING</span> and <span style = "font-weight: bold; color: brown">FRAMING</span>.
                 </p>
             </section>
         </div>
@@ -746,8 +767,7 @@
                 <div id = "nv_info">
                     <p class="intro__dek">
                         Action verbs serve as a powerful tool in creating ideas and impressions. By exploring what actions verbs were
-                        most frequently associated with the major topics, we can gain a further contextualize how those topics are being
-                        framed.
+                        most frequently associated with the major topics, we can further contextualize how those topics were framed.
                     </p>
                     <br>
                     <p style = "text-decoration: underline;">Click and drag the topics to isolate the verbs by topic!</p>
@@ -1571,7 +1591,7 @@
                     svg.selectAll(".nn_mouse_over").attr("visibility", "hidden");
                     svg.selectAll(".nn_mouse_over_" + allWords[i]).attr("visibility", "visible");
                     svg.selectAll(".nn_mouse_over_" + allWords[i] + "_1").classed("nn_mouse_over_current", true);
-                    svg.selectAll(".nn_mouse_over_" + allWords[i] + "_1").select("path").attr("fill", "#ff0000");
+                    svg.selectAll(".nn_mouse_over_" + allWords[i] + "_1").select("path").attr("fill", "brown");
                 }
 
                 function nnMouseOut(d, i) {
