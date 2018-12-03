@@ -518,11 +518,11 @@
                     may affect the audience's views on various topics and push them towards drawing different conclusions, sometimes divisive ones. Why does this happen? 
                     A possible explanation might be because people prefer to view information that confirms to their pre-existing views and the publishers and platforms 
                     presenting this information to them know who their viewers are. This phenomenon has often been defined as 
-                    <a href = "http://psy2.ucsd.edu/~mckenzie/nickersonConfirmationBias.pdf" target = "_blank">confirmation bias</a>.
+                    <a href = "https://en.wikipedia.org/wiki/Confirmation_bias" target = "_blank">confirmation bias</a>.
                 </p>
                 <br>
                 <p class="intro__dek">
-                    We decided to visualize the extent of content and coverage bias during the midterm elections of 2018 by examining the cable news headlines for CNN, Fox News 
+                    Below, we visualize the extent of content and coverage bias during the midterm elections of 2018 by examining the cable news headlines for CNN, Fox News 
                     and MSNBC during a three day window of before, during and after the elections. The underlying mechanisms being
                     <span style = "font-weight: bold; color: brown">FILTERING</span> and <span style = "font-weight: bold; color: brown">FRAMING</span>.
                 </p>
@@ -537,7 +537,7 @@
                 <!-- This is where text goes, as we scroll -->
                <div class="scroll__text">
                     <div class="step is-active" style="height: 615px; position: relative;">
-                        <p>Let's map out some of the most frequently talked about topics by
+                        <p>Let's begin by mapping out some of the most frequently talked about topics by
                             <span class = "channel">CNN</span>, <span class = "channel">FOX NEWS</span>
                             and <span class = "channel">MSNBC</span> during their midterm elections coverage.
                         </p>
@@ -584,13 +584,14 @@
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
-                        <p>Moving on, if filter out the congressional candidates that generated the most buzz in all three news channels, we can explore some interesting trends.</p>
+                        <p>Moving on, if we filter out the congressional candidates that generated the most buzz in all three news channels, we can explore some interesting trends.</p>
                         <br>
                         <p>
-                            <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> mentioned Brian <span class = "topic">Kemp</span> and Stacey
-                            <span class = "topic">Abrams</span> way more often than <span class = "topic">FOX NEWS</span> did. Moreover, we saw a dispropotionately frequent
-                            number of mentions of Marsha <span class = "topic">Blackburn</span> in case of <span class = "channel">FOX NEWS</span>, Kristen
-                            <span class = "topic">Sinema</span> and Nancy <span class = "topic">McSally</span> in case of <span class = "channel">MSNBC</span> [EDIT].
+                            <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> mentioned Geoegia gubernatotial candidates Brian <span class = "topic">Kemp</span> and Stacey
+                            <span class = "topic">Abrams</span> way more often than <span class = "topic">FOX NEWS</span> did. Moreover, <span class = "channel">MSNBC</span> commented
+                            on the Arizona senatorial candidates Kristen <span class = "topic">Sinema</span> and Nancy <span class = "topic">McSally</span> more often than 
+                            <span class = "channel">CNN</span> or <span class = "topic">FOX NEWS</span> did. Meanwhile, <span class = "channel">CNN</span>'s coverage did not 
+                            skew towards any candidate.
                         </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
                             <button id = "sinema" class = "b">SINEMA</button>
@@ -608,7 +609,7 @@
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
-                        <p>Lastle, let's also look at some of the most talked about issues during the election. </p>
+                        <p>Lastly, let's also look at some of the most talked about issues during the election. </p>
                         <br>
                         <p><span class = "topic">Immigration</span> and <span class = "topic">economy</span> were some of the most frequently mentioned issues and group
                         relatively proportional coverage from all three channels. Meanwhile, we saw dispropotionately frequent mentions of
@@ -1050,6 +1051,13 @@
                 else if (index == 1) {
                     var plot = d3v4.select('#scatter_plot');
 
+                    d3v4.selectAll(".d").on("mouseover", function() {
+                        // do nothing
+                    })
+                    .on("mouseout", function(d){
+                            // do nothing
+                    });
+
                     plot.selectAll('.point')
                         .transition()
                         .style('opacity', 0.05);
@@ -1066,11 +1074,18 @@
                             selection.style('opacity', 0.05);
                             point.style('opacity', 1).style('fill', 'black');
                         })
-                        .on("mouseout", function(d){
+                        .on("mouseout", function(){
                             selection.style('opacity', 1).style('fill', 'black');
                         });
                 }
                 else if (index == 2) {
+                    d3v4.selectAll(".a").on("mouseover", function() {
+                        // do nothing
+                    })
+                    .on("mouseout", function(d){
+                            // do nothing
+                    });
+
                     var plot = d3v4.select('#scatter_plot');
                     plot.selectAll('.point')
                         .transition()
@@ -1087,11 +1102,18 @@
                             selection.style('opacity', 0.05);
                             point.style('opacity', 1).style('fill', 'black');
                         })
-                        .on("mouseout", function(d){
+                        .on("mouseout", function(){
                             selection.style('opacity', 1).style('fill', 'black');
                         });
                 }
                 else {
+                    d3v4.selectAll(".b").on("mouseover", function() {
+                        // do nothing
+                    })
+                    .on("mouseout", function(d){
+                            // do nothing
+                    });
+
                     var plot = d3v4.select('#scatter_plot');
                     plot.selectAll('.point')
                         .transition()
