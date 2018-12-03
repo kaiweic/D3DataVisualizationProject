@@ -546,7 +546,7 @@
                             Some of the most frequently talked about topics included President <span class = "topic">Trump</span> and
                             his <span class = "topic">rallies</span>, <span class = "topic">migrants</span>, the <span class = "topic">house</span> and the <span class = "topic">senate</span>,
                             with the state of <span class = "topic">Florida</span> and the Democratic candidates Beto <span class = "topic">O'Rourke</span> and
-                            Andrew <span class = "topic">Gillum</span> getting the most proportional coverage.
+                            Andrew <span class = "topic">Gillum</span>, and Republican candidate Ted <span class = "topic">Cruz</span> getting the most proportional coverage.
                          </p>
                         <br>
                         <p style = "text-decoration: underline; font-size: 18px;">Hover over the topics below to see where they lie in the visualization.</p>
@@ -560,6 +560,7 @@
                             <button id = "gillum" class = "d">GILLUM</button>
                             <button id = "house" class = "d">HOUSE</button>
                             <button id = "florida" class = "d">FLORIDA</button>
+                            <button id = "cruz" class = "d">CRUZ</button>
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
@@ -589,8 +590,7 @@
                             <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> mentioned Brian <span class = "topic">Kemp</span> and Stacey
                             <span class = "topic">Abrams</span> way more often than <span class = "topic">FOX NEWS</span> did. Moreover, we saw a dispropotionately frequent
                             number of mentions of Marsha <span class = "topic">Blackburn</span> in case of <span class = "channel">FOX NEWS</span>, Kristen
-                            <span class = "topic">Sinema</span> and Nancy <span class = "topic">McSally</span> in case of <span class = "channel">MSNBC</span> and Doug
-                            <span class = "topic">Jones</span> in case of <span class = "channel">CNN</span>.
+                            <span class = "topic">Sinema</span> and Nancy <span class = "topic">McSally</span> in case of <span class = "channel">MSNBC</span> [EDIT].
                         </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
                             <button id = "sinema" class = "b">SINEMA</button>
@@ -599,12 +599,9 @@
                             <button id = "mcsally" class = "b">MCSALLY</button>
                             <button id = "mccaskill" class = "b">MCCASKILL</button>
                             <button id = "kemp" class = "b">KEMP</button>
-                            <button id = "jones" class = "b">JONES</button>
-                            <button id = "hemingway" class = "b">HEMINGWAY</button>
                             <button id = "gillum" class = "b">GILLUM</button>
-                            <button id = "feinstein" class = "b">FEINSTEIN</button>
-                            <button id = "donnelly" class = "b">DONNELLY</button>
                             <button id = "desantis" class = "b">DESANTIS</button>
+                            <button id = "cruz" class = "b">CRUZ</button>
                             <button id = "crenshaw" class = "b">CRENSHAW</button>
                             <button id = "blackburn" class = "b">BLACKBURN</button>
                             <button id = "abrams" class = "b">ABRAMS</button>
@@ -1079,7 +1076,7 @@
                         .transition()
                         .style('opacity', 0.1);
 
-                    var selection = plot.selectAll('#gillum_point, #abrams_point, #blackburn_point, #crenshaw_point, #desantis_point, #donnelly_point, #feinstein_point, #hemingway_point, #jones_point, #kemp_point, #mccaskill_point, #mcsally_point, #sinema_point, #nelson_point, #orourke_point');
+                    var selection = plot.selectAll('#gillum_point, #abrams_point, #blackburn_point, #crenshaw_point, #desantis_point, #cruz_point, #kemp_point, #mccaskill_point, #mcsally_point, #sinema_point, #nelson_point, #orourke_point');
                     selection.transition()
                         .style('opacity', 1)
                         .style('fill', 'black');
@@ -2383,11 +2380,6 @@
                     function getTheRawData() {
                     // here's a php proxy to make jsonP
                     var proxyUrl="https://script.google.com/macros/s/AKfycbzMhwJy-OAR28YTBxO1AbVdSQQFI101X3UDzY-1yc9lUgBfpSc/exec";;
-
-
-                    // blogwheel.json - blog only
-                    // sitewheel.json - both
-                    // allwheel.json - site
 
                     var dataUrl = getParameterByName('data') || data_url;
 
