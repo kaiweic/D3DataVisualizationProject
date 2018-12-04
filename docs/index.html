@@ -1724,11 +1724,11 @@
             function noun_to_noun_step(index) {
                 d3v4.selectAll("#n_to_n").remove();
 
-                if (index == 4) {
+                if (index <= 4) {
                     noun_to_noun("#noun_to_noun", cnnNn2dArr, allCnnNnWords);
                 } else if (index == 5) {
                     noun_to_noun("#noun_to_noun", foxNn2dArr, allFoxNnWords);
-                } else if (index == 6) {
+                } else {
                     noun_to_noun("#noun_to_noun", msnbcNn2dArr, allMsnbcNnWords);
                 }
             }
