@@ -1398,7 +1398,7 @@
                     function manualOverride() {
                         clearInterval(interval);
                         handleInput(sliderInput)
-                        interval = setTimeout(play, 2500);  // delay when user manually select slider
+                        interval = setTimeout(play, 5000);  // delay when user manually select slider
                     }
 
                     sliderInput.oninput = manualOverride;
