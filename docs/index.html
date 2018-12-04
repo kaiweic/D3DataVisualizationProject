@@ -108,8 +108,17 @@
         }
 
 		#outro {
-			height: 640px;
+			height: 200px; 
+            background-color: #ddd;
+            align-content: center;
+            text-align: center;
+            font-size: 1rem;
 		}
+
+        #outro_text {
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
 
 		/* scrollama */
 
@@ -181,7 +190,7 @@
 		.step p {
 			text-align: center;
 			padding: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             line-height: 1.3em;
         }
 
@@ -194,7 +203,6 @@
 
         text.label {
             text-transform: uppercase;
-            font-family: monospace;
             font-weight: 700;
             font-size: 24px;
             letter-spacing: 0.1;
@@ -311,10 +319,20 @@
         }
 
         .graphic--2, .graphic--3 {
-            float: left;
+            width: 40%;
         }
+
+        #pivot_tips {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 20px auto;
+            width: 20%;
+            color:#888;
+            font-size: 1.2rem;
+        }
+
         .graphic--1 {
-            padding-top: 300px;
             margin: auto;
         }
 
@@ -324,12 +342,39 @@
 			margin: auto;
             padding-top: 2.5rem;
             padding-bottom: 2.5rem;
+            padding-left: 300px;
+            padding-right: 300px;
 			text-transform: uppercase;
 			font-weight: 700;
             color:#888;
         }
 
-        #pivot_info, #nv_info {
+        #ps_design, #nv_design {
+            font-size: 14px;
+            font-style: italic;
+            padding: 3rem 0;
+            margin: auto;
+            text-align: center;
+            align-content: center;
+            color:#888;
+        }
+
+        #scatter_intro, #nn_header {
+            font-size: 32px;
+            line-height: 1em;
+			margin: auto;
+            padding-top: 3.5rem;
+            padding-bottom: 4.5rem;
+            padding-left: 300px;
+            padding-right: 300px;
+			text-transform: uppercase;
+			font-weight: 700;
+            text-align: center;
+            align-content: center;
+            text-decoration: underline;
+        }
+
+        #pivot_info, .nv_info {
             font-size: 1.4rem;
             color:#888;
             text-align: center;
@@ -339,25 +384,12 @@
             padding-right: 300px;
         }
 
-        #pivot_container {
-            padding-left: 5%;
-        }
-
-        #nn_title {
-            font-size: 32px;
-            line-height: 1em;
-			margin: auto;
-            padding-top: 2.5rem;
-            padding-bottom: 2.5rem;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
         #nn_info {
-            font-size: 1.4rem;
-            padding-bottom: 100px;
-            padding-left: 200px;
-            padding-right: 200px;
+            font-size: 1.75rem;
+            padding-bottom: 50px;
+            padding-top: 50px;
+            padding-left: 100px;
+            padding-right: 100px;
             line-height: 1.3em;
         }
 
@@ -424,7 +456,7 @@
         #quote {
             padding-left: 200px;
             padding-right: 200px;
-            padding-bottom: 150px;
+            padding-bottom: 50px;
         }
 
         .node rect {
@@ -532,8 +564,11 @@
         <div id = "word_cloud" class = d_back_white></div>
 
         <div class = "d_back_white">
-            <section id = "scroll" class = "scroll_section">
-                <div class="scroll__graphic" id = "f_scatter" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
+            <h2 id = "scatter_intro">First, let's explore at how some of the major topics were <span style = "font-weight: bold; color: brown">FILTERED</span></h2>
+            <section id = "scroll" class = "scroll_section">       
+                <div class="scroll__graphic" id = "f_scatter" style="width: 960px; height: 800px;">  
+                    <!-- This is where the visualization goes --> 
+                </div>
                 <!-- This is where text goes, as we scroll -->
                <div class="scroll__text">
                     <div class="step is-active" style="height: 615px; position: relative;">
@@ -548,8 +583,6 @@
                             with the state of <span class = "topic">Florida</span> and the Democratic candidates Beto <span class = "topic">O'Rourke</span> and
                             Andrew <span class = "topic">Gillum</span>, and Republican candidate Ted <span class = "topic">Cruz</span> getting the most proportional coverage.
                          </p>
-                        <br>
-                        <p style = "text-decoration: underline; font-size: 18px;">Hover over the topics below to see where they lie in the visualization.</p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
                             <button id = "trump" class = "d">TRUMP</button>
                             <button id = "senate" class = "d">SENATE</button>
@@ -587,7 +620,7 @@
                         <p>Moving on, if we filter out the congressional candidates that generated the most buzz in all three news channels, we can explore some interesting trends.</p>
                         <br>
                         <p>
-                            <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> mentioned Geoegia gubernatotial candidates Brian <span class = "topic">Kemp</span> and Stacey
+                            <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> mentioned Georgia gubernatotial candidates Brian <span class = "topic">Kemp</span> and Stacey
                             <span class = "topic">Abrams</span> way more often than <span class = "topic">FOX NEWS</span> did. Moreover, <span class = "channel">MSNBC</span> commented
                             on the Arizona senatorial candidates Kristen <span class = "topic">Sinema</span> and Nancy <span class = "topic">McSally</span> more often than 
                             <span class = "channel">CNN</span> or <span class = "topic">FOX NEWS</span> did. Meanwhile, <span class = "channel">CNN</span>'s coverage did not 
@@ -641,7 +674,7 @@
         </div>
 
         <div id = "pivot_scatter">
-            <h2 id = 'pivot_intro'>Number of Mentions vs. Total Screen Time</h2>
+            <h2 id = 'pivot_intro'>How did the number of mentions compare with the total screen time for various topics?</h2>
             <div id = 'pivot_info'>
                 <p class="intro__dek">While cable news may mention some topics more or less frequently than others, there is a
                     possibility that the channels spend a significantly more time in talking about a particular headline or topic. So,
@@ -650,32 +683,52 @@
                 <br>
                 <p style = "text-decoration: underline;">Watch the transition in results in action below by using the slider to alter the metrics and pivot the charts for all three channels!</p>
                 <br>
-                <p style = "font-style: italic; font-size: 0.7em; line-height: 1.0em;">Note: We have excluded some of the most frequently mentioned words like Voters, Trump, Senate and House in order to better fulfil
+                <p style = "font-style: italic; font-size: 0.7em; line-height: 1.0em;">Note: We have excluded some of the top words like Voters, Trump, Senate and House in order to better fulfil
                 the purpose of the visualization.</p>
             </div>
-            <div class='graphic graphic--2' style = "width: 50%">
-                <p class = 'pivot_label'>MSNBC</p>
-                <div class='chart'></div>
-                <div class='slider'><input type='range' min='0' max='100' value='50'></div>
-            </div>
-            <div id = 'pivot_container' style = "height: 420px">
-                <div class='graphic graphic--3' style = "width: 50%">
+            <div id = 'pivot_container' style = "height: 520px;">
+                <div class='graphic graphic--2' style = "float: left">
+                    <p class = 'pivot_label'>MSNBC</p>
+                    <div class='chart'></div>
+                    <div class='slider'><input type='range' min='0' max='100' value='50'></div>
+                </div>
+                <div id = "pivot_tips">
+                    <p class = "intro_dek">Hover over the highlighted circles to discover some interesting trends such as:
+                        <ul>
+                            <li>
+                                The gubernatorial race in Georgia was the most talked about race in case of 
+                                <span class = channel>MSNBC</span> in which the Republican candidate Brian 
+                                <span class = "topic">Kemp</span> got way more mentions than screen time, and
+                                the democratic candidate Stacey <span class = "topic">Abrams</span> got way more
+                                screen time than mentions.
+                            </li>
+                            <li style = "margin-top: 10px;">
+                                <span class = channel>CNN</span> had the most consistent coverage among the three channels. There wasn't a high
+                                discrepancy between the number of mentions and the total screen time in case of any topic.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+                <div class='graphic graphic--3' style = "float: right">
                     <p class = 'pivot_label'>FOX</p>
                     <div class='chart'></div>
                     <div class='slider'><input type='range' min='0' max='100' value='50'></div>
                 </div>
             </div>
-            <div class='graphic graphic--1' style = "width: 50%">
+            </div>
+            <div class='graphic graphic--1' style = "width: 40%">
                 <p class = 'pivot_label'>CNN</p>
                 <div class='chart'></div>
                 <div class='slider'><input type='range' min='0' max='100' value='50'></div>
             </div>
+            <p class = "intro_dek" id = "ps_design">
+                Design by <a href = "https://pudding.cool/process/weighted-pivot-scatter-plot/" target = "_blank" style = "color: #888">Russell Goldenberg</a>
+            </p>
         </div>
 
         <!-- @Kevin: This is the HTML section for your visualization [Also has associated CSS context] -->
         <div class = "d_back_white" id = 'assoc'>
-
-            <h2 id = 'nn_title'>Which topics were most frequently mentioned together?</h2>
+            <h2 id = 'nn_header'>Next, let's explore at how some of the major topics were <span style = "font-weight: bold; color: brown">FRAMED</span> </h2>
                <div id = "quote">
                 <blockquote style = "font-style: italic;">
                     In choosing and displaying news, editors, newsroom staff, and broadcasters play an important part in shaping political
@@ -686,6 +739,7 @@
                     <br>
                     - <a href = "https://academic.oup.com/poq/article-abstract/36/2/176/1853310" target = "_blank">McCombs & Shaw</a>
                 </blockquote>
+                <p id = "nn_info">Let's begin by exploring which topics were frequently mentioned together.</p>
                </div>
             <section id = "scroll_1" class = "scroll_section">
                 <div id="noun_to_noun" class="scroll__graphic" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
@@ -705,8 +759,6 @@
                             However, President Trump himself was associated with issues such as <span class = topic>(anti-)immigration</span>
                             and the <span class = "topic">economy</span>.
                         </p>
-                        <br>
-                        <p style = "text-decoration: underline; font-size: 18px;">Hover over the topics on the chart or the keywords below!</p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
                             <button id = "voters" class = "e">VOTERS</button>
                             <button id = "trump" class = "e">TRUMP</button>
@@ -762,13 +814,13 @@
 
         <div id = "noun_to_verb">
                 <h2 id = 'nv_title'>Which action verbs were often used with some of the dominant topics?</h2>
-                <div id = "nv_info">
+                <div class = "nv_info">
                     <p class="intro__dek">
                         Action verbs serve as a powerful tool in creating ideas and impressions. By exploring what actions verbs were
                         most frequently associated with the major topics, we can further contextualize how those topics were framed.
                     </p>
                     <br>
-                    <p style = "text-decoration: underline;">Click and drag the topics to isolate the verbs by topic!</p>
+                    <p style = "text-decoration: underline;">Click and drag the topics to isolate the verbs by topic.</p>
                 </div>
             <div id = "chart_1">
                 <p class = 'chart_label'>CNN</p>
@@ -779,9 +831,44 @@
             <div id = "chart_3">
                 <p class = 'chart_label'>MSNBC</p>
             </div>
+            <p class = "intro_dek" id = "nv_design">
+                Design from <a href = "http://xliberation.com/googlecharts/d3concept.html" target = "_blank" style = "color: #888">xliberation.com</a>
+            </p>
+            <div class = "nv_info" style = "margin-top: 50px;">
+                <p class="intro__dek">
+                    So, while <span class = "channel">CNN</span> reports how <span class = "topic">migrants</span> are being <a style = "color: #888">demonized</a>
+                    as the military troops <a style = "color: #888">head</a> towards the border to <a style = "color: #888">deny</a> them entry, <span class = "channel">FOX NEWS</span>
+                    quotes President Trump as he <a style = "color: #888">warns</a> the public about illegal immigration and reassures them that the <span class = "topic">migrants</span> 
+                    are not <a style = "color: #888">coming</a> to this country. 
+                </p>
+                <br>
+                <p class = "intro_dek">
+                    While <span class = "channel">MSNBC</span> talks about how <span class = "topic">voters</span> <a style = "color: #888">weigh</a> 
+                    in on key issues in the election as they <a style = "color: #888">head</a> to polls in highstakes midterm elections, 
+                    <span class = "channel">CNN</span> reports on how President Trump <a style = "color: #888">spreads</a> fear and falsehoods about immigration as 
+                    the <span class = "topic">voters</span> <a style = "color: #888">decide</a> who gets control of congress.
+                </p>
+            </div>
         </div>
 
-        <section id="outro"></section>
+        <section id="outro">
+            <p class = "intro_dek" id = "outro_text">
+                <span style = "font-weight: bold;">BY</span> 
+                <br>
+                KEVIN CHANG
+                <br>
+                HONGTAO HUANG
+                <br>
+                HELLY SHAH
+                <br>
+                ZIJIE WANG
+                <br>
+                <span style = "font-weight: bold;">AND</span>
+                <br>
+                JOYCE ZHOU
+            </p>
+        </section>
+        <svg style = "height: 150px"></svg>
 
         <script src="https://d3js.org/d3.v4.min.js"></script> <!-- Note that we're using Scrollama with D3 -->
         <script src="https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js"></script>
@@ -893,7 +980,7 @@
                 i = i || 0;
 
                 vis.update(getWords(i ++ % words.length))
-                setTimeout(function() { showNewWords(vis, i + 1)}, 4000)
+                setTimeout(function() { showNewWords(vis, i + 1)}, 3000)
             }
 
             //Create a new instance of the word cloud visualisation.
@@ -1398,7 +1485,7 @@
                     function manualOverride() {
                         clearInterval(interval);
                         handleInput(sliderInput)
-                        interval = setTimeout(play, 5000);  // delay when user manually select slider
+                        interval = setTimeout(play, 50000);  // delay when user manually select slider
                     }
 
                     sliderInput.oninput = manualOverride;
@@ -1762,12 +1849,6 @@
             }
 
             /** --------------------------noun to noun plot ends------------------------------------------- */
-
-                // More graphs!
-
-            /** --------------------------noun to verb plot----------------------------------------------- */
-
-            /** --------------------------noun to verb plot ends------------------------------------------- */
 
                 // We're almost there
 
