@@ -134,7 +134,7 @@
 		.scroll__graphic {
 			position: absolute;
 			top: 0;
-			right: 2rem;
+			right: 0;
 			-webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
@@ -177,6 +177,7 @@
 		.step {
 			margin: 0 auto 0 auto;
 			/* border-bottom: none; */
+            left: 20%;
 		}
 
 		.step:last-child {
@@ -1380,7 +1381,7 @@
                                 }
                                 // if (d.channel === "msnbc" && d.topic  === "kemp") return "#000000";
                                 return scaleC(d.rank)})
-                            .style('stroke', d => d3v4.color(scaleC(d.rank)).darker(0.7))
+                            .style('stroke', "#FFFFFF")
                             .style('opacity', 0.7)
                             .attr('transform',  d => translate(scaleX(d.x), scaleY(d.y)))
 
@@ -1486,10 +1487,18 @@
                     let max = sliderInput.max;
 
                     let interval;
+                    let reverse = false;
                     function play() {
                         function next() {
                             let val = parseInt(sliderInput.value);
-                            sliderInput.value = (val + 1) > max ? min : (val + 1);
+                            // sliderInput.value = val + 1;
+                            if (val + 1 > max) {
+                                reverse = true;
+                            } else if (val - 1 < min){
+                                reverse = false;
+                            }
+                            val = val + (reverse ? -1 : 1);
+                            sliderInput.value = Math.min(100, Math.max(val, 0));
                             handleInput(sliderInput);
                         }
                         clearInterval(interval);
