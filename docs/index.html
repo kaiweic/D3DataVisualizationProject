@@ -1487,10 +1487,18 @@
                     let max = sliderInput.max;
 
                     let interval;
+                    let reverse = false;
                     function play() {
                         function next() {
                             let val = parseInt(sliderInput.value);
-                            sliderInput.value = (val + 1) > max ? min : (val + 1);
+                            // sliderInput.value = val + 1;
+                            if (val + 1 > max) {
+                                reverse = true;
+                            } else if (val - 1 < min){
+                                reverse = false;
+                            }
+                            val = val + (reverse ? -1 : 1);
+                            sliderInput.value = Math.min(100, Math.max(val, 0));
                             handleInput(sliderInput);
                         }
                         clearInterval(interval);
