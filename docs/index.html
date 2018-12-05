@@ -1366,8 +1366,18 @@
                             .attr('y', 0)
                             .attr('r', d => scaleR(d.rank))
                             .style('fill', d => {
-                                if (d.channel === "msnbc" && (d.topic  === "kemp" || d.topic  === "abrams")) return "#000000";
-                                if (d.channel === "fox" && d.topic  === "congress") return "#000000";
+                                if (d.channel === "msnbc") {
+                                    if (d.topic  === "kemp" || d.topic  === "abrams" || d.topic === "georgia")
+                                        return "#000000";
+                                }
+                                if (d.channel === "fox") {
+                                    if (d.topic  === "congress" || d.topic === "rallies" || d.topic === "immigration")
+                                        return "#000000";
+                                }
+                                if (d.channel === "cnn") {
+                                    if (d.topic  === "fear" || d.topic === "immigration")
+                                        return "#000000";
+                                }
                                 // if (d.channel === "msnbc" && d.topic  === "kemp") return "#000000";
                                 return scaleC(d.rank)})
                             .style('stroke', d => d3v4.color(scaleC(d.rank)).darker(0.7))
