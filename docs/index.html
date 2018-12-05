@@ -2133,26 +2133,33 @@
                     var nodeEnter = node.enter()
                     .append("svg:g")
                         .attr("class", "node")
-                        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y+ ")"; })
-                        .on("dblclick", function(d){
-                            control.nodeClickInProgress=false;
-                            if (d.url)window.open(d.url);
+                        .attr("id", function(d) {
+                            return d.name;
                         })
+                        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y+ ")"; })
                         .on("click", function(d){
                             // this is a hack so that click doesnt fire on the1st click of a dblclick
-                            if (!control.nodeClickInProgress ) {
-                                control.nodeClickInProgress = true;
-                                setTimeout(function(){
-                                    if (control.nodeClickInProgress) {
-                                        control.nodeClickInProgress = false;
-                                        if (control.options.nodeFocus) {
-                                            d.isCurrentlyFocused = !d.isCurrentlyFocused;
-                                            doTheTreeViz(makeFilteredData(control));
+                            if (d.name == d.key) {
+                                if (!control.nodeClickInProgress ) {
+                                    control.nodeClickInProgress = true;
+                                    setTimeout(function(){
+                                        if (control.nodeClickInProgress) {
+                                            control.nodeClickInProgress = false;
+                                            if (control.options.nodeFocus) {
+                                                d.isCurrentlyFocused = !d.isCurrentlyFocused;
+                                                doTheTreeViz(makeFilteredData(control));
+                                            }
                                         }
-                                    }
-                                },control.clickHack);
+                                    },control.clickHack);
+                                }
                             }
-                        })
+                            else {
+                                control.nodeClickInProgress=false;
+                                if (d.url)window.open(d.url);
+                            }
+                        });
+
+                    svg.selectAll('#Trump,#Economy,#Campaign,#Immigration,#Democrats,#Republicans,#Migrants,#Voters')
                         .call(force.drag);
 
                     nodeEnter
@@ -2290,8 +2297,8 @@
                     }
 
                     function makeRadius(control,d) {
-                    var r = control.options.radius * (control.options.nodeResize ? Math.sqrt(d[control.options.nodeResize]) / Math.PI : 1);
-                    return control.options.nodeFocus && d.isCurrentlyFocused ? control.options.nodeFocusRadius  : r;
+                        var r = control.options.radius * (control.options.nodeResize ? Math.sqrt(d[control.options.nodeResize]) / Math.PI : 1);
+                        return control.options.nodeFocus && d.isCurrentlyFocused ? control.options.nodeFocusRadius  : r;
                     }
 
                     function makeFilteredData(control,selectedNode){
