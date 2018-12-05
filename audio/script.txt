@@ -1,0 +1,17 @@
+Today, Americans are more ideologically divided than anytime in the past. American consumers are increasingly preferring media that confirms their own political and social preferences, which in turn seeps bias into the content itself. Research shows that this bias in content operates via two mechanisms: Issue Filtering and Issue Framing.
+
+Issue Filtering implies selective coverage of issues, while Issue Framing deals with how the same issues are presented.
+
+In this project, we visualize the extent of content and coverage bias during the midterm elections of 2018 by examining the cable news headlines for CNN, Fox News and MSNBC. 
+
+The first two visualizations use the lens of Filtering and the next two use the lens of Framing.      
+
+We decided to do a some scrollytelling using a Triangular Scatter Plot which maps out some of the most talked about topics by all three channels. The closer the points are to the vertices, the more disproportionate mention they got from the respective channel. The total number of mentions by all three channels has been encoded in the size.
+
+The users can hover over the scatter plot to explore the data points. We have also provided customized hoverable topic-buttons that users can use to explore where those topics lie on the plot and notice some interesting trends.
+
+We wanted our audience to choose their own metric when it came to the total screen-time vs. the total no. of mentions for a topic. We used the pivoted scatter plot to implement this functionality. Now our audience can visualize the change in relative ranking of topics when either just the screen-time or the number of mentions is taken into account.
+
+Next, we wanted to visualize which topics were frequently mentioned together. We decided to visualize this by using a Chord Dependency Diagram for each channel. The user can hover over specific topics, and we have also provided hoverable buttons.
+
+Action verbs serve as a powerful tool in creating ideas and impressions. So, we also wanted to explore which actions verbs were most associated with some of the major topics. In order to do this, we used a Directed Node Focus Visualization. The user can drag to isolate the verbs by topics, and double click the verb to see the relevant news segments.
