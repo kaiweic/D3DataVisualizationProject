@@ -687,7 +687,7 @@
                     sometimes the choice of metric can yield different results.
                 </p>
                 <br>
-                <p style = "text-decoration: underline;">Watch the transition in results in action below by dragging the slider to alter the metrics and pivot the charts for all three channels!</p>
+                <p style = "text-decoration: underline;">Click and drag the slider to visualize the change in relative rankings when the metrics are altered.</p>
                 <br>
                 <p style = "font-style: italic; font-size: 0.7em; line-height: 1.0em;">Note: We have excluded some of the top words like Voters, Trump, Senate and House in order to better fulfill
                 the purpose of the visualization.</p>
@@ -826,8 +826,9 @@
                         most frequently associated with the major topics, we can further contextualize how those topics were framed.
                     </p>
                     <br>
-                    <p style = "text-decoration: underline;">Click and drag the topics to isolate the verbs by topic. You can also click
-                    on the verbs to view the relevant news segments (archived).</p>
+                    <p style = "text-decoration: underline;">Click and drag the circles to isolate the verbs by topic.</p>
+                    <br>
+                    <p style = "text-decoration: underline;">You can also click on the verbs to view the relevant news segments (archived).</p>
                 </div>
             <div id = "chart_1">
                 <p class = 'chart_label'>CNN</p>
@@ -870,6 +871,8 @@
                 HELLY SHAH
                 <br>
                 ZIJIE WANG
+                <br>
+                <span style = "font-weight: bold;">AND</span>
                 <br>
                 JOYCE ZHOU
             </p>
@@ -2135,7 +2138,6 @@
                         .attr("id", function(d) {
                             return d.name;
                         })
-                        .style("cursor", (d) =>  d.name != d.key ? "pointer" : "")
                         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y+ ")"; })
                         .on("click", function(d){
                             // this is a hack so that click doesnt fire on the1st click of a dblclick
@@ -2293,7 +2295,7 @@
                     function getColor(d) {
                         return control.options.nodeFocus && d.isCurrentlyFocused ? control.options.nodeFocusColor  : '#fe5c34' ;
                     }
-5
+
                     }
 
                     function makeRadius(control,d) {
