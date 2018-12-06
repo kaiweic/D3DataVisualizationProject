@@ -2137,6 +2137,7 @@
                         .attr("id", function(d) {
                             return d.name;
                         })
+                        .style("cursor", (d) =>  d.name != d.key ? "pointer" : "")
                         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y+ ")"; })
                         .on("click", function(d){
                             // this is a hack so that click doesnt fire on the1st click of a dblclick
