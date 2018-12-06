@@ -1,4 +1,4 @@
-# Divided-Congress-And-Coverage?
+# [Divided-Congress-And-Coverage?](https://cse442-18f.github.io/fp-divided-congress-and-coverage/)
 
 **Team Members**
 
