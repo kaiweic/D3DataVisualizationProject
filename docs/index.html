@@ -385,6 +385,16 @@
             padding-right: 300px;
         }
 
+        #conclusion {
+            font-size: 1.4rem;
+            color:#888;
+            text-align: center;
+            line-height: 1.3em;
+            padding-bottom: 200px;
+            padding-left: 200px;
+            padding-right: 200px;
+        }
+
         #nn_info {
             font-size: 1.75rem;
             padding-bottom: 50px;
@@ -524,8 +534,8 @@
                 <p class = "intro_dek" id = "c_smart">Inspired by Charlie Smart's <a href = "https://pudding.cool/2018/01/chyrons/" target = "_blank">visualization</a> on The Pudding</p>
                 <img src="intro_icon.png" width="200" height="350" class = "center">
                 <p class="intro__dek">
-                    <span id = "f_char">T</span>oday, Americans are more ideologically divided than anytime in the past. As a result, the American consumers increasingly prefer media
-                    that confirms to their own political and social preferences, which inturn seeps bias into the content itself. It becomes a vicious feedback loop.
+                    <span id = "f_char">T</span>oday, Americans are more ideologically divided than anytime in the past. As a result, American consumers increasingly prefer media
+                    that confirms to their own political and social preferences, which in turn seeps bias into the content itself. It becomes a vicious feedback loop.
                     Research shows that this bias in content operates via two mechanisms:
                     <a href = "https://www8.gsb.columbia.edu/media/sites/media/files/JustinRaoMediaBias.pdf" target = "_blank"><span style = "font-weight: bold">ISSUE <span style = "color: brown">FILTERING</span></span>
                         and <span style = "font-weight: bold">ISSUE <span style = "color: brown">FRAMING</span></span></a>.
@@ -559,7 +569,7 @@
                     In this project, we visualize the extent of content and coverage bias during the midterm elections of 2018 by examining the cable news headlines for CNN, Fox News 
                     and MSNBC during a three day window of before, during and after the elections. Throughout, we attempt to use the mechanism of
                     either <span style = "font-weight: bold; color: brown">FILTERING</span> or <span style = "font-weight: bold; color: brown">FRAMING</span>
-                    as our lens. The aim is to understand the caveats of the news cycle that may foster differences in beliefs and perceptions
+                    as our lens. The aim is to understand the aspects of the news cycle that may foster differences in beliefs and perceptions
                     among the viewers.
                 </p>
             </section>
@@ -627,7 +637,7 @@
                         <p>Moving on, if we filter out the congressional candidates that generated the most buzz in all three news channels, we can explore some interesting trends.</p>
                         <br>
                         <p>
-                            <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> mentioned Georgia gubernatotial candidates Brian <span class = "topic">Kemp</span> and Stacey
+                            <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> mentioned Georgia gubernatorial candidates Brian <span class = "topic">Kemp</span> and Stacey
                             <span class = "topic">Abrams</span> way more often than <span class = "topic">FOX NEWS</span> did. Moreover, <span class = "channel">MSNBC</span> commented
                             on the Arizona senatorial candidates Kristen <span class = "topic">Sinema</span> and Nancy <span class = "topic">McSally</span> more often than 
                             <span class = "channel">CNN</span> or <span class = "topic">FOX NEWS</span> did. Meanwhile, <span class = "channel">CNN</span>'s coverage did not 
@@ -684,7 +694,7 @@
             <h2 id = 'pivot_intro'>How did the number of mentions compare with the total screen time for various topics?</h2>
             <div id = 'pivot_info'>
                 <p class="intro__dek">While cable news may mention some topics more or less frequently than others, there is a
-                    possibility that the channels spend significantly more amount of time in talking about a particular headline or topic. So,
+                    possibility that the channels spend significantly more time in talking about a particular headline or topic. So,
                     sometimes the choice of metric can yield different results.
                 </p>
                 <br>
@@ -703,7 +713,7 @@
                     <p class = "intro_dek">Hover over the highlighted circles to discover some interesting trends such as:
                         <ul>
                             <li>
-                                The gubernatorial race in Georgia was the most talked about race in case of 
+                                The gubernatorial race in Georgia was the most talked about race by 
                                 <span class = channel>MSNBC</span>, in which the Republican candidate Brian 
                                 <span class = "topic">Kemp</span> got way more mentions than screen time, and
                                 the democratic candidate Stacey <span class = "topic">Abrams</span> got way more
@@ -777,12 +787,12 @@
                         <p class = "channel">FOX</p>
                         <p class = "nn_description">
                             <span class = "channel">FOX NEWS</span> frequently mentioned voters in conjunction with President <span class = "topic">Trump</span>,
-                            the the <span class = "topic">economy</span>, and while referring to voters from the state of <span class = "topic">Texas</span>.
+                            the <span class = "topic">economy</span>, and while referring to voters from the state of <span class = "topic">Texas</span>.
                         </p>
                         <br>
                         <p class = "nn_description">
                             Meanwhile, President Trump was often mentioned in conjuction with the <span class = "topic">economy</span>, the issue of
-                            <span class = "topic">immigration</span> and the mueller-<span class = "topic">investigation</span>.
+                            <span class = "topic">immigration</span> and the Mueller-<span class = "topic">investigation</span>.
                         </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
                             <button id = "voters" class = "e">VOTERS</button>
@@ -795,12 +805,12 @@
                     <div class="step" style="height: 615px; position: relative;">
                         <p class = "channel">MSNBC</p>
                         <p class = "nn_description">
-                            <span class = "channel">MSNBC</span> compratively focussed on a wider variety of contexts and issues
-                            when it came to voters. They included President <span class = "topic">Trump</span>, his
+                            <span class = "channel">MSNBC</span> compratively focused on a wider variety of contexts and issues
+                            when it came to voters. It included President <span class = "topic">Trump</span>, his
                             <span class = "topic">approval-rating</span>, <span class = "topic">immigration</span> and
                             the <span class = "topic">economy</span>. It also included references to voters from <span class = "topic">Florida</span>,
                             <span class = "topic">Geogia</span> and <span class = "topic">Texas</span>. Moreover, they also referred to the voters'
-                            <span class = "topic">enthusiam</span> and other divisive issues such as <span class = "topic">tax</span>
+                            <span class = "topic">enthusiasm</span> and other divisive issues such as <span class = "topic">tax</span>
                             and <span class = "topic">abortion</span>.
                         </p>
                         <br>
@@ -823,7 +833,7 @@
                 <h2 id = 'nv_title'>Which action verbs were often used with some of the dominant topics?</h2>
                 <div class = "nv_info">
                     <p class="intro__dek">
-                        Action verbs serve as a powerful tool in creating ideas and impressions. By exploring what actions verbs were
+                        Action verbs serve as powerful tools in creating ideas and impressions. By exploring what action verbs were
                         most frequently associated with the major topics, we can further contextualize how those topics were framed.
                     </p>
                     <br>
@@ -858,7 +868,25 @@
                     quoted President Trump as he <a style = "color: #888" href = "https://archive.org/details/FOXNEWSW_20181105_100000_Fox_and_Friends_First/start/300/end/360" target = "_blank">warned</a> the public about 
                     illegal immigration and reassured them that the <span class = "topic">migrants</span>  were not <a style = "color: #888" href = "https://archive.org/details/FOXNEWSW_20181106_010000_Tucker_Carlson_Tonight/start/660/end/720" target = "_blank">coming</a> to this country. 
                 </p>
+                <hr>
+                <p class="intro__dek">
+
+                </p>
             </div>
+        </div>
+
+        <div id = "conclusion">
+            <p class="intro__dek">
+                There is so much information around us that it forces us to filter some things out, and at the same time, add meaning
+                to what we choose to focus on. We look for stories we like and patterns we can understand. We yearn for simplification.
+                We are running out of time. We want to know what to remember and what to forget. This adds bias to much of what we choose to perceive. 
+                This is how we function. 
+                <br>
+                <br>
+                So, it is important for us to know that the information we are being supplied is also filtered and framed. Therefore, while it
+                may not be conceivable for us to see everything, it is possible for us to to broaden our understanding, be aware of our differences
+                and be more accomodating.
+            </p>
         </div>
 
         <section id="outro">
