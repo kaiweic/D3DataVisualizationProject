@@ -9,3 +9,5 @@
 - Helly Shah
 
 [Video Link](https://vimeo.com/304745295)
+
+Future Work: Separate the left and right sections of the force directed graph by 'sentiment', i.e. negative or positive. This will add meaning to the horizontal positioning of the nodes. The closer the node would be towards the edge, the greater the chance that it was framed with that sentiment. 
