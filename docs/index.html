@@ -214,6 +214,10 @@
             cursor: pointer;
         }
 
+        .text {
+            cursor: pointer;
+        }
+
         .point {
             fill: #30303d;
             fill-opacity: 0.8;
@@ -900,7 +904,7 @@
         <script src="https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js"></script>
         <script src="https://unpkg.com/scrollama"></script>  <!-- We're using Scrollama to get the scrolling functionality --> 
         <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
         <script>
             $(document).ready(function(){
                 $(this).scrollTop(0);
@@ -1023,6 +1027,7 @@
 
 
             /** --------------------------frequency scatter plot------------------------------- */
+
 
             function scatter_plot(selector) {
                 var margin = { top: 50, bottom: 160 }
