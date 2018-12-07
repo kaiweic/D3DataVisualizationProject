@@ -1241,7 +1241,7 @@
             function pivot_scatter(selector, dummyData) {
                 const graphic = d3v4.select(selector)
 
-                const COLORS = ['#1a53ff', '#3366ff', '#4d79ff', '#668cff', '#809fff', '#99b3ff', '#b3c6ff']
+                const COLORS = ['#ff3814', '#fe5c34', '#fc764f', '#f88d69', '#f2a385', '#e8b8a0', '#dbcdbd']
                 const FONT_SIZE = 11
                 const MAX_VAL = 10
 
@@ -1372,33 +1372,33 @@
                             .style('fill', d => {
                                 if (d.channel === "msnbc") {
                                     if (d.topic  === "kemp" || d.topic  === "abrams" || d.topic === "georgia")
-                                        return "#ff6600";
+                                        return "#000000";
                                 }
                                 if (d.channel === "fox") {
                                     if (d.topic  === "congress" || d.topic === "rallies" || d.topic === "immigration")
-                                        return "#ff6600";
+                                        return "#000000";
                                 }
                                 if (d.channel === "cnn") {
                                     if (d.topic  === "fear" || d.topic === "immigration")
-                                        return "#ff6600";
+                                        return "#000000";
                                 }
                                 // if (d.channel === "msnbc" && d.topic  === "kemp") return "#000000";
                                 return scaleC(d.rank)})
                             .style('stroke', d => {
                                 if (d.channel === "msnbc") {
                                     if (d.topic  === "kemp" || d.topic  === "abrams" || d.topic === "georgia")
-                                        return "#ff6600";
+                                        return "#000000";
                                 }
                                 if (d.channel === "fox") {
                                     if (d.topic  === "congress" || d.topic === "rallies" || d.topic === "immigration")
-                                        return "#ff6600";
+                                        return "#000000";
                                 }
                                 if (d.channel === "cnn") {
                                     if (d.topic  === "fear" || d.topic === "immigration")
-                                        return "#ff6600";
+                                        return "#000000";
                                 }
                                 // if (d.channel === "msnbc" && d.topic  === "kemp") return "#000000";
-                                return "#0000ff"})
+                                return scaleC(d.rank)})
                             .style('opacity', 0.7)
                             .attr('transform',  d => translate(scaleX(d.x), scaleY(d.y)))
 
