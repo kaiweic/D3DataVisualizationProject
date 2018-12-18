@@ -16,6 +16,7 @@
 			margin: 0;
 			padding: 0;
 			font-family: 'Droid Serif', serif;
+            scroll-behavior: smooth;
 		}
 
 		body {
@@ -85,7 +86,7 @@
             display: inline-block;
         }
 
-		/* demo */
+            /* demo */
 
         .d_back_black {
             background-color: #30303d;
@@ -103,9 +104,22 @@
             color: #181619;
         }
 
+        .nn_mouse_over_current {
+            fill: brown;
+        }
+
 		#outro {
-			height: 640px;
+			height: 200px; 
+            background-color: #ddd;
+            align-content: center;
+            text-align: center;
+            font-size: 1rem;
 		}
+
+        #outro_text {
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
 
 		/* scrollama */
 
@@ -121,7 +135,7 @@
 		.scroll__graphic {
 			position: absolute;
 			top: 0;
-			right: 2rem;
+			right: 0;
 			-webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
@@ -156,7 +170,7 @@
 			max-width: 60rem;
             width: 33%;
         }
-        
+
         .channel {
             font-weight: bold;
         }
@@ -164,6 +178,7 @@
 		.step {
 			margin: 0 auto 0 auto;
 			/* border-bottom: none; */
+            left: 20%;
 		}
 
 		.step:last-child {
@@ -177,10 +192,10 @@
 		.step p {
 			text-align: center;
 			padding: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             line-height: 1.3em;
         }
-        
+
         .topic {
             font-weight: bold;
         }
@@ -190,13 +205,16 @@
 
         text.label {
             text-transform: uppercase;
-            font-family: monospace;
             font-weight: 700;
             font-size: 24px;
             letter-spacing: 0.1;
         }
         path.arrow, text.label {
             fill: #30303d;
+            cursor: pointer;
+        }
+
+        .text {
             cursor: pointer;
         }
 
@@ -230,25 +248,25 @@
             text-align:center;
             color:#333;
         }
-        
+
         .chart{
             max-width:40rem;
             margin:0 auto;
             text-align:center;
         }
-        
+
         .slider{
             max-width:20rem;
             margin:1rem auto;
             position:relative;
             padding-top:16.5px;
         }
-        
+
         .slider input{
             display:block;
             width:100%;
         }
-        
+
         .slider:before{
             content:'100% <- Screentime';
             text-transform:uppercase;
@@ -260,7 +278,7 @@
             top:0;
             left:0;
         }
-        
+
         .slider:after{
             content:'Mentions -> 100%';
             text-transform:uppercase;
@@ -272,34 +290,34 @@
             top:0;
             right:0;
         }
-        
+
         .g-axis line,.g-axis path{
             stroke:#ccc;
         }
-        
+
         .g-axis text{
             fill:#888;
         }
-        
+
         .g-axis .axis__label{
             text-transform:uppercase;
             font-size:11px;
             letter-spacing:.05em;
             fill:#888;
         }
-        
+
         .item{
             fill-opacity:.75;
         }
 
-        .pivot_label {
+        .pivot_label, .chart_label {
             text-align: center;
             font-weight:  900;
             font-size: 150%;
             color: #888;
         }
 
-        #pivot_scatter, #noun_to_verb_div {
+        #pivot_scatter, #noun_to_verb {
             margin-top: 50px;
             margin-bottom: 50px;
             align-content: center;
@@ -307,25 +325,62 @@
         }
 
         .graphic--2, .graphic--3 {
-            float: left;
+            width: 40%;
         }
+
+        #pivot_tips {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 20px auto;
+            width: 20%;
+            color:#888;
+            font-size: 1.2rem;
+        }
+
         .graphic--1 {
-            padding-top: 300px;
             margin: auto;
         }
 
-        #pivot_intro {
+        #pivot_intro, #nv_title {
             font-size: 32px;
             line-height: 1em;
 			margin: auto;
             padding-top: 2.5rem;
             padding-bottom: 2.5rem;
+            padding-left: 300px;
+            padding-right: 300px;
 			text-transform: uppercase;
 			font-weight: 700;
             color:#888;
         }
 
-        #pivot_info {
+        #ps_design, #nv_design {
+            font-size: 14px;
+            font-style: italic;
+            padding: 3rem 0;
+            margin: auto;
+            text-align: center;
+            align-content: center;
+            color:#888;
+        }
+
+        #scatter_intro, #nn_header {
+            font-size: 32px;
+            line-height: 1em;
+			margin: auto;
+            padding-top: 3.5rem;
+            padding-bottom: 4.5rem;
+            padding-left: 300px;
+            padding-right: 300px;
+			text-transform: uppercase;
+			font-weight: 700;
+            text-align: center;
+            align-content: center;
+            text-decoration: underline;
+        }
+
+        #pivot_info, .nv_info {
             font-size: 1.4rem;
             color:#888;
             text-align: center;
@@ -335,25 +390,22 @@
             padding-right: 300px;
         }
 
-        #pivot_container {
-            padding-left: 5%;
-        }
-
-        #nn_title, #nv_title {
-            font-size: 32px;
-            line-height: 1em;
-			margin: auto;
-            padding-top: 2.5rem;
-            padding-bottom: 2.5rem;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        #nn_info, #nv_info {
+        #conclusion {
             font-size: 1.4rem;
-            padding-bottom: 100px;
+            color:#888;
+            text-align: center;
+            line-height: 1.3em;
+            padding-bottom: 200px;
             padding-left: 200px;
             padding-right: 200px;
+        }
+
+        #nn_info {
+            font-size: 1.75rem;
+            padding-bottom: 50px;
+            padding-top: 50px;
+            padding-left: 100px;
+            padding-right: 100px;
             line-height: 1.3em;
         }
 
@@ -365,10 +417,6 @@
         #circle circle {
             fill: none;
             pointer-events: all;
-        }
-
-        #circle:hover path.fade {
-            display: none;
         }
 
         button {
@@ -408,6 +456,7 @@
             line-height: 1.5em;
             quotes: "\201C""\201D""\2018""\2019";
         }
+
         blockquote:before {
             color: #ccc;
             content: open-quote;
@@ -423,7 +472,62 @@
         #quote {
             padding-left: 200px;
             padding-right: 200px;
-            padding-bottom: 150px;
+            padding-bottom: 50px;
+        }
+
+        .node rect {
+            cursor: move;
+            fill-opacity: .9;
+            shape-rendering: crispEdges;
+        }
+
+        .node text {
+            pointer-events: all;
+            text-shadow: 0 1px 0 #fff;
+        }
+
+        .link {
+            fill: none;
+            stroke: #000;
+            stroke-opacity: .2;
+        }
+
+        .link:hover {
+            stroke-opacity: .5;
+        }
+
+        circle.node-dot {
+            fill: DarkSlateGray;
+            stroke: SlateGray;
+            stroke-width: 1px;
+        }
+
+        line.link {
+            fill: none;
+            stroke: SlateGray;
+            stroke-width: 1.5px;
+        }
+
+        marker#defaultMarker {
+            fill: SlateGray;
+        }
+
+        line.link.defaultMarker {
+            stroke: SlateGray;
+        }
+
+        .node {
+            fill-opacity: 0.6;
+        }
+
+        text {
+            pointer-events: all;
+        }
+
+        text.shadow {
+            stroke: #fff;
+            stroke-width: 3px;
+            stroke-opacity: .8;
         }
 
         </style>
@@ -435,19 +539,43 @@
                 <p class = "intro_dek" id = "c_smart">Inspired by Charlie Smart's <a href = "https://pudding.cool/2018/01/chyrons/" target = "_blank">visualization</a> on The Pudding</p>
                 <img src="intro_icon.png" width="200" height="350" class = "center">
                 <p class="intro__dek">
-                    <span id = "f_char">T</span>oday, Americans are more ideologically divided than anytime in the past. As a result, the American consumers increasingly prefer media
-                    that confirms to their own political and social preferences, which inturn seeps bias into the content itself. It becomes a vicious feedback loop.                     
+                    <span id = "f_char">T</span>oday, Americans are more ideologically divided than anytime in the past. As a result, American consumers increasingly prefer media
+                    that confirms to their own political and social preferences, which in turn seeps bias into the content itself. It becomes a vicious feedback loop.
+                    Research shows that this bias in content operates via two mechanisms:
+                    <a href = "https://www8.gsb.columbia.edu/media/sites/media/files/JustinRaoMediaBias.pdf" target = "_blank"><span style = "font-weight: bold">ISSUE <span style = "color: brown">FILTERING</span></span>
+                        and <span style = "font-weight: bold">ISSUE <span style = "color: brown">FRAMING</span></span></a>.
                 </p>
                 <br>
                 <p class="intro__dek">
-                    Research shows that this bias in content operates via two mechanisms: <span style = "font-weight: bold">ISSUE <span style = "color: brown">FILTERING</span></span>
-                    and <span style = "font-weight: bold">ISSUE <span style = "color: brown">FRAMING</span></span>.
-                    <a href = "https://www8.gsb.columbia.edu/media/sites/media/files/JustinRaoMediaBias.pdf" target = "_blank">(Source)</a>
+                    <span style = "font-weight: bold">ISSUE <span style = "color: brown">FILTERING</span></span> implies selective coverage of certain topics.
+                    Here, the problem isn't fake news or alternative facts, but 
+                    <a href = "https://qz.com/1130094/todays-biggest-threat-to-democracy-isnt-fake-news-its-selective-facts/" target = "_blank">selective facts</a>. 
+                    Selective facts are still legitimate facts, but they often times either paint an incomplete picture of a story or leave some 
+                    stories out altogether. Issue Filtering tells the audience what to think about. It's curated content, but for facts.
                 </p>
                 <br>
                 <p class="intro__dek">
-                    We decided to visualize the extent of this bias by examining the cable news headlines for CNN, Fox News and MSNBC during their coverage of the midterm
-                    elections of 2018.
+                    <span style = "font-weight: bold">ISSUE <span style = "color: brown">FRAMING</span></span>, on the other hand, is about how topics are presented.
+                    Framing of a story affects the structure of its message and 
+                    <a href = "https://masscommtheory.com/theory-overviews/framing-theory/" target = "_blank">specifies its field of meaning</a>. So, while
+                    Issue Filtering tells the audience what to think about, Issue Framing tells them how to think about it. 
+                </p>
+                <br>
+                <p class="intro__dek">
+                    There is a ceaseless flow of news everyday, especially during election campaigns. As a result, filtering and framing                
+                    may affect the audience's views on various topics and push them towards drawing different conclusions, sometimes divisive ones. 
+                    This happens because people prefer to view information that confirms to their pre-existing beliefs. This phenomenon has often been described as 
+                    <a href = "https://en.wikipedia.org/wiki/Confirmation_bias" target = "_blank">confirmation bias</a>. Moreover, the publishers and platforms 
+                    presenting this information know what their viewers want and accordingly feed them relevant content. For them, it is as much about viewers and ratings
+                    as it is about news itself. 
+                </p>
+                <br>
+                <p class="intro__dek">
+                    In this project, we visualize the extent of content and coverage bias during the midterm elections of 2018 by examining the cable news headlines for CNN, Fox News 
+                    and MSNBC during a three day window of before, during and after the elections. Throughout, we attempt to use the mechanism of
+                    either <span style = "font-weight: bold; color: brown">FILTERING</span> or <span style = "font-weight: bold; color: brown">FRAMING</span>
+                    as our lens. The aim is to understand the aspects of the news cycle that may foster differences in beliefs and perceptions
+                    among the viewers.
                 </p>
             </section>
         </div>
@@ -455,24 +583,22 @@
         <div id = "word_cloud" class = d_back_white></div>
 
         <div class = "d_back_white">
-            <section id = "scroll" class = "scroll_section">
-                <div class="scroll__graphic" id = "f_scatter" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
+            <h2 id = "scatter_intro">First, let's explore at how some of the major topics were <span style = "font-weight: bold; color: brown">FILTERED</span></h2>
+            <section id = "scroll" class = "scroll_section">       
+                <div class="scroll__graphic" id = "f_scatter" style="width: 960px; height: 800px;">  
+                    <!-- This is where the visualization goes --> 
+                </div>
                 <!-- This is where text goes, as we scroll -->
                <div class="scroll__text">
                     <div class="step is-active" style="height: 615px; position: relative;">
-                        <p>Let's map out some of the most frequently talked about topics by 
-                            <span class = "channel">CNN</span>, <span class = "channel">FOX NEWS</span> 
-                            and <span class = "channel">MSNBC</span> during their midterm elections coverage. 
+                        <p>Let's begin by mapping out some of the most frequently talked about topics by
+                            the three news channels during their midterm elections coverage.
                         </p>
-                        <br>
-                        <p>
-                            Some of the most frequently talked about topics included President <span class = "topic">Trump</span> and
-                            his <span class = "topic">rallies</span>, <span class = "topic">migrants</span>, the <span class = "topic">house</span> and the <span class = "topic">senate</span>,
-                            with the state of <span class = "topic">Florida</span> and the Democratic candidates Beto <span class = "topic">O'Rourke</span> and
-                            Andrew <span class = "topic">Gillum</span> getting the most proportional coverage.
+                        <p style = "padding-top: 7px">
+                            Some of the most frequently talked about topics included President <span class = "topic">Trump</span>, <span class = "topic">migrants</span>, the <span class = "topic">House</span> with the Democratic candidates Beto <span class = "topic">O'Rourke</span> and
+                            Andrew <span class = "topic">Gillum</span>, and Republican candidate Ted <span class = "topic">Cruz</span> getting the most proportional coverage.
                          </p>
-                        <br>
-                        <p style = "text-decoration: underline; font-size: 18px;">Hover over the topics below to see where they lie in the visualization.</p>
+                         <p style = "text-decoration: underline; font-size: 1.1rem; padding-top: 5px">Hover over the topics below to visualize where they lie on the plot</p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
                             <button id = "trump" class = "d">TRUMP</button>
                             <button id = "senate" class = "d">SENATE</button>
@@ -483,17 +609,17 @@
                             <button id = "gillum" class = "d">GILLUM</button>
                             <button id = "house" class = "d">HOUSE</button>
                             <button id = "florida" class = "d">FLORIDA</button>
+                            <button id = "cruz" class = "d">CRUZ</button>
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
-                        <p>Next, let's look at the <span style = "font-weight: bold; text-decoration: underline;">inclusivity</span> 
+                        <p>Next, let's look at the <span style = "font-weight: bold; text-decoration: underline;">inclusivity</span>
                             of the language used by the three news channels by looking at the number of mentions of under-represented and minority groups.
                         </p>
-                        <br>
-                        <p>
+                        <p style = "padding-top: 7px">
                             Overall, <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> frequently mentioned
                             <span class = "topic">women</span>, <span class = "topic">black</span> voters, <span class = "topic">african-american</span> voters, <span class = "topic">hispanics</span>
-                            and <span class = "topic">gender</span> (gap and/or bias) with little to no mention of many of these topics by <span class = "channel">FOX NEWS</span>.
+                            and <span class = "topic">gender</span> (gap and/or bias) with little to no mention of many of these groups by <span class = "channel">FOX NEWS</span>.
                         </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
                             <button id = "voters" class = "a">VOTERS</button>
@@ -506,14 +632,13 @@
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
-                        <p>Moving on, if filter out the congressional candidates that generated the most buzz in all three news channels, we can explore some interesting trends.</p>
-                        <br>
-                        <p>
-                            <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> mentioned Brian <span class = "topic">Kemp</span> and Stacey 
-                            <span class = "topic">Abrams</span> way more often than <span class = "topic">FOX NEWS</span> did. Moreover, we saw a dispropotionately frequent
-                            number of mentions of Marsha <span class = "topic">Blackburn</span> in case of <span class = "channel">FOX NEWS</span>, Kristen 
-                            <span class = "topic">Sinema</span> and Nancy <span class = "topic">McSally</span> in case of <span class = "channel">MSNBC</span> and Doug 
-                            <span class = "topic">Jones</span> in case of <span class = "channel">CNN</span>.
+                        <p>Moving on, if we filter out the congressional candidates that generated the most buzz in all three news channels, we can explore some interesting trends.</p>
+                        <p style = "padding-top: 7px">
+                            <span class = "channel">CNN</span> and <span class = "channel">MSNBC</span> mentioned Georgia gubernatorial candidates Brian <span class = "topic">Kemp</span> and Stacey
+                            <span class = "topic">Abrams</span> way more often than <span class = "topic">FOX NEWS</span> did. Moreover, <span class = "channel">MSNBC</span> commented
+                            on the Arizona senatorial candidates Kristen <span class = "topic">Sinema</span> and Nancy <span class = "topic">McSally</span> more often than 
+                            <span class = "channel">CNN</span> or <span class = "topic">FOX NEWS</span> did. Meanwhile, <span class = "channel">CNN</span>'s coverage did not 
+                            skew towards any candidate.
                         </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
                             <button id = "sinema" class = "b">SINEMA</button>
@@ -522,24 +647,20 @@
                             <button id = "mcsally" class = "b">MCSALLY</button>
                             <button id = "mccaskill" class = "b">MCCASKILL</button>
                             <button id = "kemp" class = "b">KEMP</button>
-                            <button id = "jones" class = "b">JONES</button>
-                            <button id = "hemingway" class = "b">HEMINGWAY</button>
                             <button id = "gillum" class = "b">GILLUM</button>
-                            <button id = "feinstein" class = "b">FEINSTEIN</button>
-                            <button id = "donnelly" class = "b">DONNELLY</button>
                             <button id = "desantis" class = "b">DESANTIS</button>
+                            <button id = "cruz" class = "b">CRUZ</button>
                             <button id = "crenshaw" class = "b">CRENSHAW</button>
                             <button id = "blackburn" class = "b">BLACKBURN</button>
                             <button id = "abrams" class = "b">ABRAMS</button>
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
-                        <p>Lastle, let's also look at some of the most talked about issues during the election. </p>
-                        <br>
-                        <p><span class = "topic">Immigration</span> and <span class = "topic">economy</span> were some of the most frequently mentioned issues and group
-                        relatively proportional coverage from all three channels. Meanwhile, we saw dispropotionately frequent mentions of
-                        Brett <span class = "topic">Kavanaugh</span> and <span class = "topic">ICE</span> by <span class = "channel">FOX NEWS</span>, 
-                        <span class = "topic">Facebook</span>, <span class = "topic">fearmongering</span> and <span class = "topic">approval-rating</span> 
+                        <p>Lastly, let's also look at some of the most talked about issues during the election. </p>
+                        <p style = "padding-top: 7px"><span class = "topic">Immigration</span> and <span class = "topic">economy</span> were the most talked about issues and got
+                        relatively proportional coverage from all three channels. Meanwhile, we saw dispropotionately frequent mentions of Justice
+                        Brett <span class = "topic">Kavanaugh</span> and <span class = "topic">ICE</span> by <span class = "channel">FOX NEWS</span>,
+                        <span class = "topic">Facebook</span>, <span class = "topic">fearmongering</span> and <span class = "topic">approval-rating</span>
                         by <span class = "channel">CNN</span>, and <span class = "topic">abortion</span> and <span class = "topic">impeachment</span> by
                         <span class = "channel">MSNBC</span>.
                         </p>
@@ -564,53 +685,76 @@
                 </div>
             </section>
         </div>
-        
+
         <div id = "pivot_scatter">
-            <h2 id = 'pivot_intro'>Number of Mentions vs. Total Screen Time</h2>
+            <h2 id = 'pivot_intro'>How did the number of mentions compare with the total screen time for various topics?</h2>
             <div id = 'pivot_info'>
-                <p class="intro__dek">While cable news may mention some topics more or less frequently than others, there is a 
-                    possibility that the channels spend a significantly more time in talking about a particular headline or topic. So,
-                    sometimes the choice of metric can yield different results. 
+                <p class="intro__dek">While cable news may mention some topics more or less frequently than others, there is a
+                    possibility that the channels spend significantly more time in talking about a particular headline or topic. So,
+                    sometimes the choice of metric can yield different results.
                 </p>
                 <br>
-                <p style = "text-decoration: underline;">Watch the transition in results in action below by using the slider to alter the metrics and pivot the charts for all three channels!</p>
+                <p style = "text-decoration: underline;">Click and drag the slider to visualize the change in relative rankings when the metrics are altered.</p>
                 <br>
-                <p style = "font-style: italic; font-size: 0.7em; line-height: 1.0em;">Note: We have excluded some of the most frequently mentioned words like Voters, Trump, Senate and House in order to better fulfil
+                <p style = "text-decoration: underline;">The dark circles highlight the topics that undergo the greatest change in rankings as well as the top ranked topics for each channel.</p>
+                <br>
+                <p style = "font-style: italic; font-size: 0.7em; line-height: 1.0em;">Note: We have excluded some of the top words like Voters, Trump, Senate and House in order to better fulfill
                 the purpose of the visualization.</p>
             </div>
-            <div class='graphic graphic--2' style = "width: 50%">
-                <p class = 'pivot_label'>MSNBC</p>
-                <div class='chart'></div>
-                <div class='slider'><input type='range' min='0' max='100' value='50'></div>
-            </div>
-            <div id = 'pivot_container' style = "height: 420px">
-                <div class='graphic graphic--3' style = "width: 50%">
+            <div id = 'pivot_container' style = "height: 520px;">
+                <div class='graphic graphic--2' style = "float: left">
+                    <p class = 'pivot_label'>MSNBC</p>
+                    <div class='chart'></div>
+                    <div class='slider'><input type='range' min='0' max='100' value='50'></div>
+                </div>
+                <div id = "pivot_tips">
+                    <p class = "intro_dek">Hover over the highlighted circles to discover some interesting trends such as:
+                        <ul>
+                            <li>
+                                The gubernatorial race in Georgia was the most talked about race by 
+                                <span class = channel>MSNBC</span>, in which the Republican candidate Brian 
+                                <span class = "topic">Kemp</span> got way more mentions than screen time, and
+                                the democratic candidate Stacey <span class = "topic">Abrams</span> got way more
+                                screen time than mentions.
+                            </li>
+                            <li style = "margin-top: 10px;">
+                                <span class = channel>CNN</span> had the most consistent coverage among the three channels. There wasn't a high
+                                discrepancy between the number of mentions and the total screen time in case of any topic.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+                <div class='graphic graphic--3' style = "float: right">
                     <p class = 'pivot_label'>FOX</p>
                     <div class='chart'></div>
                     <div class='slider'><input type='range' min='0' max='100' value='50'></div>
                 </div>
             </div>
-            <div class='graphic graphic--1' style = "width: 50%">
+            </div>
+            <div class='graphic graphic--1' style = "width: 40%">
                 <p class = 'pivot_label'>CNN</p>
                 <div class='chart'></div>
                 <div class='slider'><input type='range' min='0' max='100' value='50'></div>
             </div>
+            <p class = "intro_dek" id = "ps_design">
+                Design by <a href = "https://pudding.cool/process/weighted-pivot-scatter-plot/" target = "_blank" style = "color: #888">Russell Goldenberg</a>
+            </p>
         </div>
 
         <!-- @Kevin: This is the HTML section for your visualization [Also has associated CSS context] -->
         <div class = "d_back_white" id = 'assoc'>
-
-            <h2 id = 'nn_title'>Which topics were most frequently mentioned together?</h2>
+            <h2 id = 'nn_header'>Next, let's explore how some of the major topics were <span style = "font-weight: bold; color: brown">FRAMED</span> </h2>
                <div id = "quote">
                 <blockquote style = "font-style: italic;">
-                    In choosing and displaying news, editors, newsroom staff, and broadcasters play an important part in shaping political 
-                    reality. Readers learn not only about a given issue, but also how much importance to attach to that issue from the amount 
-                    of information in a news story and its position. In reflecting what candidates are saying during a campaign, the mass 
+                    In choosing and displaying news, editors, newsroom staff, and broadcasters play an important part in shaping political
+                    reality. Readers learn not only about a given issue, but also how much importance to attach to that issue from the amount
+                    of information in a news story and its position. In reflecting what candidates are saying during a campaign, the mass
                     media may well determine the important issues—that is, the media may set the 'agenda' of the campaign.
                     <br>
                     <br>
                     - <a href = "https://academic.oup.com/poq/article-abstract/36/2/176/1853310" target = "_blank">McCombs & Shaw</a>
                 </blockquote>
+                <p id = "nn_info">Let's begin by exploring which topics were frequently mentioned together.</p>
                </div>
             <section id = "scroll_1" class = "scroll_section">
                 <div id="noun_to_noun" class="scroll__graphic" style="width: 960px; height: 800px;">  <!-- This is where the visualization goes -->  </div>
@@ -618,89 +762,155 @@
                 <div class="scroll__text">
                     <div class="step is-active" style="height: 615px; position: relative;">
                         <p class = "channel">CNN</p>
-                        <p class = "nn_description"> 
-                            When it came to <span class = "topic">voters</span>, <span class = "channel">CNN</span> often talked about
-                            them in terms of their <span class = "topic">approval</span> of President <span class = "topic">Trump</span>, 
-                            voters in states of <span class = "topic">Florida</span> and <span class = "topic">Georgia</span> and in
-                            conjunction with <span class = "topic">issues</span> such as  <span class = "topic">immigration</span> 
-                            and <span class = "topic">healthcare</span>. 
-                        </p>
-                        <br>
                         <p class = "nn_description">
+                            When it came to <span class = "topic">voters</span>, <span class = "channel">CNN</span> often talked about
+                            them in terms of their <span class = "topic">approval</span> of President <span class = "topic">Trump</span>,
+                            in terms of voters in states of <span class = "topic">Florida</span> and <span class = "topic">Georgia</span> and in
+                            conjunction with <span class = "topic">issues</span> such as  <span class = "topic">immigration</span>
+                            and <span class = "topic">healthcare</span>.
+                        </p>
+                        <p class = "nn_description" style = "padding-top: 7px">
                             However, President Trump himself was associated with issues such as <span class = topic>(anti-)immigration</span>
                             and the <span class = "topic">economy</span>.
                         </p>
-                        <br>
-                        <p style = "text-decoration: underline; font-size: 18px;">Hover over the topics on the chart to explore.</p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "voters_cnn" class = "e">VOTERS</button>
-                            <button id = "trump_cnn" class = "e">TRUMP</button>
-                            <button id = "immigration_cnn" class = "e">IMMIGRATION</button>
-                            <button id = "economy_cnn" class = "e">ECONOMY</button>
+                            <button id = "voters" class = "e">VOTERS</button>
+                            <button id = "trump" class = "e">TRUMP</button>
+                            <button id = "immigration" class = "e">IMMIGRATION</button>
+                            <button id = "economy" class = "e">ECONOMY</button>
                         </div>
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
                         <p class = "channel">FOX</p>
                         <p class = "nn_description">
                             <span class = "channel">FOX NEWS</span> frequently mentioned voters in conjunction with President <span class = "topic">Trump</span>,
-                            the the <span class = "topic">economy</span>, and while referring to voters from the state of <span class = "topic">Texas</span>. 
+                            the <span class = "topic">economy</span>, and while referring to voters from the state of <span class = "topic">Texas</span>.
                         </p>
-                        <br>
-                        <p class = "nn_description">
+                        <p class = "nn_description" style = "padding-top: 7px">
                             Meanwhile, President Trump was often mentioned in conjuction with the <span class = "topic">economy</span>, the issue of
-                            <span class = "topic">immigration</span> and the mueller-<span class = "topic">investigation</span>.
+                            <span class = "topic">immigration</span> and the Mueller-<span class = "topic">investigation</span>.
                         </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "voters_cnn" class = "e">VOTERS</button>
-                            <button id = "trump_cnn" class = "e">TRUMP</button>
-                            <button id = "immigration_cnn" class = "e">IMMIGRATION</button>
-                            <button id = "economy_cnn" class = "e">ECONOMY</button>
+                            <button id = "voters" class = "e">VOTERS</button>
+                            <button id = "trump" class = "e">TRUMP</button>
+                            <button id = "immigration" class = "e">IMMIGRATION</button>
+                            <button id = "economy" class = "e">ECONOMY</button>
                         </div>
 
                     </div>
                     <div class="step" style="height: 615px; position: relative;">
                         <p class = "channel">MSNBC</p>
                         <p class = "nn_description">
-                            <span class = "channel">MSNBC</span> compratively focussed on a wider variety of contexts and issues 
-                            when it came to voters. It not only included President <span class = "topic">Trump</span>, his
-                            <span class = "topic">approval-rating</span>, <span class = "topic">immigration</span>, 
-                            the <span class = "topic">economy</span> and references to voters from <span class = "topic">Florida</span>, 
-                            <span class = "topic">Geogia</span> and <span class = "topic">Texas</span>, but also referred to their 
-                            <span class = "topic">enthusiam</span> and other divisive issues such as <span class = "topic">tax</span> 
+                            <span class = "channel">MSNBC</span> compratively focused on a wider variety of contexts and issues
+                            when it came to voters. It included President <span class = "topic">Trump</span>, <span class = "topic">immigration</span> and
+                            the <span class = "topic">economy</span>. It also included references to voters from <span class = "topic">Florida</span>,
+                            <span class = "topic">Geogia</span> and <span class = "topic">Texas</span>. Moreover, they also referred to other divisive issues such as <span class = "topic">tax</span>
                             and <span class = "topic">abortion</span>.
                         </p>
-                        <br>
-                        <p class = "nn_description">
-                            However, keeping up with the trend, President Trump was mentioned in conjunction with issues mostly pertaining 
+                        <p class = "nn_description" style = "padding-top: 7px">
+                            President Trump was mentioned in conjunction with issues mostly pertaining
                             to the <span class = "topic">economy</span> and <span class = "topic">immigration</span>.
                         </p>
                         <div class = "btns" style="position: absolute; bottom: 0px;">
-                            <button id = "voters_cnn" class = "e">VOTERS</button>
-                            <button id = "trump_cnn" class = "e">TRUMP</button>
-                            <button id = "immigration_cnn" class = "e">IMMIGRATION</button>
-                            <button id = "economy_cnn" class = "e">ECONOMY</button>
+                            <button id = "voters" class = "e">VOTERS</button>
+                            <button id = "trump" class = "e">TRUMP</button>
+                            <button id = "immigration" class = "e">IMMIGRATION</button>
+                            <button id = "economy" class = "e">ECONOMY</button>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
 
-        <div id = "noun_to_verb_div">
-            <h2 id = 'nv_title'>Noun to Verb Mapping</h2>
-            <p class="intro__dek" id = 'nv_info'>[Vis in the works]</p>
+        <div id = "noun_to_verb">
+                <h2 id = 'nv_title'>Which action verbs were often used with some of the dominant topics?</h2>
+                <div class = "nv_info">
+                    <p class="intro__dek">
+                        Action verbs serve as powerful tools in creating ideas and impressions. By exploring what action verbs were
+                        most frequently associated with the major topics, we can further contextualize how those topics were framed.
+                    </p>
+                    <br>
+                    <p style = "text-decoration: underline;">Click and drag the circles to isolate the verbs by topic.</p>
+                    <br>
+                    <p style = "text-decoration: underline;">You can also click on the verbs to view the relevant news segments (archived).</p>
+                </div>
+            <div id = "chart_1">
+                <p class = 'chart_label'>CNN</p>
+            </div>
+            <div id = "chart_2">
+                <p class = 'chart_label'>FOX</p>
+            </div>
+            <div id = "chart_3">
+                <p class = 'chart_label'>MSNBC</p>
+            </div>
+            <p class = "intro_dek" id = "nv_design">
+                Design from <a href = "http://xliberation.com/googlecharts/d3concept.html" target = "_blank" style = "color: #888">xliberation.com</a>
+            </p>
+            <div class = "nv_info" style = "margin-top: 50px;">
+                <p class = "intro_dek">
+                    So, while <span class = "channel">MSNBC</span> talked about how polls show that majority of the  <span class = "topic">voters</span> 
+                    <a style = "color: #888" href = "https://archive.org/details/MSNBCW_20181105_170000_Andrea_Mitchell_Reports/start/1860/end/1920" target = "_blank">prefer</a> 
+                    a Dem-controlled Congress, <span class = "channel">CNN</span> reported on how polls show that a majority of the voters are voting to
+                     <a style = "color: #888" href = "https://archive.org/details/CNNW_20181105_140000_CNN_Newsroom_with_Poppy_Harlow_and_Jim_Sciutto/start/1020/end/1080" target = "_blank">send</a> a message on President Trump. 
+                </p>
+                <br>
+                <p class="intro__dek">
+                    While <span class = "channel">CNN</span> reported on how <span class = "topic">migrants</span> were being <a style = "color: #888" href = "https://archive.org/details/CNNW_20181105_030000_CNN_Tonight_With_Don_Lemon/start/120/end/180" target = "_blank">demonized</a>
+                    as the military troops <a style = "color: #888" href = "https://archive.org/details/CNNW_20181105_030000_CNN_Tonight_With_Don_Lemon/start/60/end/120" target = "_blank">headed</a> towards the border to 
+                    <a style = "color: #888" href = "https://archive.org/details/CNNW_20181106_180000_Wolf/start/2160/end/2220" target = "_blank">deny</a> them entry, <span class = "channel">FOX NEWS</span>
+                    quoted President Trump as he <a style = "color: #888" href = "https://archive.org/details/FOXNEWSW_20181105_100000_Fox_and_Friends_First/start/300/end/360" target = "_blank">warned</a> the public about 
+                    illegal immigration and reassured them that the <span class = "topic">migrants</span>  were not <a style = "color: #888" href = "https://archive.org/details/FOXNEWSW_20181106_010000_Tucker_Carlson_Tonight/start/660/end/720" target = "_blank">coming</a> to this country. 
+                </p>
+                <hr>
+                <p class="intro__dek">
+
+                </p>
+            </div>
         </div>
 
-        <section id="outro"></section>
+        <div id = "conclusion">
+            <p class="intro__dek">
+                There is so much information around us that it forces us to filter some things out, and at the same time, add meaning
+                to what we choose to focus on. We look for stories we like and patterns we can understand. We yearn for simplification.
+                We are running out of time. We want to know what to remember and what to forget. This adds bias to much of what we choose to perceive. 
+                This is how we function. 
+                <br>
+                <br>
+                So, it is important for us to know that the information we are being supplied is also filtered and framed. Therefore, while it
+                may not be conceivable for us to see everything, it is possible for us to to broaden our understanding, be aware of our differences
+                and be more accomodating.
+            </p>
+        </div>
+
+        <section id="outro">
+            <p class = "intro_dek" id = "outro_text">
+                <span style = "font-weight: bold;">BY</span> 
+                <br>
+                KEVIN CHANG
+                <br>
+                HONGTAO HUANG
+                <br>
+                HELLY SHAH
+                <br>
+                ZIJIE WANG
+                <br>
+                <span style = "font-weight: bold;">AND</span>
+                <br>
+                JOYCE ZHOU
+            </p>
+        </section>
 
         <script src="https://d3js.org/d3.v4.min.js"></script> <!-- Note that we're using Scrollama with D3 -->
         <script src="https://unpkg.com/intersection-observer@0.5.0/intersection-observer.js"></script>
         <script src="https://unpkg.com/scrollama"></script>  <!-- We're using Scrollama to get the scrolling functionality -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
         <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
         <script>
             $(document).ready(function(){
                 $(this).scrollTop(0);
             });
+
+            d3v4 = d3;
 
             // using d3
 
@@ -708,13 +918,13 @@
 
             function wordCloud(selector) {
 
-                var fill = d3.scaleOrdinal(d3.schemeCategory20);
+                // var fill = d3v4.scaleOrdinal(d3v4.schemeCategory20);
 
                 var width = $(document).width();
                 var height = 500;
 
                 //Construct the word cloud's SVG element
-                var svg = d3.select(selector).append("svg")
+                var svg = d3v4.select(selector).append("svg")
                     .attr("width", width)
                     .attr("height", height)
                     .append("g")
@@ -763,7 +973,7 @@
                     //The outside world will need to call this function, so make it part
                     // of the wordCloud return value.
                     update: function(words) {
-                        d3.layout.cloud().size([width, height])
+                        d3v4.layout.cloud().size([width, height])
                             .words(words)
                             .padding(5)
                             .rotate(function() { return ~~(Math.random() * 2) * 90; })
@@ -800,13 +1010,14 @@
                 i = i || 0;
 
                 vis.update(getWords(i ++ % words.length))
-                setTimeout(function() { showNewWords(vis, i + 1)}, 2000)
+                setTimeout(function() { showNewWords(vis, i + 1)}, 3000)
             }
 
             //Create a new instance of the word cloud visualisation.
             var myWordCloud = wordCloud('#word_cloud');
 
             //Start cycling through the demo data
+            myWordCloud.update(getWords(0));
             showNewWords(myWordCloud);
 
             /** --------------------------wordcloud animation ends------------------------------- */
@@ -817,13 +1028,14 @@
 
             /** --------------------------frequency scatter plot------------------------------- */
 
+
             function scatter_plot(selector) {
                 var margin = { top: 50, bottom: 160 }
                 var width = 960
                 var height = 700 - margin.top - margin.bottom
                 var side = height * 2 / Math.sqrt(3)
 
-                var svg = d3.select(selector)
+                var svg = d3v4.select(selector)
                     .append('svg')
                     .attr('width', width)
                     .attr('height', height + margin.top + margin.bottom)
@@ -833,17 +1045,17 @@
                     .attr('transform', 'translate(' + ((width - side) / 2) + ',' + (margin.top + 0.5) + ')')
                     .append('g')
 
-                var sideScale = d3.scaleLinear()
+                var sideScale = d3v4.scaleLinear()
                     .domain([0, 1])
                     .range([0, side])
 
-                var perpScale = d3.scaleLinear()
+                var perpScale = d3v4.scaleLinear()
                     .domain([0, 1])
                     .range([height, 0])
 
-                var r = d3.scaleSqrt().range([0, 10])
+                var r = d3v4.scaleSqrt().range([0, 10])
 
-                var axis = d3.axisLeft()
+                var axis = d3v4.axisLeft()
                     .scale(perpScale)
                     .tickFormat(function (n) { return (n * 100).toFixed(0) });
 
@@ -857,7 +1069,7 @@
                     })
                     .call(axis)
 
-                var tooltip = d3.select('body').append("div").attr("class", "toolTip");
+                var tooltip = d3v4.select('body').append("div").attr("class", "toolTip");
 
                 axes.append('path')
                     .attr('class', 'arrow')
@@ -880,7 +1092,7 @@
                         .attr('transform', 'rotate(' + angle + ',' + (side / 2) + ',' + (height / 3 * 2) + ')')
                 }
 
-                d3.csv('t_freq.csv', function (d) {
+                d3v4.csv('t_freq.csv', function (d) {
                     var fox = +d.fox
                     var cnn = +d.cnn
                     var msnbc = +d.msnbc
@@ -903,7 +1115,7 @@
                 }, function (error, data) {
                     if (error) { throw error }
 
-                    r.domain([0, d3.max(data, function (d) { return d.total })])
+                    r.domain([0, d3v4.max(data, function (d) { return d.total })])
 
                     svg.selectAll('.point')
                         .data(data)
@@ -925,12 +1137,12 @@
                     svg.selectAll('.point')
                         .on("mousemove", function(d){
                             tooltip
-                            .style("left", d3.event.pageX - 50 + "px")
-                            .style("top", d3.event.pageY - 70 + "px")
+                            .style("left", d3v4.event.pageX - 50 + "px")
+                            .style("top", d3v4.event.pageY - 70 + "px")
                             .style("display", "inline-block")
                             .html((d.topic));
                         })
-    		        .on("mouseout", function(d){ 
+    		        .on("mouseout", function(d){
                             tooltip.style("display", "none");
                         });
                 })
@@ -938,68 +1150,89 @@
 
             function scatter_plot_update(index) {
                 if (index == 0) {
-                    d3.select("#scatter_plot").remove();
+                    d3v4.select("#scatter_plot").remove();
                     scatter_plot('#f_scatter');
 
                     var plot = d3.select('#scatter_plot');
 
-                    d3.selectAll(".d")
-                        .on("mousemove", function() {
-                            var point = d3.select("#" + this.id + "_point");
+                    d3v4.selectAll(".d")
+                        .on("mouseover", function() {
+                            var point = d3v4.select("#" + this.id + "_point");
                             plot.selectAll('.point')
                                 .style('opacity', 0.05);
                             point.style('opacity', 1).style('fill', 'black');
                         })
-                        .on("mouseout", function(d){ 
+                        .on("mouseout", function(d){
                             plot.selectAll('.point').style('opacity', 1).style('fill', '#30303d');
                         });
                 }
                 else if (index == 1) {
-                    var plot = d3.select('#scatter_plot');
+                    var plot = d3v4.select('#scatter_plot');
+
+                    d3v4.selectAll(".d").on("mouseover", function() {
+                        // do nothing
+                    })
+                    .on("mouseout", function(d){
+                            // do nothing
+                    });
 
                     plot.selectAll('.point')
                         .transition()
                         .style('opacity', 0.05);
 
                     var selection = plot.selectAll('#women_point, #african-american_point, #black_point, #hispanic_point, #voters_point, #female_point,#gender_point');
-                        
+
                     selection.transition()
                         .style('opacity', 1)
                         .style('fill', 'black');
 
-                    d3.selectAll(".a")
-                        .on("mousemove", function() {
-                            var point = d3.select("#" + this.id + "_point");
+                    d3v4.selectAll(".a")
+                        .on("mouseover", function() {
+                            var point = d3v4.select("#" + this.id + "_point");
                             selection.style('opacity', 0.05);
                             point.style('opacity', 1).style('fill', 'black');
                         })
-                        .on("mouseout", function(d){ 
+                        .on("mouseout", function(){
                             selection.style('opacity', 1).style('fill', 'black');
                         });
                 }
                 else if (index == 2) {
-                    var plot = d3.select('#scatter_plot');
+                    d3v4.selectAll(".a").on("mouseover", function() {
+                        // do nothing
+                    })
+                    .on("mouseout", function(d){
+                            // do nothing
+                    });
+
+                    var plot = d3v4.select('#scatter_plot');
                     plot.selectAll('.point')
                         .transition()
                         .style('opacity', 0.1);
 
-                    var selection = plot.selectAll('#gillum_point, #abrams_point, #blackburn_point, #crenshaw_point, #desantis_point, #donnelly_point, #feinstein_point, #hemingway_point, #jones_point, #kemp_point, #mccaskill_point, #mcsally_point, #sinema_point, #nelson_point, #orourke_point');
+                    var selection = plot.selectAll('#gillum_point, #abrams_point, #blackburn_point, #crenshaw_point, #desantis_point, #cruz_point, #kemp_point, #mccaskill_point, #mcsally_point, #sinema_point, #nelson_point, #orourke_point');
                     selection.transition()
                         .style('opacity', 1)
                         .style('fill', 'black');
 
-                    d3.selectAll(".b")
-                        .on("mousemove", function() {
-                            var point = d3.select("#" + this.id + "_point");
+                    d3v4.selectAll(".b")
+                        .on("mouseover", function() {
+                            var point = d3v4.select("#" + this.id + "_point");
                             selection.style('opacity', 0.05);
                             point.style('opacity', 1).style('fill', 'black');
                         })
-                        .on("mouseout", function(d){ 
+                        .on("mouseout", function(){
                             selection.style('opacity', 1).style('fill', 'black');
                         });
                 }
                 else {
-                    var plot = d3.select('#scatter_plot');
+                    d3v4.selectAll(".b").on("mouseover", function() {
+                        // do nothing
+                    })
+                    .on("mouseout", function(d){
+                            // do nothing
+                    });
+
+                    var plot = d3v4.select('#scatter_plot');
                     plot.selectAll('.point')
                         .transition()
                         .style('opacity', 0.1);
@@ -1009,13 +1242,13 @@
                         .style('opacity', 1)
                         .style('fill', 'black');
 
-                    d3.selectAll(".c")
-                        .on("mousemove", function() {
-                            var point = d3.select("#" + this.id + "_point");
+                    d3v4.selectAll(".c")
+                        .on("mouseover", function() {
+                            var point = d3v4.select("#" + this.id + "_point");
                             selection.style('opacity', 0.05);
                             point.style('opacity', 1).style('fill', 'black');
                         })
-                        .on("mouseout", function(d){ 
+                        .on("mouseout", function(d){
                             selection.style('opacity', 1).style('fill', 'black');
                         });
                 }
@@ -1023,12 +1256,12 @@
 
             /** --------------------------frequency scatter plot ends------------------------------- */
 
-                // This was hard, okay. 
+                // This was hard, okay.
 
             /** --------------------------duration + frequency scatter plot------------------------------- */
 
             function pivot_scatter(selector, dummyData) {
-                const graphic = d3.select(selector)
+                const graphic = d3v4.select(selector)
 
                 const COLORS = ['#ff3814', '#fe5c34', '#fc764f', '#f88d69', '#f2a385', '#e8b8a0', '#dbcdbd']
                 const FONT_SIZE = 11
@@ -1042,7 +1275,7 @@
                         ...d,
                         score: d.x * x + d.y * y,
                     }))
-                    .sort((a, b) => d3.descending(a.score, b.score))
+                    .sort((a, b) => d3v4.descending(a.score, b.score))
                     .map((d, i) => ({
                         ...d,
                         rank: i,
@@ -1064,10 +1297,10 @@
 
                 function scatterplot() {
                     const margin = FONT_SIZE * 3
-                    const scaleX = d3.scaleLinear()
-                    const scaleY = d3.scaleLinear()
-                    const scaleR = d3.scaleSqrt()
-                    const scaleC = d3.scaleQuantile()
+                    const scaleX = d3v4.scaleLinear()
+                    const scaleY = d3v4.scaleLinear()
+                    const scaleR = d3v4.scaleSqrt()
+                    const scaleC = d3v4.scaleQuantile()
 
                     let width = 0
                     let height = 0
@@ -1085,7 +1318,7 @@
                         const svg = container.selectAll('svg').data([data])
                         const svgEnter = svg.enter().append('svg')
                         const gEnter = svgEnter.append('g')
-                        
+
                         gEnter.append('g').attr('class', 'g-plot')
 
                         const axis = gEnter.append('g').attr('class', 'g-axis')
@@ -1100,7 +1333,7 @@
 
                         y.append('text').attr('class', 'axis__label')
                             .attr('text-anchor', 'end')
-                            .text('Screentime')	
+                            .text('Screentime')
                     }
 
                     function exit({ container, data }) {
@@ -1131,13 +1364,13 @@
 
                     function updateDom({ container, data }) {
                         const svg = container.select('svg')
-                        
+
                         svg
                             .attr('width', width)
                             .attr('height', height)
 
                         const g = svg.select('g')
-                        
+
                         const maxY = scaleY.range()[0]
                         const offsetX = chartWidth / 2
                         const offsetY = chartHeight - maxY
@@ -1151,29 +1384,44 @@
                         const plot = g.select('.g-plot')
 
                         const item = plot.selectAll('.item').data(d => d, d => d.index)
-                        
+
                         item.enter().append('circle')
                             .attr('class', 'item')
                         .merge(item)
                             .attr('x', 0)
                             .attr('y', 0)
                             .attr('r', d => scaleR(d.rank))
-                            .style('fill', d => scaleC(d.rank))
-                            .style('stroke', d => d3.color(scaleC(d.rank)).darker(0.7))
+                            .style('fill', d => {
+                                if (d.channel === "msnbc") {
+                                    if (d.topic  === "kemp" || d.topic  === "abrams" || d.topic === "georgia")
+                                        return "#000000";
+                                }
+                                if (d.channel === "fox") {
+                                    if (d.topic  === "congress" || d.topic === "rallies" || d.topic === "immigration")
+                                        return "#000000";
+                                }
+                                if (d.channel === "cnn") {
+                                    if (d.topic  === "fear" || d.topic === "immigration")
+                                        return "#000000";
+                                }
+                                // if (d.channel === "msnbc" && d.topic  === "kemp") return "#000000";
+                                return scaleC(d.rank)})
+                            .style('stroke', "#FFFFFF")
                             .style('opacity', 0.7)
                             .attr('transform',  d => translate(scaleX(d.x), scaleY(d.y)))
 
-                        var tooltip = d3.select('body').append("div").attr("class", "toolTip");
+                        $(selector + ' .toolTip').remove();
+                        var tooltip = d3v4.select(selector).append("div").attr("class", "toolTip");
 
                         plot.selectAll('.item')
                             .on("mousemove", function(d){
                                 tooltip
-                                .style("left", d3.event.pageX - 50 + "px")
-                                .style("top", d3.event.pageY - 70 + "px")
+                                .style("left", d3v4.event.pageX - 50 + "px")
+                                .style("top", d3v4.event.pageY - 70 + "px")
                                 .style("display", "inline-block")
                                 .html((d.topic));
                             })
-                            .on("mouseout", function(d){ 
+                            .on("mouseout", function(d){
                                 tooltip.style("display", "none");
                             });
                     }
@@ -1181,13 +1429,13 @@
                     function updateAxis({ container, data }) {
                         const axis = container.select('.g-axis')
 
-                        const axisLeft = d3.axisLeft(scaleY)
-                        const axisBottom = d3.axisBottom(scaleX)
+                        const axisLeft = d3v4.axisLeft(scaleY)
+                        const axisBottom = d3v4.axisBottom(scaleX)
 
                         axisLeft.ticks(Math.max(0, Math.floor(weightY / 10)))
                         axisBottom.ticks(Math.max(0, Math.floor(weightX / 10)))
                         const x = axis.select('.axis--x')
-                        
+
                         const maxY = scaleY.range()[0]
                         const offset = maxY
 
@@ -1211,7 +1459,7 @@
 
                     function chart(container) {
                         const data = container.datum()
-                        
+
                         enter({ container, data })
                         exit({ container, data })
                         updateScales({ container, data })
@@ -1242,23 +1490,56 @@
                     return chart
                 }
 
-                function handleInput() {
-                    const val = +this.value
-                    const x = val
-                    const y = 100 - val
-                    const weighted = weightData({ x, y })
+                function handleInput(sliderInput) {
+                    let val = sliderInput.value;
+                    let x = val;
+                    let y = 100 - val;
+                    let weighted = weightData({x, y});
 
-                    chart.weight({ x, y })
-                    el.datum(weighted)
-                    el.call(chart)
+                    chart.weight({x, y});
+                    el.datum(weighted);
+                    el.call(chart);
                 }
 
                 function init() {
-                    el.datum(weightData({ x: 50, y: 50 }))
-                    el.call(chart)
-                    resize()
-                    window.addEventListener('resize', resize)
-                    graphic.select('.slider input').on('input', handleInput)
+                    el.datum(weightData({x: 50, y: 50}));
+                    el.call(chart);
+                    resize();
+                    window.addEventListener('resize', resize);
+
+                    let sliderInput = $(selector + ' .slider input')[0];
+                    let min = sliderInput.min;
+                    let max = sliderInput.max;
+
+                    let interval;
+                    let reverse = false;
+                    function play() {
+                        function next() {
+                            let val = parseInt(sliderInput.value);
+                            // sliderInput.value = val + 1;
+                            if (val + 1 > max) {
+                                reverse = true;
+                            } else if (val - 1 < min){
+                                reverse = false;
+                            }
+                            val = val + (reverse ? -1 : 1);
+                            sliderInput.value = Math.min(100, Math.max(val, 0));
+                            handleInput(sliderInput);
+                        }
+                        clearInterval(interval);
+                        interval = setInterval(next, 60);
+                    }
+
+
+                    function manualOverride() {
+                        clearInterval(interval);
+                        handleInput(sliderInput)
+                        interval = setTimeout(play, 50000);  // delay when user manually select slider
+                    }
+
+                    sliderInput.oninput = manualOverride;
+                    play();
+
                 }
 
                 init()
@@ -1268,9 +1549,10 @@
             var data_cnn;
             var data_msnbc;
 
-            d3.csv('td_fox.csv', function(data) {
+            d3v4.csv('td_fox.csv', function(data) {
                 data_fox = data.map(function(d) {
                     return {
+                        channel: "fox",
                         topic: d.topic,
                         x: (d.duration * 10) / 1118,
                         y: (d.frequency * 10) / 65,
@@ -1280,9 +1562,10 @@
                 pivot_scatter(".graphic--3", data_fox);
             })
 
-            d3.csv('td_cnn.csv', function(data) {
+            d3v4.csv('td_cnn.csv', function(data) {
                 data_cnn = data.map(function(d) {
                     return {
+                        channel: "cnn",
                         topic: d.topic,
                         x: (d.duration * 10) / 4268,
                         y: (d.frequency * 10) / 156,
@@ -1292,9 +1575,10 @@
                 pivot_scatter(".graphic--1", data_cnn);
             })
 
-            d3.csv('td_msnbc.csv', function(data) {
+            d3v4.csv('td_msnbc.csv', function(data) {
                 data_msnbc = data.map(function(d) {
                     return {
+                        channel: "msnbc",
                         topic: d.topic,
                         x: (d.duration * 10) / 3403,
                         y: (d.frequency * 10) / 230,
@@ -1330,7 +1614,7 @@
                 // var outmostRadius = outerRadius * 1.1;
 
                 // set up the arc between label and outer path boundary
-                var arc = d3.arc()
+                var arc = d3v4.arc()
                             .innerRadius(innerRadius)
                             .outerRadius(outerRadius);
 
@@ -1339,18 +1623,17 @@
                 //                    .outerRadius(outmostRadius);
 
                 // function for passing in data
-                var chord = d3.chord()
+                var chord = d3v4.chord()
                               .padAngle(0.05)
-                              .sortSubgroups(d3.descending);
+                              .sortSubgroups(d3v4.descending);
 
                 // the path main svg element
-                var svg = d3.select(selector)
+                var svg = d3v4.select(selector)
                             .append("svg")
                             .attr("id", "n_to_n")
                             .attr("width", width)
                             .attr("height", height)
                             .attr("transform", "translate(0, 15)")
-
                             .append("g")
                             .attr("id", "circle")
                             .attr("width", width)
@@ -1360,12 +1643,12 @@
                 svg.append("circle").attr("r", outerRadius);
 
                 // the paths
-                var ribbon = d3.ribbon()
+                var ribbon = d3v4.ribbon()
                                .radius(innerRadius);
 
                 // color elements
-                var color = d3.scaleOrdinal()
-                              .domain(d3.range(data.length))
+                var color = d3v4.scaleOrdinal()
+                              .domain(d3v4.range(data.length))
                               .range(["#BBBBBB", "#BBBBBB", "#BBBBBB", "#BBBBBB"]);
 
                 // pass the matrix in for processing
@@ -1375,9 +1658,12 @@
                 var group = svg.selectAll("g")
                                .data(chords.groups)
                                .enter().append("g")
-                               .on("mouseover", chordMouseOver);
+                               // adds the class for identifying each arc & text
+                               .attr("class", (d, i) => {return "group nn_mouse_over nn_mouse_over_" + allWords[i] + " nn_mouse_over nn_mouse_over_" + allWords[i] + "_1";})
+                               .on("mouseover", nnMouseOver)
+                               .on("mouseout", nnMouseOut);
 
-                // // creates the marks 
+                // // creates the marks
                 // var groupTick = group.selectAll("g")
                 //                      .data(d => calculateMiddle(d))
                 //                      .enter().append("g")
@@ -1392,30 +1678,30 @@
                 // // creates the labels
                 // groupTick.filter(d => d.value === 0)
                 //          .append("text")
-                //          .attr("x", 8) 
+                //          .attr("x", 8)
                 //          .attr("dy", ".35em")
                 //          .attr("transform", d => d.angle > Math.PI ? "rotate(180) translate(-16)" : null)
                 //          .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
                 //          .text(function(d,i) { console.log(i); return allWords[i]; });
 
                 // creates the labels
-                group.append("text")
-                     .each(function(d) { d.angle = ((d.startAngle + d.endAngle) / 2);})
-                     .attr("dy", ".35em")
-                     .attr("class", "titles")
-                     .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
-                     .attr("transform", function(d,i) { 
-                         var c = arc.centroid(d);
-                         return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
-                         + "translate(" + (outerRadius + 9) + ")"
-                         + (d.angle > Math.PI ? "rotate(180)" : "")
-                     })
+                var labels = group.append("text")
+                                  .each(function(d) { d.angle = ((d.startAngle + d.endAngle) / 2);})
+                                  .attr("dy", ".35em")
+                                  .attr("class", "titles")
+                                  .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+                                  .attr("transform", function(d,i) {
+                                      var c = arc.centroid(d);
+                                      return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+                                      + "translate(" + (outerRadius + 9) + ")"
+                                      + (d.angle > Math.PI ? "rotate(180)" : "")
+                                  })
 
-                     // .attr("transform", d => {
-                     //     var angle = d.angle * 180 / Math.PI - 90;
-                     //     return `rotate(${angle > Math.PI? angle + 180 : angle}) translate(${outerRadius},0)`
-                     // })
-                     .text(function(d,i) { return allWords[i]; });
+                                  // .attr("transform", d => {
+                                  //     var angle = d.angle * 180 / Math.PI - 90;
+                                  //     return `rotate(${angle > Math.PI? angle + 180 : angle}) translate(${outerRadius},0)`
+                                  // })
+                                  .text(function(d,i) { return allWords[i].charAt(0).toUpperCase() + allWords[i].substr(1); });
 
                 // creates the paths
                 var edges = svg.append("g")
@@ -1425,8 +1711,15 @@
                                .enter().append("path")
                                .attr("d", ribbon)
                                .attr("fill", d => color(d.target.index))
-                               .attr("stroke", d => d3.rgb(color(d.target.index)).darker())
+                               .attr("stroke", d => d3v4.rgb(color(d.target.index)).darker())
+                               .attr("class", d => "nn_mouse_over nn_mouse_over_" + allWords[d.source.index] + " nn_mouse_over_" + allWords[d.target.index]);
                                //.attr("transform", "translate(" + width / 2 + "," + (outerRadius + 100 ) + ")");
+
+                // for each pair of edges, add class attribute to text and arc
+                edges.each((d, i) => {
+                  svg.selectAll(".group.nn_mouse_over_" + allWords[d.source.index] + "_1").classed("nn_mouse_over_" + allWords[d.target.index], true);
+                  svg.selectAll(".group.nn_mouse_over_" + allWords[d.target.index] + "_1").classed("nn_mouse_over_" + allWords[d.source.index], true);
+                })
 
                 // creates the arc on the edge besides the text
                 var groupChord = group.append("path")
@@ -1434,37 +1727,59 @@
                                       .attr("fill", "#888888");
                                       //.on("mouseover", chordMouseOver);
 
+                // set the mouseover and mouseout of buttons at the bottom of descriptions
+                d3v4.selectAll(".e")
+                    .on("mouseover", function() {
+                        svg.selectAll(".nn_mouse_over").attr("visibility", "hidden");
+                        svg.selectAll(".nn_mouse_over_" + this.id).attr("visibility", "visible");
+                        svg.selectAll(".nn_mouse_over_" + this.id + "_1").classed("nn_mouse_over_current", true);
+                        svg.selectAll(".nn_mouse_over_" + this.id + "_1").select("path").attr("fill", "brown");
+                    })
+                    .on("mouseout", function() {
+                        svg.selectAll(".nn_mouse_over").attr("visibility", "visible").classed("nn_mouse_over_current", false);
+                        svg.selectAll(".nn_mouse_over_" + this.id + "_1").select("path").attr("fill", "#888888");
+                    });
+
                 function calculateMiddle(d) {
                   const k = (d.endAngle + d.startAngle) / 2;
-                  return d3.range(0, d.value).map(value => {
+                  return d3v4.range(0, d.value).map(value => {
                     return {value: value, angle: k};
                   });
                 }
 
-                function chordMouseOver(d, i) {
-                    edges.classed("fade", function(p) {
-                        return p.source.index != i && p.target.index != i;
-                    })
+                function nnMouseOver(d, i) {
+                    // edges.classed("fade", function(p) {
+                    //     return p.source.index != i && p.target.index != i;
+                    // })
+                    svg.selectAll(".nn_mouse_over").attr("visibility", "hidden");
+                    svg.selectAll(".nn_mouse_over_" + allWords[i]).attr("visibility", "visible");
+                    svg.selectAll(".nn_mouse_over_" + allWords[i] + "_1").classed("nn_mouse_over_current", true);
+                    svg.selectAll(".nn_mouse_over_" + allWords[i] + "_1").select("path").attr("fill", "brown");
+                }
+
+                function nnMouseOut(d, i) {
+                    svg.selectAll(".nn_mouse_over").attr("visibility", "visible").classed("nn_mouse_over_current", false);
+                    svg.selectAll(".nn_mouse_over_" + allWords[i] + "_1").select("path").attr("fill", "#888888");
                 }
 
             }
 
             // the function renders the graph based on the current step
             function noun_to_noun_step(index) {
-                d3.selectAll("#n_to_n").remove();
+                d3v4.selectAll("#n_to_n").remove();
 
-                if (index == 4) {
+                if (index <= 4) {
                     noun_to_noun("#noun_to_noun", cnnNn2dArr, allCnnNnWords);
                 } else if (index == 5) {
                     noun_to_noun("#noun_to_noun", foxNn2dArr, allFoxNnWords);
-                } else if (index == 6) {
+                } else {
                     noun_to_noun("#noun_to_noun", msnbcNn2dArr, allMsnbcNnWords);
-                }              
+                }
             }
 
             // the initial function that loads all the data from files and stores them in cache
             function loadNnData() {
-                d3.text("cnn_nn(clean).txt", function(text) {
+                d3v4.text("cnn_nn(clean).txt", function(text) {
 
                     // original file, each arr element being a single line
                     var cnnNnArr = text.split("\n");
@@ -1483,7 +1798,7 @@
 
                 });
 
-                d3.text("fox_nn(clean).txt", function(text) {
+                d3v4.text("fox_nn(clean).txt", function(text) {
 
                     // original file, each arr element being a single line
                     var foxNnArr = text.split("\n");
@@ -1499,10 +1814,10 @@
 
                     // add in the data to the 2d array
                     fillIn2dArray(foxNn2dArr, allFoxNnWords, foxNnArr);
-                    
+
                 });
 
-                d3.text("msbnc_nn(clean).txt", function(text) {
+                d3v4.text("msbnc_nn(clean).txt", function(text) {
 
                     // original file, each arr element being a single line
                     var msnbcNnArr = text.split("\n");
@@ -1518,7 +1833,7 @@
 
                     // add in the data to the 2d array
                     fillIn2dArray(msnbcNn2dArr, allMsnbcNnWords, msnbcNnArr);
-                    
+
                 });
             }
 
@@ -1584,53 +1899,47 @@
 
             /** --------------------------noun to noun plot ends------------------------------------------- */
 
-                // More graphs!
-
-            /** --------------------------noun to verb plot----------------------------------------------- */
-
-            /** --------------------------noun to verb plot ends------------------------------------------- */
-
                 // We're almost there
 
             /** --------------------------scrollama implementation---------------------------------------- */
 
             function scrolly() {
-                var container = d3.select('#scroll');
+                var container = d3v4.select('#scroll');
                 var graphic = container.select('.scroll__graphic');
                 var text = container.select('.scroll__text');
                 var step = text.selectAll('.step');
-        
+
                 // initialize the scrollama
                 var scroller = scrollama();
-        
+
                 // generic window resize listener event
                 function handleResize() {
                     // 1. update height of step elements
                     var stepHeight = Math.floor(window.innerHeight * 0.75);
                     step.style('height', stepHeight + 'px');
-        
+
                     // 2. update width/height of graphic element
-                    var bodyWidth = d3.select('body').node().offsetWidth;
-        
+                    var bodyWidth = d3v4.select('body').node().offsetWidth;
+
                     var graphicMargin = 16 * 4;
                     var textWidth = text.node().offsetWidth;
                     var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
                     var graphicHeight = Math.floor(4 * window.innerHeight / 5)
                     var graphicMarginTop = Math.floor(graphicHeight / 2)
-        
+
                     graphic
                         .style('width', graphicWidth + 'px')
                         .style('height', graphicHeight + 'px')
-        
-        
+
+
                     // 3. tell scrollama to update new element dimensions
                     scroller.resize();
                 }
-        
+
                 // scrollama event handlers
                 function handleStepEnter(response) {
                     // response = { element, direction, index }
-        
+
                     // add color to current step only
                     step.classed('is-active', function (d, i) {
                         return i === response.index;
@@ -1639,29 +1948,29 @@
                     // update graphic based on step
                     scatter_plot_update(response.index);
                 }
-        
+
                 function handleContainerEnter(response) {
                     // response = { direction }
-        
+
                     // old school
                     // sticky the graphic
                     graphic.classed('is-fixed', true);
                     graphic.classed('is-bottom', false);
                 }
-        
+
                 function handleContainerExit(response) {
                     // response = { direction }
-        
+
                     // old school
                     // un-sticky the graphic, and pin to top/bottom of container
                     graphic.classed('is-fixed', false);
                     graphic.classed('is-bottom', response.direction === 'down');
                 }
-        
+
                 function init() {
                     // 1. force a resize on load to ensure proper dimensions are sent to scrollama
                     handleResize();
-        
+
                     // 2. setup the scroller passing options
                     // this will also initialize trigger observations
                     // 3. bind scrollama event handlers (this can be chained like below)
@@ -1676,11 +1985,11 @@
                         .onStepEnter(handleStepEnter)
                         .onContainerEnter(handleContainerEnter)
                         .onContainerExit(handleContainerExit);
-        
+
                     // setup resize event
                     window.addEventListener('resize', handleResize);
                 }
-        
+
                 // kick things off
                 init();
             }
@@ -1689,42 +1998,42 @@
 
             // @Kevin: Your second scrolly section
             function scrolly_1() {
-                var container = d3.select('#scroll_1');
+                var container = d3v4.select('#scroll_1');
                 var graphic = container.select('.scroll__graphic');
                 var text = container.select('.scroll__text');
                 var step = text.selectAll('.step');
 
                 // initialize the scrollama
                 var scroller_1 = scrollama();
-        
+
                 // generic window resize listener event
                 function handleResize() {
                     // 1. update height of step elements
                     var stepHeight = Math.floor(window.innerHeight * 0.75);
                     step.style('height', stepHeight + 'px');
-        
+
                     // 2. update width/height of graphic element
-                    var bodyWidth = d3.select('body').node().offsetWidth;
-        
+                    var bodyWidth = d3v4 .select('body').node().offsetWidth;
+
                     var graphicMargin = 16 * 4;
                     var textWidth = text.node().offsetWidth;
                     var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
                     var graphicHeight = Math.floor(4.5 * window.innerHeight / 5)
                     var graphicMarginTop = Math.floor(graphicHeight / 2)
-        
+
                     graphic
                         .style('width', graphicWidth + 'px')
                         .style('height', graphicHeight + 'px')
-        
-        
+
+
                     // 3. tell scrollama to update new element dimensions
                     scroller_1.resize();
                 }
-        
+
                 // scrollama event handlers
                 function handleStepEnter(response) {
                     // response = { element, direction, index }
-        
+
                     // add color to current step only
                     step.classed('is-active', function (d, i) {
                         return (i + 4) === response.index;
@@ -1732,35 +2041,35 @@
 
                     // @Kevin: Here's where your update function should go
                     // update graphic based on step
-                    
+
                     noun_to_noun_step(response.index);
                 }
-        
+
                 function handleContainerEnter(response) {
                     // response = { direction }
-        
+
                     // old school
                     // sticky the graphic
                     graphic.classed('is-fixed', true);
                     graphic.classed('is-bottom', false);
                 }
-        
+
                 function handleContainerExit(response) {
                     // response = { direction }
-        
+
                     // old school
                     // un-sticky the graphic, and pin to top/bottom of container
                     graphic.classed('is-fixed', false);
                     graphic.classed('is-bottom', response.direction === 'down');
                 }
-        
+
                 function init() {
 
                     loadNnData();
 
                     // 1. force a resize on load to ensure proper dimensions are sent to scrollama
                     handleResize();
-        
+
                     // 2. setup the scroller passing options
                     // this will also initialize trigger observations
                     // 3. bind scrollama event handlers (this can be chained like below)
@@ -1775,11 +2084,11 @@
                         .onStepEnter(handleStepEnter)
                         .onContainerEnter(handleContainerEnter)
                         .onContainerExit(handleContainerExit);
-        
+
                     // setup resize event
                     window.addEventListener('resize', handleResize);
                 }
-        
+
                 // kick things off
                 init();
             }
@@ -1788,6 +2097,479 @@
             scrolly_1();
 
             /** --------------------------scrollama implementation ends------------------------------- */
+        </script>
+
+        <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("jquery", "1");
+
+            d3v3 = d3;
+
+            function noun_to_verb(selector, data_url, h) {
+                google.setOnLoadCallback(function() {
+                    initialize().then (
+                        function (control) {
+                            doTheTreeViz(control);
+                        }
+                    );
+                });
+                function doTheTreeViz(control) {
+                    var svg = control.svg;
+
+                    var force = control.force;
+                    force.nodes(control.nodes)
+                        .links(control.links)
+                        .start();
+
+                    // Update the links
+                    var link = svg.selectAll("line.link")
+                        .data(control.links, function(d) {
+                            return d.key;
+                        } );
+
+                    // Enter any new links
+                    var linkEnter = link.enter().insert("svg:line", ".node")
+                        .attr("class", "link")
+                        .attr("x1", function(d) { return d.source.x; })
+                        .attr("y1", function(d) { return d.source.y; })
+                        .attr("x2", function(d) { return d.target.x; })
+                        .attr("y2", function(d) { return d.target.y; })
+                    .append("svg:title")
+                        .text(function(d) { return d.target.name + ":" + d.source.name ; });
+
+                    // Exit any old links.
+                    link.exit().remove();
+
+
+                    // Update the nodes
+                    var node = svg.selectAll("g.node")
+                        .data(control.nodes, function(d) { return d.key; });
+
+                    node.select("circle")
+                        .style("fill", function(d) {
+                            return getColor(d);
+                        })
+                        .attr("r", function(d) {
+                            return getRadius(d);
+                        })
+
+                    // Enter any new nodes.
+                    var nodeEnter = node.enter()
+                    .append("svg:g")
+                        .attr("class", "node")
+                        .attr("id", function(d) {
+                            return d.name;
+                        })
+                        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y+ ")"; })
+                        .on("click", function(d){
+                            // this is a hack so that click doesnt fire on the1st click of a dblclick
+                            if (d.name == d.key) {
+                                if (!control.nodeClickInProgress ) {
+                                    control.nodeClickInProgress = true;
+                                    setTimeout(function(){
+                                        if (control.nodeClickInProgress) {
+                                            control.nodeClickInProgress = false;
+                                            if (control.options.nodeFocus) {
+                                                d.isCurrentlyFocused = !d.isCurrentlyFocused;
+                                                doTheTreeViz(makeFilteredData(control));
+                                            }
+                                        }
+                                    },control.clickHack);
+                                }
+                            }
+                            else {
+                                control.nodeClickInProgress=false;
+                                if (d.url)window.open(d.url);
+                            }
+                        });
+
+                    svg.selectAll('#Trump,#Economy,#Campaign,#Immigration,#Democrats,#Republicans,#Migrants,#Voters')
+                        .call(force.drag);
+
+                    nodeEnter
+                    .append("svg:circle")
+                        .attr("r", function(d) {
+                            return getRadius(d);
+                        })
+                        .style("fill", function(d) {
+                            return getColor(d);
+                        })
+                        .on("mouseover", function(d){
+                            // enhance all the links that end here
+                            enhanceNode (d);
+                        })
+
+                        .on("mouseout", function(d){
+                            resetNode(d);
+
+                        })
+                    .append("svg:title")
+                        .text(function(d) { return d[control.options.nodeLabel]; })
+
+                    function enhanceNode(selectedNode) {
+                        link.filter ( function (d) {
+                            return d.source.key == selectedNode.key || d.target.key == selectedNode.key;
+                        } )
+                        .style("stroke", control.options.routeFocusStroke)
+                        .style("stroke-width", control.options.routeFocusStrokeWidth);
+
+                        if (text) {
+                            text.filter ( function (d) {
+                                return areWeConnected (selectedNode,d);
+                            } )
+                            .style("fill", control.options.routeFocusStroke);
+                        }
+                    }
+
+                    function areWeConnected (node1,node2) {
+                        for (var i=0; i < control.data.links.length ; i++) {
+                            var lnk = control.data.links[i];
+                            if ( (lnk.source.key === node1.key && lnk.target.key === node2.key) ||
+                                (lnk.source.key === node2.key && lnk.target.key === node1.key) ) return lnk;
+                        }
+                        return null;
+                    }
+                    function resetNode(selectedNode) {
+                        link.style("stroke", control.options.routeStroke)
+                            .style("stroke-width", control.options.routeStrokeWidth);
+                        if (text) {
+                            text.style("fill", control.options.routeStroke);
+                        }
+                    }
+
+                    if (control.options.nodeLabel) {
+                    // text is done once for shadow as well as for text
+                        var textShadow = nodeEnter.append("svg:text")
+                            .attr("x", function(d) {
+                                var x = (d.right || !d.fixed) ?
+                                    control.options.labelOffset :
+                                    (-d.dim.width - control.options.labelOffset)  ;
+                                return x;
+                            })
+                            .attr("dy", ".31em")
+                            .attr("class", "shadow")
+                            .attr("text-anchor", function(d) {
+                                return !d.right ? 'start' : 'start' ;
+                            })
+                            .style("font-size",control.options.labelFontSize + "px")
+                            .text(function(d) {
+                                return d.shortName ? d.shortName : d.name;
+                            });
+
+                        var text = nodeEnter.append("svg:text")
+                            .attr("x", function(d) {
+                                var x = (d.right || !d.fixed) ?
+                                    control.options.labelOffset :
+                                    (-d.dim.width - control.options.labelOffset)  ;
+                                return x;
+                            })
+                            .attr("dy", ".35em")
+                            .attr("class", "text")
+                            .attr("text-anchor", function(d) {
+                                return !d.right ? 'start' : 'start' ;})
+                            .style("font-size",control.options.labelFontSize + "px")
+                            .text(function(d) {
+                                return d.shortName ? d.shortName : d.name;
+                            })
+
+                            .on("mouseover", function(d){
+                            // enhance all the links that end here
+                                enhanceNode (d);
+                                d3v3.select(this)
+                                    .style('fill',control.options.routeFocusStroke);
+                            })
+
+                            .on("mouseout", function(d){
+                                resetNode(d);
+                            });
+                    }
+
+                    // Exit any old nodes.
+                    node.exit().remove();
+                    control.link = svg.selectAll("line.link");
+                    control.node = svg.selectAll("g.node");
+                    force.on("tick", tick);
+
+
+
+                    if (control.options.linkName) {
+                        link.append("title")
+                            .text(function(d) {
+                                return d[control.options.linkName];
+                        });
+                    }
+
+
+                    function tick() {
+                        link.attr("x1", function(d) { return d.source.x; })
+                            .attr("y1", function(d) { return d.source.y; })
+                            .attr("x2", function(d) { return d.target.x; })
+                            .attr("y2", function(d) { return d.target.y; });
+                        node.attr("transform", function(d) {
+                            return "translate(" + d.x + "," + d.y + ")";
+                        });
+
+                    }
+
+                    function getRadius(d) {
+                        return makeRadius(control,d);
+                    }
+                    function getColor(d) {
+                        return control.options.nodeFocus && d.isCurrentlyFocused ? control.options.nodeFocusColor  : '#fe5c34' ;
+                    }
+
+                    }
+
+                    function makeRadius(control,d) {
+                        var r = control.options.radius * (control.options.nodeResize ? Math.sqrt(d[control.options.nodeResize]) / Math.PI : 1);
+                        return control.options.nodeFocus && d.isCurrentlyFocused ? control.options.nodeFocusRadius  : r;
+                    }
+
+                    function makeFilteredData(control,selectedNode){
+                    // we'll keep only the data where filterned nodes are the source or target
+                    var newNodes = [];
+                    var newLinks = [];
+
+                    for (var i = 0; i < control.data.links.length ; i++) {
+                        var link = control.data.links[i];
+                        if (link.target.isCurrentlyFocused || link.source.isCurrentlyFocused) {
+                            newLinks.push(link);
+                            addNodeIfNotThere(link.source,newNodes);
+                            addNodeIfNotThere(link.target,newNodes);
+                        }
+                    }
+                    // if none are selected reinstate the whole dataset
+                    if (newNodes.length > 0) {
+                        control.links = newLinks;
+                        control.nodes = newNodes;
+                    }
+                    else {
+                        control.nodes = control.data.nodes;
+                        control.links = control.data.links;
+                    }
+                    return control;
+
+                    function addNodeIfNotThere( node, nodes) {
+                        for ( var i=0; i < nodes.length; i++) {
+                            if (nodes[i].key == node.key) return i;
+                        }
+                        return nodes.push(node) -1;
+                    }
+                    }
+
+                    function getPixelDims(scratch,t) {
+                    // scratch is an elemen with the correct styling, t is the text to be counted in pixels
+                    scratch.empty();
+                    scratch.append(document.createTextNode(t));
+                    return { width: scratch.outerWidth(), height: scratch.outerHeight() } ;
+                    }
+                    function initialize () {
+
+                    var initPromise = $.Deferred();
+                    var control = {};
+                    control.divName = selector;
+
+                    //some basic options
+                    var newoptions = {  nodeLabel:"label",
+                                    nodeResize:"count", height: h,
+                                    nodeFocus:true, radius:3, charge:-100};
+                    // defaults
+                    control.options = $.extend({
+                            stackHeight : 12,
+                            radius : 5,
+                            fontSize : 14,
+                            labelFontSize : 15,
+                            labelLineSpacing: 2.5,
+                            nodeLabel : null,
+                            markerWidth : 0,
+                            markerHeight : 0,
+                            width : $(control.divName).outerWidth() - 300,
+                            gap : 1.5,
+                            nodeResize : "",
+                            linkDistance : 80,
+                            charge :  120,
+                            styleColumn : null,
+                            styles : null,
+                            linkName : null,
+                            nodeFocus: true,
+                            nodeFocusRadius: 25,
+                            nodeFocusColor: "Brown",
+                            labelOffset: 5,
+                            gravity: .05,
+                            routeFocusStroke: "Brown",
+                            routeFocusStrokeWidth: 3,
+                            circleFill: "Black",
+                            routeStroke: "Black",
+                            routeStrokeWidth: 1,
+                            height : $(control.divName).outerHeight()
+
+                        }, newoptions);
+
+                    var options = control.options;
+                    options.gap = options.gap * options.radius;
+                    control.width = options.width;
+                    control.height = options.height;
+                    // this is an element that can be used to determine the width of a text label
+
+                    control.scratch = $(document.createElement('span'))
+                        .addClass('shadow')
+                        .css('display','none')
+                        .css("font-size",control.options.labelFontSize + "px");
+                    $('body').append(control.scratch);
+
+                    getTheData(control).then( function (data) {
+
+                        control.data = data;
+                        control.nodes = data.nodes;
+                        control.links = data.links;
+                        control.clickHack = 200;
+
+                        control.svg = d3v3.select(control.divName)
+                            .append("svg:svg")
+                            .attr("width", control.width)
+                            .attr("height", control.height);
+
+                        control.force = d3v3.layout.force().
+                            size([control.width, control.height])
+                            .linkDistance(control.options.linkDistance)
+                            .charge(control.options.charge)
+                            .gravity(control.options.gravity);
+
+                    initPromise.resolve(control);
+                    });
+                    return initPromise.promise();
+                    }
+
+                    function getTheData(control) {
+                    var dataPromise = getTheRawData();
+                    var massage = $.Deferred();
+                    dataPromise.done ( function (data) {
+                        // need to massage it
+                        massage.resolve ( dataMassage (control,data));
+                    })
+                    .fail (function (error) {
+                        console.log (error);
+                        massage.reject(error);
+                    });
+                    return massage.promise();
+                    }
+
+                    function dataMassage(control,data) {
+
+                    var ind = data, nodes = [],links =[];
+                    // the tags are to be circles
+                    for (var i=0;i<ind.length;i++) {
+                        ind[i].isCurrentlyFocused = false;
+                        nodes.push(ind[i]);
+                    // add links to pages
+                    for ( var j=0; j < ind[i].pages.length; j++) {
+                        //push this page as a node
+                        var node = findOrAddPage(control,ind[i].pages[j],nodes);
+                        node.isCurrentlyFocused = false;
+                        // create a link
+                        var link = { source:node , target:ind[i], key : node.key + "_" + ind[i].key };
+                        links.push(link);
+                    }
+                    }
+                    // sort nodes alpha
+                    nodes.sort ( function (a,b) { return a.name < b.name  ? -1 : (a.name == b.name ? 0 : 1 ) ; });
+                    control.pageCount = 0;
+                    control.pageRectSize = {width:0,height:0,radius:0};
+                    for ( var i = 0; i < nodes.length ; i++) {
+                    page= nodes[i];
+                    page.group =0;
+                    page.dim = getPixelDims(control.scratch, page.name);
+                    if (page.fixed) {
+                        control.pageCount++;
+                        // this will calculate the width/height in pixels of the largest label
+                        control.pageRectSize.width = Math.max(control.pageRectSize.width,page.dim.width);
+                        control.pageRectSize.height = Math.max(control.pageRectSize.height,page.dim.height);
+                        control.pageRectSize.radius = Math.max(control.pageRectSize.radius,makeRadius(control,page));
+                        page.group =1;
+                    }
+
+                    }
+                    var options= control.options;
+
+                    // we're going to fix the nodes that are pages into two columns
+                    for ( var i = 0, c=0; i < nodes.length ; i++) {
+                        var page = nodes[i];
+                        if (page.fixed) {
+                            page.right= (c > control.pageCount/2);
+                            // y dimension calc same for each column
+                            page.y = ((c % (control.pageCount/2)) + .5) * (control.pageRectSize.height)  ;
+
+                            // x based on right or left column
+                            page.x = page.right ?
+                                        control.width - control.pageRectSize.width - options.labelOffset  :
+                                        page.dim.width + options.labelOffset ;
+                            c++;
+                        }
+
+                    }
+
+                    return {  nodes: nodes, links: links };
+
+                    }
+
+                    function findOrAddPage(control,page,nodes) {
+                    for ( var i=0;i<nodes.length;i++) {
+                        if ( nodes[i].key === page.key ) {
+                            nodes[i].count++;
+                            return nodes[i];
+                        }
+                    }
+                    page.fixed = true;
+                    page.count = 0;
+                    return nodes[nodes.push(page) - 1] ;
+                    }
+
+
+                    // modify with your proxy and dataurl
+                    // take the raw data and prepare it for d3
+                    function getParameterByName(name) {
+                    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+                    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                        results = regex.exec(location.search);
+                    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+                    }
+                    // modify with your proxy and dataurl
+                    // take the raw data and prepare it for d3
+                    function getTheRawData() {
+                    // here's a php proxy to make jsonP
+                    var proxyUrl="https://script.google.com/macros/s/AKfycbzMhwJy-OAR28YTBxO1AbVdSQQFI101X3UDzY-1yc9lUgBfpSc/exec";;
+
+                    var dataUrl = getParameterByName('data') || data_url;
+
+                    // promise will be resolved when done
+                    return getPromiseData(dataUrl,proxyUrl);
+                    }
+
+                    // no need to touch this
+                    // general deferred handler for getting json data through proxy and creating promise
+                    function getPromiseData(url,proxyUrl){
+                    var deferred = $.Deferred();
+                    var u = proxyUrl+"?url="+encodeURIComponent(url);
+
+                    $.getJSON(u, null,
+                        function (data) {
+                            if (Math.floor(data.responseCode/100 ) !== 2) {
+                            throw 'error ' + data.responseCode + ' getting data ' + data.result;
+                            }
+                            // data returned by apps script proxy is encoded json.
+                            deferred.resolve(JSON.parse(data.result));
+                    })
+                    .error(function(res, status, err) {
+                        deferred.reject("error " + err + " for " + url);
+                    });
+
+                    return deferred.promise();
+                    }
+            }
+            noun_to_verb("#chart_1", "https://api.myjson.com/bins/r2htw", 400);
+            noun_to_verb("#chart_2", "https://api.myjson.com/bins/jxakk", 400);
+            noun_to_verb("#chart_3", "https://api.myjson.com/bins/146150", 500);
         </script>
     </body>
 </html>

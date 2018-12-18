@@ -1,0 +1,17 @@
+Today, Americans are more ideologically divided than anytime in the past. American consumers are preferring media that confirms to their own political and social preferences, which in turn seeps bias into the content itself. Research shows that this bias in content operates via two mechanisms. Issue Filtering and Issue Framing.
+
+Issue Filtering implies selective coverage of issues, while Issue Framing deals with how the issues are presented.
+
+We visualize the extent of content bias during the midterm elections by examining the cable news headlines for CNN, Fox News and MSNBC. 
+
+The first two visualizations use the lens of Filtering and the next two use the lens of Framing.      
+
+We decided to do some scrollytelling using a Triangular Scatter Plot which maps out some of the popular topics. The closer the points are to the vertices, the more disproportionate mentions they got from the respective channel. The total number of mentions have been encoded in the size.
+
+The users can hover over the scatter plot to explore the data points. We have also provided customized hoverable topic-buttons.
+
+We wanted our audience to choose their own metric when it came to screen-time versus the number of mentions using the pivoted scatter plot. The change in relative rankings can be visualized upon dragging.
+
+Next, we decided to visualize which topics were frequently mentioned together using a Chord Dependency Diagram for each channel. The user can hover over specific topics, and we have also provided hoverable buttons.
+
+Action verbs serve as a powerful tool in creating ideas and impressions. So, we also wanted to explore which action verbs were most associated with some of major topics using a Directed Node Focus Visualization. The user can drag to isolate the verbs by topics, and click on the verb to see the relevant news segments.

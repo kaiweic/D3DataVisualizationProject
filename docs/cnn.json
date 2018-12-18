@@ -1,0 +1,400 @@
+[
+    {
+        "name": "Trump",
+        "count": 970,
+        "key": "Trump",
+        "pages": [
+            {
+                "name": "fearmongering",
+                "key": "44",
+                "title": "fearmongering",
+                "url": "https://archive.org/details/CNNW_20181105_030000_CNN_Tonight_With_Don_Lemon/start/660"
+            },
+            {
+                "name": "insisted",
+                "key": "45",
+                "title": "insisted",
+                "url": "https://archive.org/details/CNNW_20181105_200000_CNN_Newsroom_With_Brooke_Baldwin/start/1380"
+            },
+            {
+                "name": "says",
+                "key": "46",
+                "title": "says",
+                "url": "https://archive.org/details/CNNW_20181105_170000_Inside_Politics/start/2040"
+            },
+            {
+                "name": "send",
+                "key": "47",
+                "title": "send",
+                "url": "https://archive.org/details/CNNW_20181105_220000_Situation_Room_With_Wolf_Blitzer/start/60"
+            },
+            {
+                "name": "brace",
+                "key": "48",
+                "title": "brace",
+                "url": "https://archive.org/details/CNNW_20181105_220000_Situation_Room_With_Wolf_Blitzer/start/540"
+            },
+            {
+                "name": "hated",
+                "key": "49",
+                "title": "hated",
+                "url": "https://archive.org/details/CNNW_20181106_000000_Erin_Burnett_OutFront/start/60"
+            },
+            {
+                "name": "polling",
+                "key": "50",
+                "title": "polling",
+                "url": "https://archive.org/details/CNNW_20181106_010000_Anderson_Cooper_360/start/60"
+            },
+            {
+                "name": "stoking",
+                "key": "51",
+                "title": "stoking",
+                "url": "https://archive.org/details/CNNW_20181105_010000_Anderson_Cooper_360/start/1980"
+            },
+            {
+                "name": "emphasizes",
+                "key": "52",
+                "title": "emphasizes",
+                "url": "https://archive.org/details/CNNW_20181106_080000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/180"
+            },
+            {
+                "name": "ends",
+                "key": "53",
+                "title": "ends",
+                "url": "https://archive.org/details/CNNW_20181106_080000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/1860"
+            },
+            {
+                "name": "hold",
+                "key": "54",
+                "title": "hold",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_000000_Fox_News_Sunday_With_Chris_Wallace/start/3600"
+            },
+            {
+                "name": "going",
+                "key": "55",
+                "title": "going",
+                "url": "https://archive.org/details/CNNW_20181105_090000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/60"
+            },
+            {
+                "name": "makes",
+                "key": "56",
+                "title": "makes",
+                "url": "https://archive.org/details/CNNW_20181106_000000_Erin_Burnett_OutFront/start/780"
+            },
+            {
+                "name": "opted",
+                "key": "57",
+                "title": "opted",
+                "url": "https://archive.org/details/CNNW_20181106_000000_Erin_Burnett_OutFront/start/780"
+            }
+        ]
+    },
+    {
+        "name": "Democrats",
+        "count": 120,
+        "key": "Democrats",
+        "pages": [
+            {
+                "name": "robbing",
+                "key": "1",
+                "title": "robbing",
+                "url": "https://archive.org/details/CNNW_20181105_090000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/2040"
+            },
+            {
+                "name": "closing",
+                "key": "2",
+                "title": "closing",
+                "url": "https://archive.org/details/MSNBCW_20181105_000000_Kasie_DC/start/420"
+            },
+            {
+                "name": "retain",
+                "key": "3",
+                "title": "retain",
+                "url": "https://archive.org/details/CNNW_20181106_080000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/300"
+            },
+            {
+                "name": "distract",
+                "key": "4",
+                "title": "distract",
+                "url": "https://archive.org/details/CNNW_20181105_090000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/240"
+            },
+            {
+                "name": "trying",
+                "key": "5",
+                "title": "trying",
+                "url": "https://archive.org/details/CNNW_20181105_160000_At_This_Hour_With_Kate_Bolduan/start/3540"
+            },
+            {
+                "name": "win",
+                "key": "6",
+                "title": "win",
+                "url": "https://archive.org/details/MSNBCW_20181105_000000_Kasie_DC/start/900"
+            }
+        ]
+    },
+    {
+        "name": "Economy",
+        "count": 100,
+        "key": "Economy",
+        "pages": [
+            {
+                "name": "hated",
+                "key": "49",
+                "title": "hated",
+                "url": "https://archive.org/details/CNNW_20181106_000000_Erin_Burnett_OutFront/start/60"
+            },
+            {
+                "name": "opted",
+                "key": "57",
+                "title": "opted",
+                "url": "https://archive.org/details/CNNW_20181106_000000_Erin_Burnett_OutFront/start/540"
+            },
+            {
+                "name": "emphasizes",
+                "key": "52",
+                "title": "emphasizes",
+                "url": "https://archive.org/details/CNNW_20181106_090000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/1980"
+            },
+            {
+                "name": "insisted",
+                "key": "45",
+                "title": "insisted",
+                "url": "https://archive.org/details/CNNW_20181106_050000_Cuomo_Primetime/start/2520"
+            },
+            {
+                "name": "pulling",
+                "key": "11",
+                "title": "pulling",
+                "url": "https://archive.org/details/CNNW_20181105_100000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/240"
+            },
+            {
+                "name": "admits",
+                "key": "12",
+                "title": "admits",
+                "url": "https://archive.org/details/CNNW_20181106_080000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/2040"
+            },
+            {
+                "name": "talk",
+                "key": "13",
+                "title": "talk",
+                "url": "https://archive.org/details/CNNW_20181105_160000_At_This_Hour_With_Kate_Bolduan/start/480"
+            },
+            {
+                "name": "closing",
+                "key": "2",
+                "title": "closing",
+                "url": "https://archive.org/details/MSNBCW_20181105_140000_MSNBC_Live_With_Stephanie_Ruhle/start/1680"
+            }
+        ]
+    },
+    {
+        "name": "Immigration",
+        "count": 120,
+        "key": "Immigration",
+        "pages": [
+            {
+                "name": "fears",
+                "key": "15",
+                "title": "fears",
+                "url": "https://archive.org/details/CNNW_20181105_010000_Anderson_Cooper_360/start/1980"
+            },
+            {
+                "name": "hated",
+                "key": "49",
+                "title": "hated",
+                "url": "https://archive.org/details/CNNW_20181106_000000_Erin_Burnett_OutFront/start/60"
+            },
+            {
+                "name": "stoking",
+                "key": "51",
+                "title": "stoking",
+                "url": "https://archive.org/details/CNNW_20181105_010000_Anderson_Cooper_360/start/1980"
+            },
+            {
+                "name": "reject",
+                "key": "18",
+                "title": "reject",
+                "url": "https://archive.org/details/CNNW_20181105_220000_Situation_Room_With_Wolf_Blitzer/start/360"
+            },
+            {
+                "name": "keep",
+                "key": "19",
+                "title": "keep",
+                "url": "https://archive.org/details/CNNW_20181105_090000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/2040"
+            },
+            {
+                "name": "spreads",
+                "key": "20",
+                "title": "spreads",
+                "url": "https://archive.org/details/CNNW_20181105_170000_Inside_Politics/start/60"
+            }
+        ]
+    },
+    {
+        "name": "Republicans",
+        "count": 42,
+        "key": "Republicans",
+        "pages": [
+            {
+                "name": "pre-existing",
+                "key": "21",
+                "title": "pre-existing",
+                "url": "https://archive.org/details/CNNW_20181105_090000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/360"
+            },
+            {
+                "name": "closing",
+                "key": "2",
+                "title": "closing",
+                "url": "https://archive.org/details/CNNW_20181105_100000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/480"
+            },
+            {
+                "name": "keep",
+                "key": "19",
+                "title": "keep",
+                "url": "https://archive.org/details/CNNW_20181105_090000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/1440"
+            },
+            {
+                "name": "vows",
+                "key": "24",
+                "title": "vows",
+                "url": "https://archive.org/details/CNNW_20181105_170000_Inside_Politics/start/1860"
+            },
+            {
+                "name": "pulling",
+                "key": "11",
+                "title": "pulling",
+                "url": "https://archive.org/details/CNNW_20181105_100000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/480"
+            }
+        ]
+    },
+    {
+        "name": "Voters",
+        "count": 320,
+        "key": "Voters",
+        "pages": [
+            {
+                "name": "decide",
+                "key": "26",
+                "title": "decide",
+                "url": "https://archive.org/details/MSNBCW_20181105_090000_Kasie_DC/start/3600"
+            },
+            {
+                "name": "hit",
+                "key": "27",
+                "title": "hit",
+                "url": "https://archive.org/details/MSNBCW_20181105_150000_MSNBC_Live_With_Hallie_Jackson/start/2280"
+            },
+            {
+                "name": "hold",
+                "key": "54",
+                "title": "hold",
+                "url": "https://archive.org/details/CNNW_20181106_040000_Anderson_Cooper_360/start/3180"
+            },
+            {
+                "name": "casting",
+                "key": "29",
+                "title": "casting",
+                "url": "https://archive.org/details/CNNW_20181105_040000_CNN_Tonight_With_Don_Lemon/start/3120"
+            },
+            {
+                "name": "spreads",
+                "key": "20",
+                "title": "spreads",
+                "url": "https://archive.org/details/CNNW_20181105_210000_The_Lead_With_Jake_Tapper/start/600"
+            },
+            {
+                "name": "watch",
+                "key": "31",
+                "title": "watch",
+                "url": "https://archive.org/details/CNNW_20181105_190000_CNN_Newsroom_With_Brooke_Baldwin/start/660"
+            },
+            {
+                "name": "send",
+                "key": "47",
+                "title": "send",
+                "url": "https://archive.org/details/CNNW_20181105_150000_CNN_Newsroom_with_Poppy_Harlow_and_Jim_Sciutto/start/60"
+            },
+            {
+                "name": "say",
+                "key": "33",
+                "title": "say",
+                "url": "https://archive.org/details/CNNW_20181105_100000_Early_Start_with_Christine_Romans_and_Dave_Briggs/start/2220"
+            }
+        ]
+    },
+    {
+        "name": "Campaign",
+        "count": 108,
+        "key": "Campaign",
+        "pages": [
+            {
+                "name": "hated",
+                "key": "49",
+                "title": "hated",
+                "url": "https://archive.org/details/CNNW_20181105_200000_CNN_Newsroom_With_Brooke_Baldwin/start/1380"
+            },
+            {
+                "name": "condone",
+                "key": "35",
+                "title": "condone",
+                "url": "https://archive.org/details/CNNW_20181106_180000_Wolf/start/600"
+            },
+            {
+                "name": "take",
+                "key": "36",
+                "title": "take",
+                "url": "https://archive.org/details/CNNW_20181105_010000_Anderson_Cooper_360/start/2880"
+            },
+            {
+                "name": "keep",
+                "key": "19",
+                "title": "keep",
+                "url": "https://archive.org/details/CNNW_20181105_160000_At_This_Hour_With_Kate_Bolduan/start/2040"
+            },
+            {
+                "name": "insisted",
+                "key": "45",
+                "title": "insisted",
+                "url": "https://archive.org/details/CNNW_20181106_030000_CNN_Tonight_With_Don_Lemon/start/1140"
+            },
+            {
+                "name": "heads",
+                "key": "39",
+                "title": "heads",
+                "url": "https://archive.org/details/CNNW_20181105_160000_At_This_Hour_With_Kate_Bolduan/start/1860"
+            }
+        ]
+    },
+    {
+        "name": "Migrants",
+        "count": 25,
+        "key": "Migrants",
+        "pages": [
+            {
+                "name": "deny",
+                "key": "40",
+                "title": "deny",
+                "url": "https://archive.org/details/CNNW_20181106_180000_Wolf/start/2160"
+            },
+            {
+                "name": "carrying",
+                "key": "41",
+                "title": "carrying",
+                "url": "https://archive.org/details/BBCNEWS_20181107_110000_US_Elections_2018/start/6240"
+            },
+            {
+                "name": "heading",
+                "key": "42",
+                "title": "heading",
+                "url": "https://archive.org/details/CNNW_20181105_030000_CNN_Tonight_With_Don_Lemon/start/120"
+            },
+            {
+                "name": "demonized",
+                "key": "43",
+                "title": "demonized",
+                "url": "https://archive.org/details/CNNW_20181105_070000_CNN_Tonight_With_Don_Lemon/start/60"
+            }
+        ]
+    }
+  ]

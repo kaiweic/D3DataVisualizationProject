@@ -1,0 +1,501 @@
+[
+    {
+        "name": "Trump",
+        "count": 650,
+        "key": "Trump",
+        "pages": [
+            {
+                "name": "wraps",
+                "key": "1",
+                "title": "wraps",
+                "url": "https://archive.org/details/MSNBCW_20181106_150000_The_Vote_Americas_Future/start/1320"
+            },
+            {
+                "name": "driving",
+                "key": "2",
+                "title": "driving",
+                "url": "https://archive.org/details/MSNBCW_20181106_150000_The_Vote_Americas_Future/start/1980"
+            },
+            {
+                "name": "unite",
+                "key": "3",
+                "title": "unite",
+                "url": "https://archive.org/details/MSNBCW_20181106_100000_First_Look/start/1980"
+            },
+            {
+                "name": "says",
+                "key": "4",
+                "title": "says",
+                "url": "https://archive.org/details/MSNBCW_20181105_230000_The_Beat_With_Ari_Melber/start/2100"
+            },
+            {
+                "name": "fired",
+                "key": "5",
+                "title": "fired",
+                "url": "https://archive.org/details/MSNBCW_20181107_210000_Deadline_White_House/start/240"
+            },
+            {
+                "name": "approve",
+                "key": "6",
+                "title": "approve",
+                "url": ""
+            },
+            {
+                "name": "voted",
+                "key": "7",
+                "title": "voted",
+                "url": "https://archive.org/details/MSNBCW_20181106_160000_The_Vote_Americas_Future/start/2220"
+            },
+            {
+                "name": "spends",
+                "key": "8",
+                "title": "spends",
+                "url": "https://archive.org/details/MSNBCW_20181106_100000_First_Look/start/180"
+            },
+            {
+                "name": "flip",
+                "key": "9",
+                "title": "flip",
+                "url": "https://archive.org/details/MSNBCW_20181105_140000_MSNBC_Live_With_Stephanie_Ruhle/start/2340"
+            },
+            {
+                "name": "makes",
+                "key": "10",
+                "title": "makes",
+                "url": ""
+            },
+            {
+                "name": "pull",
+                "key": "11",
+                "title": "pull",
+                "url": "https://archive.org/details/MSNBCW_20181106_040000_The_11th_Hour_With_Brian_Williams/start/780"
+            },
+            {
+                "name": "speaks",
+                "key": "12",
+                "title": "speaks",
+                "url": "https://archive.org/details/MSNBCW_20181105_180000_MSNBC_Live_With_Velshi_and_Ruhle/start/3540"
+            },
+            {
+                "name": "hold",
+                "key": "13",
+                "title": "hold",
+                "url": ""
+            },
+            {
+                "name": "warn",
+                "key": "14",
+                "title": "warn",
+                "url": "https://archive.org/details/MSNBCW_20181106_140000_The_Vote_Americas_Future/start/2940"
+            },
+            {
+                "name": "show",
+                "key": "15",
+                "title": "show",
+                "url": "https://archive.org/details/MSNBCW_20181105_090000_Kasie_DC/start/2040"
+            },
+            {
+                "name": "want",
+                "key": "16",
+                "title": "want",
+                "url": "https://archive.org/details/MSNBCW_20181105_220000_MTP_Daily/start/360"
+            },
+            {
+                "name": "lying",
+                "key": "17",
+                "title": "lying",
+                "url": "https://archive.org/details/MSNBCW_20181105_140000_MSNBC_Live_With_Stephanie_Ruhle/start/1740"
+            },
+            {
+                "name": "framing",
+                "key": "18",
+                "title": "framing",
+                "url": "https://archive.org/details/MSNBCW_20181106_000000_Hardball_With_Chris_Matthews/start/300"
+            },
+            {
+                "name": "acting",
+                "key": "19",
+                "title": "acting",
+                "url": "https://archive.org/details/MSNBCW_20181107_230000_The_Beat_With_Ari_Melber/start/2580"
+            },
+            {
+                "name": "fuelling",
+                "key": "20",
+                "title": "fuelling",
+                "url": ""
+            },
+            {
+                "name": "heading",
+                "key": "21",
+                "title": "heading",
+                "url": "https://archive.org/details/MSNBCW_20181105_100000_First_Look/start/1560"
+            },
+            {
+                "name": "hits",
+                "key": "22",
+                "title": "hits",
+                "url": "https://archive.org/details/MSNBCW_20181105_140000_MSNBC_Live_With_Stephanie_Ruhle/start/3600"
+            },
+            {
+                "name": "points",
+                "key": "23",
+                "title": "points",
+                "url": "https://archive.org/details/MSNBCW_20181105_230000_The_Beat_With_Ari_Melber/start/360"
+            },
+            {
+                "name": "polling",
+                "key": "24",
+                "title": "polling",
+                "url": "https://archive.org/details/MSNBCW_20181106_100000_First_Look/start/2100"
+            }
+        ]
+    },
+    {
+        "name": "Voters",
+        "count": 800,
+        "key": "Voters",
+        "pages": [
+            {
+                "name": "head",
+                "key": "25",
+                "title": "head",
+                "url": "https://archive.org/details/MSNBCW_20181105_030000_Meet_the_Press/start/3600"
+            },
+            {
+                "name": "driving",
+                "key": "2",
+                "title": "driving",
+                "url": ""
+            },
+            {
+                "name": "stays",
+                "key": "27",
+                "title": "stays",
+                "url": "https://archive.org/details/MSNBCW_20181106_170000_The_Vote_Americas_Future/start/3300"
+            },
+            {
+                "name": "leading",
+                "key": "28",
+                "title": "leading",
+                "url": "https://archive.org/details/MSNBCW_20181106_170000_The_Vote_Americas_Future/start/1500"
+            },
+            {
+                "name": "want",
+                "key": "16",
+                "title": "want",
+                "url": "https://archive.org/details/MSNBCW_20181104_230000_Meet_the_Press/start/3600"
+            },
+            {
+                "name": "voted",
+                "key": "7",
+                "title": "voted",
+                "url": "https://archive.org/details/MSNBCW_20181106_170000_The_Vote_Americas_Future/start/960"
+            },
+            {
+                "name": "oppose",
+                "key": "31",
+                "title": "oppose",
+                "url": "https://archive.org/details/MSNBCW_20181107_150000_MSNBC_Live_With_Hallie_Jackson/start/2160"
+            },
+            {
+                "name": "won",
+                "key": "32",
+                "title": "won",
+                "url": "https://archive.org/details/MSNBCW_20181105_170000_Andrea_Mitchell_Reports/start/480"
+            },
+            {
+                "name": "decide",
+                "key": "33",
+                "title": "decide",
+                "url": "https://archive.org/details/MSNBCW_20181105_090000_Kasie_DC/start/3600"
+            },
+            {
+                "name": "focusing",
+                "key": "34",
+                "title": "focusing",
+                "url": "https://archive.org/details/MSNBCW_20181105_150000_MSNBC_Live_With_Hallie_Jackson/start/2640"
+            },
+            {
+                "name": "speak",
+                "key": "35",
+                "title": "speak",
+                "url": "https://archive.org/details/MSNBCW_20181106_150000_The_Vote_Americas_Future/start/2160"
+            },
+            {
+                "name": "prefer",
+                "key": "36",
+                "title": "prefer",
+                "url": "https://archive.org/details/MSNBCW_20181105_020000_The_Vote_Americas_Future/start/840"
+            },
+            {
+                "name": "polling",
+                "key": "24",
+                "title": "polling",
+                "url": "https://archive.org/details/MSNBCW_20181106_020000_The_Rachel_Maddow_Show/start/1980"
+            },
+            {
+                "name": "approve",
+                "key": "6",
+                "title": "approve",
+                "url": "https://archive.org/details/MSNBCW_20181106_220000_MTP_Daily/start/1980"
+            }
+        ]
+    },
+    {
+        "name": "Democrats",
+        "count": 130,
+        "key": "Democrats",
+        "pages": [
+            {
+                "name": "decided",
+                "key": "39",
+                "title": "decided",
+                "url": "https://archive.org/details/MSNBCW_20181105_110000_Morning_Joe/start/120"
+            },
+            {
+                "name": "urges",
+                "key": "40",
+                "title": "urges",
+                "url": "https://archive.org/details/MSNBCW_20181105_210000_Deadline_White_House/start/1320"
+            },
+            {
+                "name": "facing",
+                "key": "41",
+                "title": "facing",
+                "url": "https://archive.org/details/MSNBCW_20181105_160000_MSNBC_Live_With_Craig_Melvin/start/420"
+            },
+            {
+                "name": "headed",
+                "key": "42",
+                "title": "headed",
+                "url": "https://archive.org/details/MSNBCW_20181106_170000_The_Vote_Americas_Future/start/720"
+            },
+            {
+                "name": "fret",
+                "key": "43",
+                "title": "fret",
+                "url": "https://archive.org/details/MSNBCW_20181105_040000_Kasie_DC/start/420"
+            },
+            {
+                "name": "need",
+                "key": "44",
+                "title": "need",
+                "url": "https://archive.org/details/MSNBCW_20181106_080000_All_In_With_Chris_Hayes/start/480"
+            },
+            {
+                "name": "running",
+                "key": "45",
+                "title": "running",
+                "url": "https://archive.org/details/MSNBCW_20181105_020000_The_Vote_Americas_Future/start/1380"
+            },
+            {
+                "name": "win",
+                "key": "46",
+                "title": "win",
+                "url": "https://archive.org/details/MSNBCW_20181106_100000_First_Look/start/2160"
+            }
+        ]
+    },
+    {
+        "name": "Economy",
+        "count": 47,
+        "key": "Economy",
+        "pages": [
+            {
+                "name": "pushes",
+                "key": "47",
+                "title": "pushes",
+                "url": "https://archive.org/details/MSNBCW_20181106_110000_Morning_Joe/start/5940"
+            },
+            {
+                "name": "talk",
+                "key": "48",
+                "title": "talk",
+                "url": "https://archive.org/details/MSNBCW_20181106_030000_The_Last_Word_With_Lawrence_ODonnell/start/480"
+            },
+            {
+                "name": "fact-checking",
+                "key": "49",
+                "title": "fact-checking",
+                "url": "https://archive.org/details/MSNBCW_20181105_230000_The_Beat_With_Ari_Melber/start/1140"
+            },
+            {
+                "name": "begs",
+                "key": "50",
+                "title": "begs",
+                "url": "https://archive.org/details/MSNBCW_20181106_030000_The_Last_Word_With_Lawrence_ODonnell/start/480"
+            },{
+                "name": "touts",
+                "key": "51",
+                "title": "touts",
+                "url": "https://archive.org/details/MSNBCW_20181105_100000_First_Look/start/1860"
+            }
+        ]
+    },
+    {
+        "name": "Immigration",
+        "count": 65,
+        "key": "Immigration",
+        "pages": [
+            {
+                "name": "driving",
+                "key": "2",
+                "title": "driving",
+                "url": ""
+            },
+            {
+                "name": "closing",
+                "key": "53",
+                "title": "closing",
+                "url": "https://archive.org/details/MSNBCW_20181105_170000_Andrea_Mitchell_Reports/start/540"
+            },
+            {
+                "name": "makes",
+                "key": "10",
+                "title": "makes",
+                "url": "https://archive.org/details/MSNBCW_20181105_200000_MSNBC_Live_With_Ali_Velshi/start/180"
+            },
+            {
+                "name": "associated",
+                "key": "55",
+                "title": "associated",
+                "url": "https://archive.org/details/MSNBCW_20181105_000000_Kasie_DC/start/600"
+            }
+        ]
+    },
+    {
+        "name": "Republicans",
+        "count": 40,
+        "key": "Republicans",
+        "pages": [
+            {
+                "name": "prefer",
+                "key": "36",
+                "title": "prefer",
+                "url": "https://archive.org/details/MSNBCW_20181105_020000_The_Vote_Americas_Future/start/480"
+            },
+            {
+                "name": "running",
+                "key": "45",
+                "title": "running",
+                "url": "https://archive.org/details/MSNBCW_20181105_050000_The_Vote_Americas_Future/start/660"
+            },
+            {
+                "name": "won",
+                "key": "32",
+                "title": "won",
+                "url": "https://archive.org/details/MSNBCW_20181105_150000_MSNBC_Live_With_Hallie_Jackson/start/2640"
+            },
+            {
+                "name": "vote",
+                "key": "59",
+                "title": "vote",
+                "url": "https://archive.org/details/MSNBCW_20181106_030000_The_Last_Word_With_Lawrence_ODonnell/start/1260"
+            },
+            {
+                "name": "stay",
+                "key": "60",
+                "title": "stay",
+                "url": "https://archive.org/details/MSNBCW_20181105_020000_The_Vote_Americas_Future/start/480"
+            },
+            {
+                "name": "limiting",
+                "key": "61",
+                "title": "limiting",
+                "url": "https://archive.org/details/MSNBCW_20181105_020000_The_Vote_Americas_Future/start/480"
+            }
+        ]
+    },
+    {
+        "name": "Campaign",
+        "count": 170,
+        "key": "Campaign",
+        "pages": [
+            {
+                "name": "closing",
+                "key": "53",
+                "title": "closing",
+                "url": ""
+            },
+            {
+                "name": "begs",
+                "key": "50",
+                "title": "begs",
+                "url": ""
+            },
+            {
+                "name": "hits",
+                "key": "22",
+                "title": "hits",
+                "url": "https://archive.org/details/MSNBCW_20181105_140000_MSNBC_Live_With_Stephanie_Ruhle/start/3600"
+            },
+            {
+                "name": "makes",
+                "key": "10",
+                "title": "makes",
+                "url": ""
+            },
+            {
+                "name": "points",
+                "key": "23",
+                "title": "points",
+                "url": "https://archive.org/details/MSNBCW_20181105_230000_The_Beat_With_Ari_Melber/start/600"
+            },
+            {
+                "name": "hold",
+                "key": "13",
+                "title": "hold",
+                "url": "https://archive.org/details/MSNBCW_20181105_220000_MTP_Daily/start/2040"
+            },
+            {
+                "name": "wraps",
+                "key": "1",
+                "title": "wraps",
+                "url": "https://archive.org/details/MSNBCW_20181106_150000_The_Vote_Americas_Future/start/1320"
+            },
+            {
+                "name": "lies",
+                "key": "69",
+                "title": "lies",
+                "url": "https://archive.org/details/MSNBCW_20181105_230000_The_Beat_With_Ari_Melber/start/1140"
+            },
+            {
+                "name": "built",
+                "key": "70",
+                "title": "built",
+                "url": "https://archive.org/details/MSNBCW_20181106_210000_Deadline_White_House/start/300"
+            },
+            {
+                "name": "gets",
+                "key": "71",
+                "title": "gets",
+                "url": "https://archive.org/details/MSNBCW_20181105_000000_Kasie_DC/start/2220"
+            }
+        ]
+    },
+    {
+        "name": "Migrants",
+        "count": 19,
+        "key": "Migrants",
+        "pages": [
+            {
+                "name": "fuelling",
+                "key": "20",
+                "title": "fuelling",
+                "url": "https://archive.org/details/MSNBCW_20181105_140000_MSNBC_Live_With_Stephanie_Ruhle/start/1620"
+            },
+            {
+                "name": "say",
+                "key": "73",
+                "title": "say",
+                "url": "https://archive.org/details/MSNBCW_20181105_210000_Deadline_White_House/start/3480"
+            },
+            {
+                "name": "pull",
+                "key": "11",
+                "title": "pull",
+                "url": "https://archive.org/details/MSNBCW_20181105_210000_Deadline_White_House/start/780"
+            }
+        ]
+    }
+]

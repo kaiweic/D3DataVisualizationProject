@@ -16,5 +16,5 @@ trump,rally:22,attorney-general:8,economy:35,democrats:14,jobs:9,gop:25,sanction
 republicans,democrats:101,gop:7,senate:5,house:98,race:11,message:8,trump:11,majority:5,immigration:7,mclaughlin:3
 investigation,trump:4,grassley:4,democrats:3,kavanaugh:5
 congress,balance:12,woman:3,power:15,democrats:5,snl:3,midterms:3,hero:9,race:4,war:8
-immigration,trump:8,republicans:7,issues:15,democratss:9,kavanaugh:4,caravan:4,risk:4
-kavanaugh,accuser:13,accusations:8,immigration:4,evidence:4,grassley:6,democratss:9,investigation:5
+immigration,trump:8,republicans:7,issues:15,democrats:9,kavanaugh:4,caravan:4,risk:4
+kavanaugh,accuser:13,accusations:8,immigration:4,evidence:4,grassley:6,democrats:9,investigation:5

@@ -1,0 +1,334 @@
+[
+    {
+        "name": "Trump",
+        "count": 420,
+        "key": "Trump",
+        "pages": [
+            {
+                "name": "fighting",
+                "key": "1",
+                "title": "fighting",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_080000_MediaBuzz/start/960"
+            },
+            {
+                "name": "loses",
+                "key": "2",
+                "title": "loses",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_170000_Outnumbered/start/2460"
+            },
+            {
+                "name": "investigate",
+                "key": "3",
+                "title": "investigate",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_220000_The_Five/start/1800"
+            },
+            {
+                "name": "heading",
+                "key": "4",
+                "title": "heading",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_110000_FOX__Friends/start/360"
+            },
+            {
+                "name": "booming",
+                "key": "5",
+                "title": "booming",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_060000_Hannity/start/3300"
+            },
+            {
+                "name": "awaiting",
+                "key": "6",
+                "title": "awaiting",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_140000_Americas_Newsroom_With_Bill_Hemmer_and_Sandra_Smith/start/8760"
+            },
+            {
+                "name": "expected",
+                "key": "7",
+                "title": "expected",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_210000_Your_World_With_Neil_Cavuto/start/120"
+            },
+            {
+                "name": "calls",
+                "key": "8",
+                "title": "calls",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_220000_The_Five/start/120"
+            },
+            {
+                "name": "speaks",
+                "key": "9",
+                "title": "speaks",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_170000_Outnumbered/start/1920"
+            },
+            {
+                "name": "holds",
+                "key": "10",
+                "title": "holds",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_030000_The_Ingraham_Angle/start/2940"
+            },
+            {
+                "name": "rallies",
+                "key": "11",
+                "title": "rallies",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_100000_Fox_and_Friends_First/start/900"
+            },
+            {
+                "name": "says",
+                "key": "12",
+                "title": "says",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_180000_Outnumbered_Overtime_With_Harris_Faulkner/start/2760"
+            },
+            {
+                "name": "coming",
+                "key": "13",
+                "title": "coming",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_000000_Fox_News_Sunday_With_Chris_Wallace/start/3000"
+            }
+        ]
+    },
+    {
+        "name": "Voters",
+        "count": 130,
+        "key": "Voters",
+        "pages": [
+            {
+                "name": "talk",
+                "key": "14",
+                "title": "talk",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_110000_FOX__Friends/start/2160"
+            },
+            {
+                "name": "react",
+                "key": "15",
+                "title": "react",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_110000_FOX__Friends/start/2340"
+            },
+            {
+                "name": "weigh",
+                "key": "16",
+                "title": "weigh",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_000000_The_Story_With_Martha_MacCallum/start/2820"
+            }
+        ]
+    },
+    {
+        "name": "Democrats",
+        "count": 360,
+        "key": "Democrats",
+        "pages": [
+            {
+                "name": "take",
+                "key": "17",
+                "title": "take",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_110000_FOX__Friends/start/2880"
+            },
+            {
+                "name": "retain",
+                "key": "18",
+                "title": "retain",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_230000_Election_Coverage/start/720"
+            },
+            {
+                "name": "flip",
+                "key": "19",
+                "title":"flip",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_230000_Election_Coverage/start/4380"
+            },
+            {
+                "name": "call",
+                "key": "20",
+                "title": "call",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_230000_Election_Coverage/start/13800"
+            },
+            {
+                "name": "win",
+                "key": "21",
+                "title": "win",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_090000_Fox_and_Friends_First/start/900"
+            },
+            {
+                "name": "need",
+                "key": "22",
+                "title": "need",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_010000_Election_Special/start/1260"
+            },
+            {
+                "name": "investigate",
+                "key": "3",
+                "title": "investigate",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_220000_The_Five/start/1800"
+            },
+            {
+                "name": "focusing",
+                "key": "24",
+                "title": "focusing",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_070000_Fox_News_Sunday_With_Chris_Wallace/start/900"
+            }
+        ]
+    },
+    {
+        "name": "Economy",
+        "count": 49,
+        "key": "Economy",
+        "pages": [
+            {
+                "name": "booming",
+                "key": "5",
+                "title": "booming",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_020000_Hannity/start/3300"
+            },
+            {
+                "name": "feel",
+                "key": "27",
+                "title": "feel",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_220000_The_Five/start/2400"
+            },
+            {
+                "name": "touts",
+                "key": "28",
+                "title": "touts",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_110000_FOX__Friends/start/3300"
+            },
+            {
+                "name": "focused",
+                "key": "4",
+                "title": "focused",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_020000_The_Next_Revolution_With_Steve_Hilton/start/1140"
+            },
+            {
+                "name": "delivering",
+                "key": "30",
+                "title": "delivering",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_030000_The_Ingraham_Angle/start/300"
+            },
+            {
+                "name": "worry",
+                "key": "31",
+                "title": "worry",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_050000_Tucker_Carlson_Tonight/start/240"
+            }
+        ]
+    },
+    {
+        "name":"Immigration",
+        "count": 60,
+        "key": "Immigration",
+        "pages": [
+            {
+                "name": "focus",
+                "key": "32",
+                "title": "focus",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_050000_Tucker_Carlson_Tonight/start/660"
+            },
+            {
+                "name": "warns",
+                "key": "33",
+                "title": "warns",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_080000_Fox_News__Night_With_Shannon_Bream/start/780"
+            },
+            {
+                "name": "heading",
+                "key": "4",
+                "title": "heading",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_010000_Tucker_Carlson_Tonight/start/540"
+            }
+        ]
+    },
+    {
+        "name": "Republicans",
+        "count": 220,
+        "key": "Republicans",
+        "pages": [
+            {
+                "name": "focus",
+                "key": "32",
+                "title": "focus",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_000000_Fox_News_Sunday_With_Chris_Wallace/start/780"
+            },
+            {
+                "name": "fighting",
+                "key": "1",
+                "title": "fighting",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_080000_MediaBuzz/start/960"
+            },
+            {
+                "name": "losing",
+                "key": "38",
+                "title": "losing",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_190000_The_Daily_Briefing_With_Dana_Perino/start/2280"
+            },
+            {
+                "name": "retain",
+                "key": "18",
+                "title": "retain",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_230000_Election_Coverage/start/19020"
+            },
+            {
+                "name": "win",
+                "key": "21",
+                "title": "win",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_140000_Americas_Newsroom_With_Bill_Hemmer_and_Sandra_Smith/start/300"
+            },
+            {
+                "name": "expand",
+                "key": "43",
+                "title": "expand",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_110000_FOX__Friends/start/300"
+            }
+        ]
+    },
+    {
+        "name": "Campaign",
+        "count": 45,
+        "key": "Campaign",
+        "pages": [
+            {
+                "name": "finishes",
+                "key": "47",
+                "title": "finishes",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_040000_Fox_News__Night_With_Shannon_Bream/start/60"
+            },
+            {
+                "name": "take",
+                "key": "17",
+                "title": "take",
+                "url": "https://archive.org/details/FOXNEWSW_20181107_060000_Election_Coverage/start/3720"
+            },
+            {
+                "name": "backs",
+                "key": "50",
+                "title": "backs",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_080000_Fox_News__Night_With_Shannon_Bream/start/120"
+            }
+        ]
+    },
+    {
+        "name": "Migrants",
+        "count": 15,
+        "key": "Migrants",
+        "pages": [
+            {
+                "name": "warns",
+                "key": "33",
+                "title": "warns",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_100000_Fox_and_Friends_First/start/300"
+            },
+            {
+                "name": "focusing",
+                "key": "24",
+                "title": "focusing",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_010000_Tucker_Carlson_Tonight/start/600"
+            },
+            {
+                "name": "criticizes",
+                "key": "54",
+                "title": "criticizes",
+                "url": "https://archive.org/details/FOXNEWSW_20181105_100000_Fox_and_Friends_First/start/300"
+            },
+            {
+                "name": "coming",
+                "key": "13",
+                "title": "coming",
+                "url": "https://archive.org/details/FOXNEWSW_20181106_010000_Tucker_Carlson_Tonight/start/660"
+            }
+        ]
+    }
+]
